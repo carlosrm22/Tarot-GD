@@ -47,7 +47,7 @@ function App() {
     };
 
     const nombreArchivo = nombresEspeciales[nombre] || nombre;
-    return `/images/${numero} ${nombreArchivo}.png`;
+    return `${process.env.PUBLIC_URL}/images/${numero} ${nombreArchivo}.png`;
   };
 
   const toggleCard = (numero: number) => {

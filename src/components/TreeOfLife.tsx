@@ -9,7 +9,7 @@ const TreeOfLife: React.FC<TreeOfLifeProps> = ({ sendero }) => {
   // Coordenadas de los Sephiroth en el SVG
   // Cada Sephira tiene una posición x,y específica en el árbol
   const sephiroth = {
-    kether: { x: 100, y: 30 }, // Corona - El primer Sephira
+    kether: { x: 100, y: 28 }, // Corona - El primer Sephira
     binah: { x: 60, y: 60 }, // Entendimiento - Pilar femenino
     chokmah: { x: 140, y: 60 }, // Sabiduría - Pilar masculino
     geburah: { x: 60, y: 100 }, // Severidad - Pilar femenino
@@ -18,7 +18,7 @@ const TreeOfLife: React.FC<TreeOfLifeProps> = ({ sendero }) => {
     hod: { x: 60, y: 150 }, // Esplendor - Pilar femenino
     netzach: { x: 140, y: 150 }, // Victoria - Pilar masculino
     yesod: { x: 100, y: 180 }, // Fundamento - Pilar central
-    malkuth: { x: 100, y: 210 }, // Reino - Base del árbol
+    malkuth: { x: 100, y: 215 }, // Reino - Base del árbol
   };
 
   // Definición de los 22 senderos que conectan los Sephiroth
@@ -55,9 +55,9 @@ const TreeOfLife: React.FC<TreeOfLifeProps> = ({ sendero }) => {
 
   return (
     <svg
-      width="200"
-      height="280"
-      viewBox="0 0 200 280"
+      width="100"
+      height="160"
+      viewBox="70 20 50 200"
       className="tree-of-life">
       {/* Dibuja todos los senderos en gris claro */}
       {Object.entries(senderos).map(([_, [start, end]]) => (
@@ -68,7 +68,7 @@ const TreeOfLife: React.FC<TreeOfLifeProps> = ({ sendero }) => {
           x2={sephiroth[end].x}
           y2={sephiroth[end].y}
           stroke="#ddd"
-          strokeWidth="1"
+          strokeWidth="1.5"
         />
       ))}
 
@@ -80,7 +80,7 @@ const TreeOfLife: React.FC<TreeOfLifeProps> = ({ sendero }) => {
           x2={sephiroth[currentPath[1]].x}
           y2={sephiroth[currentPath[1]].y}
           stroke="#cb1922"
-          strokeWidth="3"
+          strokeWidth="5"
         />
       )}
 
@@ -93,7 +93,7 @@ const TreeOfLife: React.FC<TreeOfLifeProps> = ({ sendero }) => {
           r="4"
           fill="#c7c7c7"
           stroke="#2c2c2c"
-          strokeWidth="1"
+          strokeWidth="1.5"
         />
       ))}
     </svg>

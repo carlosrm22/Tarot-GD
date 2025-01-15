@@ -557,10 +557,14 @@ input:checked + .slider:before {
 
 .tree-of-life {
   display: block;
-  margin: 1rem auto;
+  margin: 0rem auto;
   background-color: rgba(255, 255, 255, 0.05);
   border-radius: 8px;
   padding: 0.5rem;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
 }
 
 [data-theme='dark'] .tree-of-life {
@@ -569,6 +573,10 @@ input:checked + .slider:before {
 
 .tree-of-life line {
   transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
 }
 
 .tree-of-life circle {
@@ -576,6 +584,7 @@ input:checked + .slider:before {
 }
 
 .tree-of-life circle:hover {
-  r: 5;
-  filter: drop-shadow(0 0 2px #61dafb);
+  r: 6;
+  filter: drop-shadow(0 0 3px #61dafb);
+  -webkit-filter: drop-shadow(0 0 3px #61dafb);
 }

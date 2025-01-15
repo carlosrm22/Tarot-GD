@@ -55,9 +55,9 @@ const TreeOfLife: React.FC<TreeOfLifeProps> = ({ sendero }) => {
 
   return (
     <svg
-      width="100"
+      width="150"
       height="160"
-      viewBox="70 20 50 200"
+      viewBox="74 20 50 200"
       className="tree-of-life">
       {/* Dibuja todos los senderos en gris claro */}
       {Object.entries(senderos).map(([_, [start, end]]) => (
@@ -86,15 +86,14 @@ const TreeOfLife: React.FC<TreeOfLifeProps> = ({ sendero }) => {
 
       {/* Dibuja los círculos de los Sephiroth */}
       {Object.entries(sephiroth).map(([key, { x, y }]) => (
-        <circle
-          key={key}
-          cx={x}
-          cy={y}
-          r="4"
-          fill="#c7c7c7"
-          stroke="#2c2c2c"
-          strokeWidth="1.5"
-        />
+        <g key={key}>
+          <circle cx={x} cy={y} r="4" fill="#c7c7c7" stroke="#2c2c2c" strokeWidth="1.5" />
+          <foreignObject x={x - 30} y={y - 30} width="60" height="20">
+            <div className="sefira-label">
+              {key}
+            </div>
+          </foreignObject>
+        </g>
       ))}
     </svg>
   );

@@ -561,14 +561,12 @@ input:checked + .slider:before {
 
 .tree-of-life {
   display: block;
-  margin: 0rem auto;
+  margin: 0 auto;
   background-color: rgba(255, 255, 255, 0.05);
   border-radius: 8px;
   padding: 0.5rem;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  -ms-border-radius: 8px;
-  -o-border-radius: 8px;
+  position: relative;
+  will-change: transform;
 }
 
 [data-theme='dark'] .tree-of-life {
@@ -576,19 +574,60 @@ input:checked + .slider:before {
 }
 
 .tree-of-life line {
-  transition: all 0.3s ease;
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  -ms-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  vector-effect: non-scaling-stroke;
 }
 
 .tree-of-life circle {
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  transform-origin: center;
+  will-change: transform, r;
 }
 
-.tree-of-life circle:hover {
+.tree-of-life g:hover circle {
   r: 6;
-  filter: drop-shadow(0 0 3px #61dafb);
-  -webkit-filter: drop-shadow(0 0 3px #61dafb);
+  filter: drop-shadow(0 0 3px gold);
+}
+
+.sefira-label {
+  fill: white;
+  color: white;
+  font-size: 12px;
+  font-weight: 100;
+  pointer-events: none;
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: rgba(0, 0, 0, 0.85);
+  padding: 4px 8px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  z-index: 10;
+  position: relative;
+  transform: translateY(0);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme='dark'] .sefira-label {
+  background-color: rgba(0, 0, 0, 0.9);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.tree-of-life g:hover .sefira-label {
+  opacity: 1;
+  transform: translateY(-5px);
+}
+
+.tree-of-life line:hover {
+  stroke-width: 2;
+  stroke: gold;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tree-of-life *,
+  .sefira-label {
+    transition: none !important;
+    animation: none !important;
+  }
 }

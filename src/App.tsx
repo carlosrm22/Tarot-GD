@@ -1,29 +1,72 @@
+/**
+ * @fileoverview Componente principal de la aplicación de Tarot.
+ * Gestiona la visualización de los Arcanos Mayores, el sistema de autenticación,
+ * y la interacción con el Árbol de la Vida.
+ */
+
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import arcanosMayoresData from './Arcanos_Mayores_Tarot.json';
 import { ArcanosMayores, Carta } from './types/tarot';
 import TreeOfLife from './components/TreeOfLife.tsx';
 
+/**
+ * Componente principal App
+ *
+ * Características principales:
+ * - Sistema de autenticación para iniciados
+ * - Visualización interactiva de las cartas del Tarot
+ * - Integración con el Árbol de la Vida
+ * - Sistema de temas claro/oscuro
+ * - Gestión de estados para cartas y detalles
+ *
+ * @component
+ * @returns {JSX.Element} Aplicación completa de Tarot
+ */
 function App() {
+  // Carga los datos de los Arcanos Mayores
   const { arcanos: { arcanos_mayores } } = arcanosMayoresData as ArcanosMayores;
+
+  /**
+   * Estado para gestionar las cartas volteadas
+   * @type {Object.<number, boolean>}
+   */
   const [cartasVolteadas, setCartasVolteadas] = useState<{ [key: number]: boolean }>({});
+
+  /**
+   * Estado para gestionar los detalles expandidos de cada carta
+   * @type {Object.<string, boolean>}
+   */
   const [detallesExpandidos, setDetallesExpandidos] = useState<{
     [key: string]: boolean;
   }>({});
 
-  // Función para verificar si la sesión ha expirado
+  /**
+   * Verifica si la sesión del usuario ha expirado
+   * @returns {boolean} true si la sesión es válida
+   */
   const isSessionValid = () => {
     const expirationTime = localStorage.getItem('sessionExpiration');
     if (!expirationTime) return false;
     return parseInt(expirationTime) > Date.now();
   };
 
+  /**
+   * Estado de autenticación del usuario
+   * @type {boolean}
+   */
   const [isAuthenticated, setIsAuthenticated] = useState(() => {
     return localStorage.getItem('isInitiated') === 'true' && isSessionValid();
   });
+
+  // Estados adicionales
   const [fraseMistica, setFraseMistica] = useState('');
   const [error, setError] = useState('');
 
+  /**
+   * Estado del tema (claro/oscuro)
+   * Se inicializa con la preferencia del sistema
+   */
   const [isDarkMode, setIsDarkMode] = useState(() => {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
@@ -32,6 +75,7 @@ function App() {
     return window.matchMedia('(prefers-color-scheme: dark)').matches;
   });
 
+  // Efectos para gestionar el tema
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
     localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');

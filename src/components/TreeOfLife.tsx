@@ -1,53 +1,85 @@
 import React from "react";
 
-// Interfaz que define las propiedades que acepta el componente
+/**
+ * @fileoverview Componente que representa el Árbol de la Vida (Etz Chaim) de la Cábala.
+ * Este diagrama muestra las 10 Sefirot y los 22 senderos que las conectan, cada uno
+ * correspondiendo a una carta del Tarot y una letra hebrea.
+ */
+
+/**
+ * Props para el componente TreeOfLife
+ * @typedef {Object} TreeOfLifeProps
+ * @property {string} sendero - Número del sendero (11-32) que corresponde a una carta del Tarot
+ */
 interface TreeOfLifeProps {
-  sendero: string;  // Número del sendero en formato string (ej: "11", "12", etc.)
+  sendero: string;
 }
 
+/**
+ * Componente TreeOfLife
+ *
+ * Representa visualmente el Árbol de la Vida cabalístico, mostrando:
+ * - Las 10 Sefirot como puntos
+ * - Los 22 senderos como líneas
+ * - Resalta el sendero específico relacionado con la carta del Tarot actual
+ *
+ * Estructura de los Pilares:
+ * - Pilar Femenino (Izquierda): Binah, Geburah, Hod
+ * - Pilar Central: Kether, Tiphereth, Yesod, Malkuth
+ * - Pilar Masculino (Derecha): Chokmah, Chesed, Netzach
+ *
+ * @component
+ * @param {TreeOfLifeProps} props - Props del componente
+ * @returns {JSX.Element} Componente SVG del Árbol de la Vida
+ */
 const TreeOfLife: React.FC<TreeOfLifeProps> = ({ sendero }) => {
   // Coordenadas de los Sephiroth en el SVG
-  // Cada Sephira tiene una posición x,y específica en el árbol
+  // Cada Sefirá representa una emanación divina y tiene una posición específica
   const sephiroth = {
-    kether: { x: 100, y: 28 }, // Corona - El primer Sephira
-    binah: { x: 60, y: 60 }, // Entendimiento - Pilar femenino
-    chokmah: { x: 140, y: 60 }, // Sabiduría - Pilar masculino
-    geburah: { x: 60, y: 100 }, // Severidad - Pilar femenino
-    chesed: { x: 140, y: 100 }, //  Misericordia - Pilar masculino
-    tiphereth: { x: 100, y: 128 }, // Belleza - Pilar central
-    hod: { x: 60, y: 150 }, // Esplendor - Pilar femenino
-    netzach: { x: 140, y: 150 }, // Victoria - Pilar masculino
-    yesod: { x: 100, y: 180 }, // Fundamento - Pilar central
-    malkuth: { x: 100, y: 215 }, // Reino - Base del árbol
+    kether: { x: 100, y: 28 },    // Corona - La Unidad Primordial
+    binah: { x: 60, y: 60 },      // Entendimiento - La Madre Suprema
+    chokmah: { x: 140, y: 60 },   // Sabiduría - El Padre
+    geburah: { x: 60, y: 100 },   // Severidad - Juicio y Restricción
+    chesed: { x: 140, y: 100 },   // Misericordia - Amor y Gracia
+    tiphereth: { x: 100, y: 128 }, // Belleza - El Corazón del Árbol
+    hod: { x: 60, y: 150 },       // Esplendor - Intelecto y Forma
+    netzach: { x: 140, y: 150 },  // Victoria - Emociones y Deseo
+    yesod: { x: 100, y: 180 },    // Fundamento - El Canal de las Fuerzas
+    malkuth: { x: 100, y: 215 },  // Reino - El Mundo Material
   };
 
-  // Definición de los 22 senderos que conectan los Sephiroth
-  // Cada sendero corresponde a una carta del Tarot y una letra hebrea
+  /**
+   * Mapeo de los 22 senderos que conectan las Sefirot
+   * Cada sendero corresponde a:
+   * - Una carta del Tarot de los Arcanos Mayores
+   * - Una letra del alfabeto hebreo
+   * - Un símbolo o significado esotérico específico
+   */
   const senderos: {
     [key: string]: [keyof typeof sephiroth, keyof typeof sephiroth];
   } = {
-    "11": ["kether", "chokmah"],     // El Loco - א Alef
-    "12": ["kether", "binah"],       // El Mago - ב Bet
-    "13": ["kether", "tiphereth"],   // La Sacerdotisa - ג Gimel
-    "14": ["chokmah", "binah"],      // La Emperatriz - ד Dalet
-    "15": ["chokmah", "tiphereth"],  // El Emperador - ה Heh
-    "16": ["chokmah", "chesed"],     // El Hierofante - ו Vav
-    "17": ["binah", "tiphereth"],    // Los Amantes - ז Zayin
-    "18": ["binah", "geburah"],      // La Carroza - ח Chet
-    "19": ["chesed", "geburah"],     // La Fuerza - ט Tet
-    "20": ["chesed", "tiphereth"],   // El Ermitaño - י Yod
-    "21": ["chesed", "netzach"],     // La Rueda - כ Kaf
-    "22": ["geburah", "tiphereth"],  // La Justicia - ל Lamed
-    "23": ["geburah", "hod"],        // El Colgado - מ Mem
-    "24": ["tiphereth", "netzach"],  // La Muerte - נ Nun
-    "25": ["tiphereth", "yesod"],    // La Templanza - ס Samech
-    "26": ["tiphereth", "hod"],      // El Diablo - ע Ayin
-    "27": ["netzach", "hod"],        // La Torre - פ Peh
-    "28": ["netzach", "yesod"],      // La Estrella - צ Tzaddi
-    "29": ["netzach", "malkuth"],    // La Luna - ק Qof
-    "30": ["yesod", "hod"],          // El Sol - ר Resh
-    "31": ["hod", "malkuth"],        // El Juicio - ש Shin
-    "32": ["yesod", "malkuth"],      // El Universo - ת Tav
+    "11": ["kether", "chokmah"],     // El Loco - א Alef - Aire
+    "12": ["kether", "binah"],       // El Mago - ב Bet - Mercurio
+    "13": ["kether", "tiphereth"],   // La Sacerdotisa - ג Gimel - Luna
+    "14": ["chokmah", "binah"],      // La Emperatriz - ד Dalet - Venus
+    "15": ["chokmah", "tiphereth"],  // El Emperador - ה Heh - Aries
+    "16": ["chokmah", "chesed"],     // El Hierofante - ו Vav - Tauro
+    "17": ["binah", "tiphereth"],    // Los Amantes - ז Zayin - Géminis
+    "18": ["binah", "geburah"],      // La Carroza - ח Chet - Cáncer
+    "19": ["chesed", "geburah"],     // La Fuerza - ט Tet - Leo
+    "20": ["chesed", "tiphereth"],   // El Ermitaño - י Yod - Virgo
+    "21": ["chesed", "netzach"],     // La Rueda - כ Kaf - Júpiter
+    "22": ["geburah", "tiphereth"],  // La Justicia - ל Lamed - Libra
+    "23": ["geburah", "hod"],        // El Colgado - מ Mem - Agua
+    "24": ["tiphereth", "netzach"],  // La Muerte - נ Nun - Escorpio
+    "25": ["tiphereth", "yesod"],    // La Templanza - ס Samech - Sagitario
+    "26": ["tiphereth", "hod"],      // El Diablo - ע Ayin - Capricornio
+    "27": ["netzach", "hod"],        // La Torre - פ Peh - Marte
+    "28": ["netzach", "yesod"],      // La Estrella - צ Tzaddi - Acuario
+    "29": ["netzach", "malkuth"],    // La Luna - ק Qof - Piscis
+    "30": ["yesod", "hod"],          // El Sol - ר Resh - Sol
+    "31": ["hod", "malkuth"],        // El Juicio - ש Shin - Fuego
+    "32": ["yesod", "malkuth"],      // El Universo - ת Tav - Saturno
   };
 
   // Obtiene el sendero actual basado en la prop recibida

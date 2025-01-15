@@ -1,77 +1,97 @@
-# Tarot - Arcanos Mayores
+# Tarot - Arcanos Mayores 🌟
 
-Una aplicación web desarrollada con React y TypeScript que muestra los 22 Arcanos Mayores del Tarot, incluyendo sus significados, atribuciones y símbolos asociados según la tradición de la Golden Dawn.
+Una aplicación web interactiva que presenta los Arcanos Mayores del Tarot desde la perspectiva de la Orden Hermética de la Aurora Dorada, incluyendo sus correspondencias cabalísticas y el Árbol de la Vida.
 
-## Características
+## 🌟 Características
 
-- Visualización de los 22 Arcanos Mayores
-- Información detallada de cada carta:
-  - Nombre y título
-  - Letra hebrea asociada
-  - Signo astrológico
-  - Atribución cabalística
-  - Significado
-- Interfaz moderna y responsive
-- Imágenes de alta calidad de cada arcano
-- Modo claro/oscuro
-- Sistema de cartas interactivo con efecto de volteo
+- **Visualización Interactiva**: Cartas del Tarot con efectos de volteo y zoom
+- **Árbol de la Vida**: Representación visual de los senderos cabalísticos
+- **Detalles Esotéricos**: Información detallada sobre cada carta incluyendo:
+  - Número y nombre
+  - Letra hebrea correspondiente
+  - Signos astrológicos
+  - Atribuciones mágicas
+  - Senderos en el Árbol de la Vida
+  - Significados esotéricos
 
-## Tecnologías Utilizadas
+## 🛠️ Tecnologías Utilizadas
 
 - React
 - TypeScript
-- CSS3
-- HTML5
+- CSS3 con variables para temas
+- SVG para el Árbol de la Vida
 
-## Instalación
+## 📦 Estructura del Proyecto
 
-1. Clona el repositorio
+```
+src/
+├── components/         # Componentes React
+│   └── TreeOfLife.tsx # Componente del Árbol de la Vida
+├── types/             # Definiciones de tipos TypeScript
+│   └── tarot.ts      # Interfaces para las cartas
+├── App.tsx           # Componente principal
+├── App.css           # Estilos globales
+└── Arcanos_Mayores_Tarot.json # Datos de las cartas
+```
+
+## 🎨 Características de Diseño
+
+- **Tema Claro/Oscuro**: Sistema de temas adaptable
+- **Diseño Responsivo**: Se adapta a diferentes tamaños de pantalla
+- **Animaciones Suaves**: Transiciones y efectos visuales
+- **Accesibilidad**: Soporte para navegación por teclado y lectores de pantalla
+
+## 🔮 Funcionalidades Principales
+
+### Sistema de Cartas
+- Visualización de cartas con efecto de volteo
+- Zoom en hover
+- Información detallada al reverso
+
+### Árbol de la Vida
+- Visualización de los 22 senderos
+- Resaltado del sendero correspondiente a cada carta
+- Nombres de las Sefirot en hover
+
+### Sistema de Autenticación
+- Portal de iniciados
+- Sesión con expiración
+- Preferencias de tema persistentes
+
+## 🚀 Instalación y Uso
+
+1. Clonar el repositorio:
 ```bash
 git clone [URL_DEL_REPOSITORIO]
 ```
 
-2. Instala las dependencias
+2. Instalar dependencias:
 ```bash
 npm install
 ```
 
-3. Inicia el servidor de desarrollo
+3. Iniciar el servidor de desarrollo:
 ```bash
 npm start
 ```
 
-La aplicación estará disponible en `http://localhost:3000`
+## 📚 Referencias
 
-## Estructura del Proyecto
+- Israel Regardie - The Golden Dawn
+- Aleister Crowley - Book of Thoth
+- Dion Fortune - The Mystical Qabalah
 
-- `/src/images` - Imágenes de los arcanos
-- `/src/types` - Definiciones de tipos TypeScript
-- `/src/App.tsx` - Componente principal
-- `/src/Arcanos_Mayores_Tarot.json` - Datos de los arcanos
+## 🔒 Notas de Uso
 
----
+Este proyecto está diseñado para uso educativo y de estudio. Los materiales se basan en textos publicados y de dominio público de la tradición de la Aurora Dorada.
 
-## Aviso de Uso y Discreción
+## 🤝 Contribuciones
 
-Este sitio web ha sido desarrollado para uso exclusivo de los iniciados en el nivel de **Practicus 3=8** de la **Orden Hermética de la Aurora Dorada**. En consecuencia, se exige la mayor discreción en el manejo y divulgación del contenido aquí presentado.
+Las contribuciones son bienvenidas. Por favor, asegúrate de:
+1. Mantener la consistencia con el sistema simbólico
+2. Seguir las prácticas de código establecidas
+3. Documentar cualquier cambio significativo
 
-## Libre de Derechos de Autor
+## 📄 Licencia
 
-Todo el material disponible en esta web es de uso libre y público, sin derechos de autor, dado que procede de fuentes que han sido publicadas de forma abierta. En particular, se han tomado referencias de los escritos de Israel Regardie sobre la Aurora Dorada, principalmente su obra:
-
-> **Israel Regardie.**
-> *The Golden Dawn: The Original Account of the Teachings, Rites and Ceremonies of the Hermetic Order.* 1937.
-
-En los apartados relativos al Tarot, se complementa con extractos de la misma bibliografía.
-
-## Disclaimers y Condiciones de Uso
-
-1. **Fines Informativos**: La información contenida en este sitio se proporciona únicamente con fines de estudio y no reemplaza las enseñanzas o directrices formales de la Orden u otros organismos iniciáticos.
-2. **Responsabilidad del Usuario**: El uso de los textos, rituales o métodos expuestos en esta web es responsabilidad exclusiva del practicante. Quien los implemente asume todo riesgo y consecuencias derivadas de su práctica.
-3. **No Sustituye Asesoría Profesional**: El contenido de esta web no debe entenderse como asesoría médica, psicológica, legal, espiritual o de cualquier otro ámbito.
-4. **Privacidad y Seguridad**: Se exhorta a los usuarios a mantener bajo estricta confidencialidad cualquier información esotérica o personal que intercambien mediante este sitio o sus secciones privadas.
-5. **Propiedad Intelectual**: Aunque el contenido se haya obtenido de fuentes libres de derechos o de dominio público, en caso de citar extractos completos o fragmentos sustanciales, se recomienda respetar la referencia bibliográfica correspondiente.
-
-## Uso Exclusivo de Miembros Iniciados
-
-Al acceder y utilizar este sitio, el usuario declara ser miembro iniciado en el grado de Practicus 3=8, o estar en proceso de iniciación supervisada, aceptando así los lineamientos éticos y de discreción propios de la Tradición de la Orden Hermética de la Aurora Dorada.
+Este proyecto es de uso libre y está basado en materiales de dominio público.

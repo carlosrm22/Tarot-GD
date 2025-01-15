@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Tarot-GD/static/css/main.c08abc10.css",
-    "main.js": "/Tarot-GD/static/js/main.52099438.js",
+    "main.css": "/Tarot-GD/static/css/main.cdf8770a.css",
+    "main.js": "/Tarot-GD/static/js/main.3ddc0045.js",
     "static/js/488.02f67cc8.chunk.js": "/Tarot-GD/static/js/488.02f67cc8.chunk.js",
     "index.html": "/Tarot-GD/index.html",
-    "main.c08abc10.css.map": "/Tarot-GD/static/css/main.c08abc10.css.map",
-    "main.52099438.js.map": "/Tarot-GD/static/js/main.52099438.js.map",
+    "main.cdf8770a.css.map": "/Tarot-GD/static/css/main.cdf8770a.css.map",
+    "main.3ddc0045.js.map": "/Tarot-GD/static/js/main.3ddc0045.js.map",
     "488.02f67cc8.chunk.js.map": "/Tarot-GD/static/js/488.02f67cc8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c08abc10.css",
-    "static/js/main.52099438.js"
+    "static/css/main.cdf8770a.css",
+    "static/js/main.3ddc0045.js"
   ]
 }

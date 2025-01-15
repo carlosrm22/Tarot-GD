@@ -9,6 +9,20 @@ function App() {
   const [detallesExpandidos, setDetallesExpandidos] = useState<{
     [key: string]: boolean;
   }>({});
+
+  // Función para verificar si la sesión ha expirado
+  const isSessionValid = () => {
+    const expirationTime = localStorage.getItem('sessionExpiration');
+    if (!expirationTime) return false;
+    return parseInt(expirationTime) > Date.now();
+  };
+
+  const [isAuthenticated, setIsAuthenticated] = useState(() => {
+    return localStorage.getItem('isInitiated') === 'true' && isSessionValid();
+  });
+  const [fraseMistica, setFraseMistica] = useState('');
+  const [error, setError] = useState('');
+
   const [isDarkMode, setIsDarkMode] = useState(() => {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
@@ -33,6 +47,30 @@ function App() {
     mediaQuery.addEventListener('change', handleChange);
     return () => mediaQuery.removeEventListener('change', handleChange);
   }, []);
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (fraseMistica.toUpperCase() === "KHABS AM PEKHT") {
+      setIsAuthenticated(true);
+      localStorage.setItem('isInitiated', 'true');
+      // Establecer expiración en 24 horas
+      const expirationTime = Date.now() + (1 * 60 * 60 * 1000);
+      localStorage.setItem('sessionExpiration', expirationTime.toString());
+      setError('');
+    } else {
+      setError('La frase mística es incorrecta. Medita y vuelve a intentar.');
+    }
+  };
+
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+    localStorage.removeItem('isInitiated');
+    localStorage.removeItem('sessionExpiration');
+    setFraseMistica('');
+    setError('');
+    setCartasVolteadas({});
+    setDetallesExpandidos({});
+  };
 
   const toggleTheme = () => {
     setIsDarkMode(prev => !prev);
@@ -70,128 +108,176 @@ function App() {
     return detallesExpandidos[`${cartaId}-${detalle}`] || false;
   };
 
+  // Verificar la expiración periódicamente
+  useEffect(() => {
+    const checkSession = () => {
+      if (isAuthenticated && !isSessionValid()) {
+        handleLogout();
+      }
+    };
+
+    const interval = setInterval(checkSession, 60000); // Verificar cada minuto
+    return () => clearInterval(interval);
+  }, [isAuthenticated]);
+
   return (
     <div className="App">
       <header className="App-header">
         <h1>Tarot - Arcanos Mayores</h1>
-        <p>Próximamente los arcanos menores y las cortesanas 😉</p>
-        <div className="theme-switch">
-          <span>🌞</span>
-          <label className="switch">
-            <input
-              type="checkbox"
-              checked={isDarkMode}
-              onChange={toggleTheme}
-            />
-            <span className="slider"></span>
-          </label>
-          <span>🌙</span>
+        <div className="header-controls">
+          {isAuthenticated && (
+            <>
+              <p>Próximamente los arcanos menores y las cortesanas 😉</p>
+              <div className="theme-switch">
+                <span>🌞</span>
+                <label className="switch">
+                  <input
+                    type="checkbox"
+                    checked={isDarkMode}
+                    onChange={toggleTheme}
+                  />
+                  <span className="slider"></span>
+                </label>
+                <span>🌙</span>
+              </div>
+              <button onClick={handleLogout} className="logout-button">
+                Cerrar Sesión
+              </button>
+            </>
+          )}
         </div>
       </header>
-      <main className="cards-container">
-        {arcanos_mayores.map((carta: Carta) => {
-          const imagePath = getImagePath(carta.numero, carta.nombre);
-          const isFlipped = cartasVolteadas[carta.numero];
 
-          return (
-            <div
-              key={carta.numero}
-              className={`card ${isFlipped ? "flipped" : ""}`}
-              onClick={() => toggleCard(carta.numero)}>
-              <div className="card-front">
-                <img src={imagePath} alt={carta.nombre} loading="lazy" />
-              </div>
-              <div className="card-back">
-                <div className="card-content">
-                  <h2>{carta.nombre}</h2>
-                  <h3>{carta.titulo}</h3>
-                  <div className="card-details">
-                    <div
-                      className={`detail-item ${
-                        isDetalleExpandido(carta.numero, "numero")
-                          ? "expanded"
-                          : ""
-                      }`}
-                      onClick={(e) => toggleDetalle(carta.numero, "numero", e)}>
-                      <div className="detail-header">
-                        <strong>Número</strong>
-                        <span className="expand-icon">▼</span>
-                      </div>
-                      <div className="detail-content">{carta.numero}</div>
-                    </div>
+      {!isAuthenticated ? (
+        <div className="login-container">
+          <form onSubmit={handleLogin} className="login-form">
+            <h2>Portal de Iniciados</h2>
+            <p>Ingresa la frase mística para acceder al conocimiento oculto.</p>
+            <div className="input-group">
+              <input
+                type="text"
+                value={fraseMistica}
+                onChange={(e) => setFraseMistica(e.target.value)}
+                placeholder="Frase Mística"
+                className="mystic-input"
+              />
+            </div>
+            {error && <p className="error-message">{error}</p>}
+            <button type="submit" className="login-button">
+              Iniciar el Viaje
+            </button>
+            <p className="hint">
+              Pista: Luz en Extensión (en el lenguaje de los antiguos egipcios)
+            </p>
+          </form>
+        </div>
+      ) : (
+        <main className="cards-container">
+          {arcanos_mayores.map((carta: Carta) => {
+            const imagePath = getImagePath(carta.numero, carta.nombre);
+            const isFlipped = cartasVolteadas[carta.numero];
 
-                    <div
-                      className={`detail-item ${
-                        isDetalleExpandido(carta.numero, "hebreo")
-                          ? "expanded"
-                          : ""
-                      }`}
-                      onClick={(e) => toggleDetalle(carta.numero, "hebreo", e)}>
-                      <div className="detail-header">
-                        <strong>Hebreo</strong>
-                        <span className="expand-icon">▼</span>
+            return (
+              <div
+                key={carta.numero}
+                className={`card ${isFlipped ? "flipped" : ""}`}
+                onClick={() => toggleCard(carta.numero)}>
+                <div className="card-front">
+                  <img src={imagePath} alt={carta.nombre} loading="lazy" />
+                </div>
+                <div className="card-back">
+                  <div className="card-content">
+                    <h2>{carta.nombre}</h2>
+                    <h3>{carta.titulo}</h3>
+                    <div className="card-details">
+                      <div
+                        className={`detail-item ${
+                          isDetalleExpandido(carta.numero, "numero")
+                            ? "expanded"
+                            : ""
+                        }`}
+                        onClick={(e) => toggleDetalle(carta.numero, "numero", e)}>
+                        <div className="detail-header">
+                          <strong>Número</strong>
+                          <span className="expand-icon">▼</span>
+                        </div>
+                        <div className="detail-content">{carta.numero}</div>
                       </div>
-                      <div className="detail-content">
-                        {carta.hebreo} ({carta.letra})
-                      </div>
-                    </div>
 
-                    <div
-                      className={`detail-item ${
-                        isDetalleExpandido(carta.numero, "signo")
-                          ? "expanded"
-                          : ""
-                      }`}
-                      onClick={(e) => toggleDetalle(carta.numero, "signo", e)}>
-                      <div className="detail-header">
-                        <strong>Signo</strong>
-                        <span className="expand-icon">▼</span>
+                      <div
+                        className={`detail-item ${
+                          isDetalleExpandido(carta.numero, "hebreo")
+                            ? "expanded"
+                            : ""
+                        }`}
+                        onClick={(e) => toggleDetalle(carta.numero, "hebreo", e)}>
+                        <div className="detail-header">
+                          <strong>Hebreo</strong>
+                          <span className="expand-icon">▼</span>
+                        </div>
+                        <div className="detail-content">
+                          {carta.hebreo} ({carta.letra})
+                        </div>
                       </div>
-                      <div className="detail-content">{carta.signo}</div>
-                    </div>
 
-                    <div
-                      className={`detail-item ${
-                        isDetalleExpandido(carta.numero, "atribucion")
-                          ? "expanded"
-                          : ""
-                      }`}
-                      onClick={(e) =>
-                        toggleDetalle(carta.numero, "atribucion", e)
-                      }>
-                      <div className="detail-header">
-                        <strong>Atribución</strong>
-                        <span className="expand-icon">▼</span>
+                      <div
+                        className={`detail-item ${
+                          isDetalleExpandido(carta.numero, "signo")
+                            ? "expanded"
+                            : ""
+                        }`}
+                        onClick={(e) => toggleDetalle(carta.numero, "signo", e)}>
+                        <div className="detail-header">
+                          <strong>Signo</strong>
+                          <span className="expand-icon">▼</span>
+                        </div>
+                        <div className="detail-content">{carta.signo}</div>
                       </div>
-                      <div className="detail-content">{carta.atribucion}</div>
-                    </div>
 
-                    <div
-                      className={`detail-item ${
-                        isDetalleExpandido(carta.numero, "significado")
-                          ? "expanded"
-                          : ""
-                      }`}
-                      onClick={(e) =>
-                        toggleDetalle(carta.numero, "significado", e)
-                      }>
-                      <div className="detail-header">
-                        <strong>Significado</strong>
-                        <span className="expand-icon">▼</span>
+                      <div
+                        className={`detail-item ${
+                          isDetalleExpandido(carta.numero, "atribucion")
+                            ? "expanded"
+                            : ""
+                        }`}
+                        onClick={(e) =>
+                          toggleDetalle(carta.numero, "atribucion", e)
+                        }>
+                        <div className="detail-header">
+                          <strong>Atribución</strong>
+                          <span className="expand-icon">▼</span>
+                        </div>
+                        <div className="detail-content">{carta.atribucion}</div>
                       </div>
-                      <div className="detail-content">{carta.significado}</div>
+
+                      <div
+                        className={`detail-item ${
+                          isDetalleExpandido(carta.numero, "significado")
+                            ? "expanded"
+                            : ""
+                        }`}
+                        onClick={(e) =>
+                          toggleDetalle(carta.numero, "significado", e)
+                        }>
+                        <div className="detail-header">
+                          <strong>Significado</strong>
+                          <span className="expand-icon">▼</span>
+                        </div>
+                        <div className="detail-content">{carta.significado}</div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
-        <p>
-          Si te gusta el proyecto,págame dinero para que pueda seguir trabajando
-          en él ok 😡?
-        </p>
-      </main>
+            );
+          })}
+          <p>
+            Si te gusta el proyecto,págame dinero para que pueda seguir trabajando
+            en él ok 😡?
+          </p>
+        </main>
+      )}
+
       <footer className="footer">
         <div className="footer-content">
           <h2>Aviso de Uso y Discreción</h2>

@@ -6,6 +6,7 @@ export interface Carta {
   letra: string;
   signo: string;
   atribucion: string;
+  sendero: string;
   significado: string;
 }
 

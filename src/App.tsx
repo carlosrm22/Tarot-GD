@@ -96,6 +96,19 @@ function App() {
     }));
   };
 
+  const toggleAllDetalles = (cartaId: number, event: React.MouseEvent) => {
+    event.stopPropagation();
+    const detalles = ["numero", "hebreo", "signo", "atribucion", "sendero", "significado"];
+    const algunoExpandido = detalles.some(detalle => isDetalleExpandido(cartaId, detalle));
+
+    const nuevoEstado = { ...detallesExpandidos };
+    detalles.forEach(detalle => {
+      nuevoEstado[`${cartaId}-${detalle}`] = !algunoExpandido;
+    });
+
+    setDetallesExpandidos(nuevoEstado);
+  };
+
   const toggleDetalle = (cartaId: number, detalle: string, event: React.MouseEvent) => {
     event.stopPropagation();
     const key = `${cartaId}-${detalle}`;
@@ -191,13 +204,24 @@ function App() {
                     <h2>{carta.nombre}</h2>
                     <h3>{carta.titulo}</h3>
                     <div className="card-details">
+                      <div className="details-header">
+                        <button
+                          className="toggle-all-button"
+                          onClick={(e) => toggleAllDetalles(carta.numero, e)}
+                          title="Expandir/Colapsar todo">
+                          <span className="filter-icon">↕⏫⏬</span>
+                        </button>
+                      </div>
+
                       <div
                         className={`detail-item ${
                           isDetalleExpandido(carta.numero, "numero")
                             ? "expanded"
                             : ""
                         }`}
-                        onClick={(e) => toggleDetalle(carta.numero, "numero", e)}>
+                        onClick={(e) =>
+                          toggleDetalle(carta.numero, "numero", e)
+                        }>
                         <div className="detail-header">
                           <strong>Número</strong>
                           <span className="expand-icon">▼</span>
@@ -211,7 +235,9 @@ function App() {
                             ? "expanded"
                             : ""
                         }`}
-                        onClick={(e) => toggleDetalle(carta.numero, "hebreo", e)}>
+                        onClick={(e) =>
+                          toggleDetalle(carta.numero, "hebreo", e)
+                        }>
                         <div className="detail-header">
                           <strong>Hebreo</strong>
                           <span className="expand-icon">▼</span>
@@ -227,7 +253,9 @@ function App() {
                             ? "expanded"
                             : ""
                         }`}
-                        onClick={(e) => toggleDetalle(carta.numero, "signo", e)}>
+                        onClick={(e) =>
+                          toggleDetalle(carta.numero, "signo", e)
+                        }>
                         <div className="detail-header">
                           <strong>Signo</strong>
                           <span className="expand-icon">▼</span>
@@ -253,6 +281,22 @@ function App() {
 
                       <div
                         className={`detail-item ${
+                          isDetalleExpandido(carta.numero, "sendero")
+                            ? "expanded"
+                            : ""
+                        }`}
+                        onClick={(e) =>
+                          toggleDetalle(carta.numero, "sendero", e)
+                        }>
+                        <div className="detail-header">
+                          <strong>Sendero</strong>
+                          <span className="expand-icon">▼</span>
+                        </div>
+                        <div className="detail-content">{carta.sendero}</div>
+                      </div>
+
+                      <div
+                        className={`detail-item ${
                           isDetalleExpandido(carta.numero, "significado")
                             ? "expanded"
                             : ""
@@ -264,7 +308,9 @@ function App() {
                           <strong>Significado</strong>
                           <span className="expand-icon">▼</span>
                         </div>
-                        <div className="detail-content">{carta.significado}</div>
+                        <div className="detail-content">
+                          {carta.significado}
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -272,13 +318,12 @@ function App() {
               </div>
             );
           })}
-          <p>
-            Si te gusta el proyecto,págame dinero para que pueda seguir trabajando
-            en él ok 😡?
-          </p>
         </main>
       )}
-
+      <p className="donation-message">
+        Si te gusta el proyecto, págame dinero para que pueda seguir trabajando
+        en él ok? 😡
+      </p>
       <footer className="footer">
         <div className="footer-content">
           <h2>Aviso de Uso y Discreción</h2>

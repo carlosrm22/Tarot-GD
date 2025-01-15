@@ -9,6 +9,7 @@
                 "letra": "א",
                 "signo": "Aire",
                 "atribucion": "La Corona de la Sabiduría, el Primum Mobile actuando a través del aire sobre el Zodíaco.",
+                "sendero": "11",
                 "significado": "Idea, pensamiento, espiritualidad, lo que se esfuerza por elevarse por encima de lo material. Indica locura, estupidez, excentricidad e incluso manía si la adivinación versa sobre un suceso material."
             },
             {
@@ -19,6 +20,7 @@
                 "letra": "ב",
                 "signo": "Mercurio",
                 "atribucion": "La Corona del Entendimiento, el principio de la producción material, el Primum Mobile actuando a través del Mercurio filosófico sobre Saturno.",
+                "sendero": "12",
                 "significado": "Habilidad, sabiduría, adaptación. Oficio, astucia, etc. A veces Sabiduría oculta."
             },
             {
@@ -29,6 +31,7 @@
                 "letra": "ג",
                 "signo": "Luna",
                 "atribucion": "La Corona de la Belleza, el principio de la soberanía y de la belleza, el Primum Mobile actuando a través de la Luna sobre el Sol.",
+                "sendero": "13",
                 "significado": "Cambio, alteración, crecimiento y decrecimiento. Fluctuación (para bien o para mal)."
             },
             {
@@ -39,6 +42,7 @@
                 "letra": "ד",
                 "signo": "Venus",
                 "atribucion": "La Sabiduría del Entendimiento, la unión de los poderes del Origen y de la Producción; la esfera del Zodíaco actuando a través de Venus sobre Saturno.",
+                "sendero": "14",
                 "significado": "Belleza, felicidad, placer, éxito, también lujo y a veces disipación."
             },
             {
@@ -49,6 +53,7 @@
                 "letra": "ה",
                 "signo": "Aries",
                 "atribucion": "La Sabiduría de la Soberanía y de la Belleza, y el origen de ambas; la esfera del Zodíaco actuando a través de Aries sobre el Sol e iniciando la primavera.",
+                "sendero": "15",
                 "significado": "Guerra, conquista, victoria, contienda, ambición."
             },
             {
@@ -59,6 +64,7 @@
                 "letra": "ו",
                 "signo": "Tauro",
                 "atribucion": "La Sabiduría y la Fuente de la Misericordia, la esfera del Zodíaco actuando a través de Tauro sobre Júpiter.",
+                "sendero": "16",
                 "significado": "Sabiduría Divina. Manifestación. Explicación. Enseñanza. Sabiduría Oculta."
             },
             {
@@ -69,6 +75,7 @@
                 "letra": "ז",
                 "signo": "Géminis",
                 "atribucion": "El Entendimiento de la Belleza y la producción de la belleza y de la soberanía. Saturno actuando a través de Géminis sobre el Sol.",
+                "sendero": "17",
                 "significado": "Inspiración pasiva. Motivo, poder y acción que brota del impulso y de la inspiración."
             },
             {
@@ -79,6 +86,7 @@
                 "letra": "ח",
                 "signo": "Cáncer",
                 "atribucion": "El entendimiento actuando sobre la severidad. Saturno actuando a través de Cáncer sobre Marte.",
+                "sendero": "18",
                 "significado": "Triunfo. Victoria. Salud. Éxito, aunque no siempre estable y duradero."
             },
             {
@@ -89,6 +97,7 @@
                 "letra": "ט",
                 "signo": "Leo",
                 "atribucion": "Fortaleza. La misericordia templando a la severidad. La Gloria de la Fuerza. Júpiter actuando a través de Leo sobre Marte.",
+                "sendero": "19",
                 "significado": "Coraje, fuerza, poder que se manifiesta en acción. A veces obstinación."
             },
             {
@@ -99,6 +108,7 @@
                 "letra": "י",
                 "signo": "Virgo",
                 "atribucion": "La Misericordia de la Belleza. La Magnificencia de la Soberanía. Júpiter actuando a través de Virgo sobre el Sol.",
+                "sendero": "20",
                 "significado": "Búsqueda de la Sabiduría y obtención de esta desde lo alto. Inspiración Divina activa."
             },
             {
@@ -109,6 +119,7 @@
                 "letra": "כ",
                 "signo": "Júpiter",
                 "atribucion": "La misericordia y la magnificencia de la Victoria. Júpiter actuando a través de Júpiter directamente sobre Venus.",
+                "sendero": "21",
                 "significado": "Buena fortuna y felicidad (dentro de ciertos límites), pero a veces intoxicación con el éxito."
             },
             {
@@ -119,6 +130,7 @@
                 "letra": "ל",
                 "signo": "Libra",
                 "atribucion": "La Severidad de la Belleza y de la Soberanía. Marte actuando a través de Libra sobre el Sol.",
+                "sendero": "22",
                 "significado": "Justicia y balance eternos. Procedimientos legales, juicio ante un tribunal."
             },
             {
@@ -129,6 +141,7 @@
                 "letra": "מ",
                 "signo": "Agua",
                 "atribucion": "La Severidad del Esplendor. La Ejecución del Juicio. Marte actuando a través del agua sobre Mercurio.",
+                "sendero": "23",
                 "significado": "Sacrificio forzado. Castigo. Pérdida. Generalmente sufrimiento."
             },
             {
@@ -139,6 +152,7 @@
                 "letra": "נ",
                 "signo": "Escorpio",
                 "atribucion": "La Soberanía y los resultados de la Victoria. El Sol actuando a través de Escorpio sobre Venus.",
+                "sendero": "24",
                 "significado": "Tiempo. Edad. Transformación. Cambio involuntario. A veces muerte y destrucción."
             },
             {
@@ -149,6 +163,7 @@
                 "letra": "ס",
                 "signo": "Sagitario",
                 "atribucion": "La Belleza de una Firme Base. La Soberanía del Poder Fundamental. El Sol actuando a través de Sagitario sobre la Luna.",
+                "sendero": "25",
                 "significado": "Combinación de fuerzas. Realización. Acción material para bien o para mal."
             },
             {
@@ -159,6 +174,7 @@
                 "letra": "ע",
                 "signo": "Capricornio",
                 "atribucion": "La Soberanía y la Belleza del Esplendor Material. El Sol actuando a través de Capricornio sobre Mercurio.",
+                "sendero": "26",
                 "significado": "Materialidad. Fuerza material. Tentación material; a veces obsesión."
             },
             {
@@ -169,6 +185,7 @@
                 "letra": "פ",
                 "signo": "Marte",
                 "atribucion": "La Victoria sobre el Esplendor. Venus actuando a través de Marte sobre Mercurio.",
+                "sendero": "27",
                 "significado": "Ambición, lucha, guerra, coraje. En ciertas combinaciones, destrucción, peligro, caída, ruina."
             },
             {
@@ -179,6 +196,7 @@
                 "letra": "צ",
                 "signo": "Acuario",
                 "atribucion": "La Victoria de la Fuerza Fundamental. Venus actuando a través de Acuario sobre la Luna.",
+                "sendero": "28",
                 "significado": "Esperanza, fe, ayuda inesperada. A veces espejismo, esperanza ilusoria."
             },
             {
@@ -189,6 +207,7 @@
                 "letra": "ק",
                 "signo": "Piscis",
                 "atribucion": "La Victoria de lo Material. Venus actuando a través de Piscis sobre los elementos cósmicos.",
+                "sendero": "29",
                 "significado": "Insatisfacción, cambio voluntario. Error, mentira, falsedad, engaño."
             },
             {
@@ -199,6 +218,7 @@
                 "letra": "ר",
                 "signo": "Sol",
                 "atribucion": "El Esplendor del Mundo Material. Mercurio actuando a través del Sol sobre la Luna.",
+                "sendero": "30",
                 "significado": "Gloria, ganancia, riquezas. A veces arrogancia, ostentación."
             },
             {
@@ -209,6 +229,7 @@
                 "letra": "ש",
                 "signo": "Fuego",
                 "atribucion": "El Esplendor del Mundo Material. Mercurio actuando a través del fuego sobre los elementos cósmicos.",
+                "sendero": "31",
                 "significado": "Decisión final. Juicio. Sentencia. Determinación de un asunto sin apelación."
             },
             {
@@ -219,6 +240,7 @@
                 "letra": "ת",
                 "signo": "Saturno",
                 "atribucion": "El Fundamento de los elementos cósmicos y del mundo material. La Luna actuando a través de Saturno sobre los elementos.",
+                "sendero": "32",
                 "significado": "El asunto mismo. Síntesis. Mundo. Representa el tema concreto de la pregunta."
             }
         ]

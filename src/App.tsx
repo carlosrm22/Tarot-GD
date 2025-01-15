@@ -326,7 +326,7 @@ function App() {
       )}
       <p className="donation-message">
         Si te gusta el proyecto, págame dinero para que pueda seguir trabajando
-        en él ok? 😡
+        en él ok? ��
       </p>
       <footer className="footer">
         <div className="footer-content">

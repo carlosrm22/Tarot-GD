@@ -286,3 +286,71 @@ input:checked + .slider {
 input:checked + .slider:before {
   transform: translateX(26px);
 }
+
+.footer {
+  background-color: var(--bg-header);
+  color: #fff;
+  padding: 3rem 2rem;
+  margin-top: 4rem;
+  text-align: left;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer h2 {
+  color: #61dafb;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #61dafb;
+  padding-bottom: 0.5rem;
+}
+
+.footer h3 {
+  color: #61dafb;
+  font-size: 1.2rem;
+  margin: 2rem 0 1rem;
+}
+
+.footer p {
+  margin: 1rem 0;
+  line-height: 1.6;
+}
+
+.footer blockquote {
+  border-left: 4px solid #61dafb;
+  margin: 1.5rem 0;
+  padding: 0.5rem 0 0.5rem 1.5rem;
+  font-style: italic;
+}
+
+.footer ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.footer li {
+  margin: 0.8rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.footer li::before {
+  content: "•";
+  color: #61dafb;
+  position: absolute;
+  left: 0;
+}
+
+.footer strong {
+  color: #61dafb;
+  font-weight: 600;
+}
+
+.footer hr {
+  border: none;
+  border-top: 1px solid rgba(97, 218, 251, 0.2);
+  margin: 2rem 0;
+}

@@ -50,7 +50,8 @@ function App() {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    if (fraseMistica.toUpperCase() === "KHABS AM PEKHT") {
+    //if (fraseMistica.toUpperCase() === "KHABS AM PEKHT") {
+    if (fraseMistica.toUpperCase() === "QUIERO PENE") {
       setIsAuthenticated(true);
       localStorage.setItem('isInitiated', 'true');
       // Establecer expiración en 24 horas

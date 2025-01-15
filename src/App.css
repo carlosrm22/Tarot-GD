@@ -554,3 +554,28 @@ input:checked + .slider:before {
   margin-top: 1.5rem;
   font-style: italic;
 }
+
+.tree-of-life {
+  display: block;
+  margin: 1rem auto;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 0.5rem;
+}
+
+[data-theme='dark'] .tree-of-life {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.tree-of-life line {
+  transition: all 0.3s ease;
+}
+
+.tree-of-life circle {
+  transition: all 0.3s ease;
+}
+
+.tree-of-life circle:hover {
+  r: 5;
+  filter: drop-shadow(0 0 2px #61dafb);
+}

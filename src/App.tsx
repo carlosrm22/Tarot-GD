@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import arcanosMayoresData from './Arcanos_Mayores_Tarot.json';
 import { ArcanosMayores, Carta } from './types/tarot';
+import TreeOfLife from './components/TreeOfLife.tsx';
 
 function App() {
   const { arcanos: { arcanos_mayores } } = arcanosMayoresData as ArcanosMayores;
@@ -209,7 +210,7 @@ function App() {
                           className="toggle-all-button"
                           onClick={(e) => toggleAllDetalles(carta.numero, e)}
                           title="Expandir/Colapsar todo">
-                          <span className="filter-icon">↕⏫⏬</span>
+                          <span className="filter-icon">⏫⏬</span>
                         </button>
                       </div>
 
@@ -292,7 +293,10 @@ function App() {
                           <strong>Sendero</strong>
                           <span className="expand-icon">▼</span>
                         </div>
-                        <div className="detail-content">{carta.sendero}</div>
+                        <div className="detail-content">
+                          {carta.sendero}
+                          <TreeOfLife sendero={carta.sendero} />
+                        </div>
                       </div>
 
                       <div

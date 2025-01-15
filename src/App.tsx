@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import arcanosMayoresData from './Arcanos_Mayores_Tarot.json';
 import { ArcanosMayores, Carta } from './types/tarot';
@@ -9,6 +9,34 @@ function App() {
   const [detallesExpandidos, setDetallesExpandidos] = useState<{
     [key: string]: boolean;
   }>({});
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      return savedTheme === 'dark';
+    }
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  });
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
+    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+  }, [isDarkMode]);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const handleChange = (e: MediaQueryListEvent) => {
+      if (!localStorage.getItem('theme')) {
+        setIsDarkMode(e.matches);
+      }
+    };
+
+    mediaQuery.addEventListener('change', handleChange);
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
+
+  const toggleTheme = () => {
+    setIsDarkMode(prev => !prev);
+  };
 
   const getImagePath = (numero: number, nombre: string) => {
     const nombresEspeciales: { [key: string]: string } = {
@@ -46,7 +74,18 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>Tarot - Arcanos Mayores</h1>
-        <p>H. Frater KarnaK</p>
+        <div className="theme-switch">
+          <span>🌞</span>
+          <label className="switch">
+            <input
+              type="checkbox"
+              checked={isDarkMode}
+              onChange={toggleTheme}
+            />
+            <span className="slider"></span>
+          </label>
+          <span>🌙</span>
+        </div>
       </header>
       <main className="cards-container">
         {arcanos_mayores.map((carta: Carta) => {

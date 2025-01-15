@@ -153,3 +153,55 @@
 .card:hover .card-front img {
   transform: scale(1.1);
 }
+
+.detail-item {
+  margin: 0.5rem 0;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.detail-header {
+  padding: 0.8rem 1rem;
+  background-color: #f8f8f8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.detail-header:hover {
+  background-color: #f0f0f0;
+}
+
+.expand-icon {
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.detail-item.expanded .expand-icon {
+  transform: rotate(180deg);
+}
+
+.detail-content {
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background-color: white;
+}
+
+.detail-item.expanded .detail-content {
+  padding: 1rem;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.card-details {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}

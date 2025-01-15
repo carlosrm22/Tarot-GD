@@ -6,6 +6,9 @@ import { ArcanosMayores, Carta } from './types/tarot';
 function App() {
   const { arcanos: { arcanos_mayores } } = arcanosMayoresData as ArcanosMayores;
   const [cartasVolteadas, setCartasVolteadas] = useState<{ [key: number]: boolean }>({});
+  const [detallesExpandidos, setDetallesExpandidos] = useState<{
+    [key: string]: boolean;
+  }>({});
 
   const getImagePath = (numero: number, nombre: string) => {
     const nombresEspeciales: { [key: string]: string } = {
@@ -26,6 +29,18 @@ function App() {
     }));
   };
 
+  const toggleDetalle = (cartaId: number, detalle: string) => {
+    const key = `${cartaId}-${detalle}`;
+    setDetallesExpandidos(prev => ({
+      ...prev,
+      [key]: !prev[key]
+    }));
+  };
+
+  const isDetalleExpandido = (cartaId: number, detalle: string) => {
+    return detallesExpandidos[`${cartaId}-${detalle}`] || false;
+  };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -41,7 +56,7 @@ function App() {
             <div
               key={carta.numero}
               className={`card ${isFlipped ? 'flipped' : ''}`}
-              onClick={() => toggleCard(carta.numero)}
+              onClick={() => !isFlipped && toggleCard(carta.numero)}
             >
               <div className="card-front">
                 <img
@@ -55,11 +70,85 @@ function App() {
                   <h2>{carta.nombre}</h2>
                   <h3>{carta.titulo}</h3>
                   <div className="card-details">
-                    <p><strong>Número:</strong> {carta.numero}</p>
-                    <p><strong>Hebreo:</strong> {carta.hebreo} ({carta.letra})</p>
-                    <p><strong>Signo:</strong> {carta.signo}</p>
-                    <p><strong>Atribución:</strong> {carta.atribucion}</p>
-                    <p><strong>Significado:</strong> {carta.significado}</p>
+                    <div
+                      className={`detail-item ${isDetalleExpandido(carta.numero, 'numero') ? 'expanded' : ''}`}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toggleDetalle(carta.numero, 'numero');
+                      }}
+                    >
+                      <div className="detail-header">
+                        <strong>Número</strong>
+                        <span className="expand-icon">▼</span>
+                      </div>
+                      <div className="detail-content">
+                        {carta.numero}
+                      </div>
+                    </div>
+
+                    <div
+                      className={`detail-item ${isDetalleExpandido(carta.numero, 'hebreo') ? 'expanded' : ''}`}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toggleDetalle(carta.numero, 'hebreo');
+                      }}
+                    >
+                      <div className="detail-header">
+                        <strong>Hebreo</strong>
+                        <span className="expand-icon">▼</span>
+                      </div>
+                      <div className="detail-content">
+                        {carta.hebreo} ({carta.letra})
+                      </div>
+                    </div>
+
+                    <div
+                      className={`detail-item ${isDetalleExpandido(carta.numero, 'signo') ? 'expanded' : ''}`}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toggleDetalle(carta.numero, 'signo');
+                      }}
+                    >
+                      <div className="detail-header">
+                        <strong>Signo</strong>
+                        <span className="expand-icon">▼</span>
+                      </div>
+                      <div className="detail-content">
+                        {carta.signo}
+                      </div>
+                    </div>
+
+                    <div
+                      className={`detail-item ${isDetalleExpandido(carta.numero, 'atribucion') ? 'expanded' : ''}`}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toggleDetalle(carta.numero, 'atribucion');
+                      }}
+                    >
+                      <div className="detail-header">
+                        <strong>Atribución</strong>
+                        <span className="expand-icon">▼</span>
+                      </div>
+                      <div className="detail-content">
+                        {carta.atribucion}
+                      </div>
+                    </div>
+
+                    <div
+                      className={`detail-item ${isDetalleExpandido(carta.numero, 'significado') ? 'expanded' : ''}`}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toggleDetalle(carta.numero, 'significado');
+                      }}
+                    >
+                      <div className="detail-header">
+                        <strong>Significado</strong>
+                        <span className="expand-icon">▼</span>
+                      </div>
+                      <div className="detail-content">
+                        {carta.significado}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

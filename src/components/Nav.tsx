@@ -3,6 +3,7 @@
  */
 
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 
 interface NavProps {
   isDarkMode: boolean;
@@ -59,9 +60,9 @@ const Nav: React.FC<NavProps> = ({ isDarkMode, onThemeToggle, onLogout }) => {
 
         <div className={`nav-menu ${mobileMenuOpen ? 'active' : ''}`}>
           <div className="nav-links">
-            <a href="#inicio" className="nav-link" onClick={() => setMobileMenuOpen(false)}>
+            <Link to="/inicio" className="nav-link" onClick={() => setMobileMenuOpen(false)}>
               Inicio
-            </a>
+            </Link>
 
             <div
               className={`nav-dropdown ${tarotMenuOpen ? 'active' : ''}`}
@@ -73,8 +74,8 @@ const Nav: React.FC<NavProps> = ({ isDarkMode, onThemeToggle, onLogout }) => {
                 <span className={`dropdown-arrow ${tarotMenuOpen ? 'active' : ''}`}>▼</span>
               </span>
               <div className={`dropdown-content ${tarotMenuOpen ? 'active' : ''}`}>
-                <a
-                  href="#lecturas"
+                <Link
+                  to="/lecturas"
                   className="dropdown-item"
                   onClick={() => {
                     setTarotMenuOpen(false);
@@ -82,9 +83,9 @@ const Nav: React.FC<NavProps> = ({ isDarkMode, onThemeToggle, onLogout }) => {
                   }}
                 >
                   Lecturas
-                </a>
-                <a
-                  href="#estudio"
+                </Link>
+                <Link
+                  to="/estudio"
                   className="dropdown-item"
                   onClick={() => {
                     setTarotMenuOpen(false);
@@ -92,9 +93,9 @@ const Nav: React.FC<NavProps> = ({ isDarkMode, onThemeToggle, onLogout }) => {
                   }}
                 >
                   Estudio
-                </a>
-                <a
-                  href="#cartas"
+                </Link>
+                <Link
+                  to="/cartas"
                   className="dropdown-item"
                   onClick={() => {
                     setTarotMenuOpen(false);
@@ -102,16 +103,16 @@ const Nav: React.FC<NavProps> = ({ isDarkMode, onThemeToggle, onLogout }) => {
                   }}
                 >
                   Todas las Cartas
-                </a>
+                </Link>
               </div>
             </div>
 
-            <a href="#alefato" className="nav-link" onClick={() => setMobileMenuOpen(false)}>
+            <Link to="/alefato" className="nav-link" onClick={() => setMobileMenuOpen(false)}>
               Alefato
-            </a>
-            <a href="#rituales" className="nav-link" onClick={() => setMobileMenuOpen(false)}>
+            </Link>
+            <Link to="/rituales" className="nav-link" onClick={() => setMobileMenuOpen(false)}>
               Rituales
-            </a>
+            </Link>
           </div>
 
           <div className="nav-controls">

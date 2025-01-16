@@ -1,33 +1,27 @@
 /**
- * @fileoverview Componente para realizar diferentes tipos de lecturas de Tarot.
+ * @fileoverview Componente para realizar lecturas de Tarot.
  */
 
 import React from 'react';
-import TarotReading from './TarotReading.tsx';
-import { Carta } from '../types/tarot.tsx';
+import { ArcanosMayores } from '../types/tarot';
 
-interface LecturasProps {
-  cartas: Carta[];
-  getImagePath: (numero: number, nombre: string) => string;
+export interface LecturasProps {
+  arcanos_mayores: ArcanosMayores;
 }
 
-const Lecturas: React.FC<LecturasProps> = ({ cartas, getImagePath }) => {
+const Lecturas: React.FC<LecturasProps> = ({ arcanos_mayores }) => {
   return (
     <div className="lecturas-container">
       <div className="lecturas-header">
         <h1>Consulta el Tarot</h1>
         <p className="lecturas-intro">
-          Bienvenido al portal de consultas del Tarot. Aquí podrás realizar diferentes
-          tipos de tiradas para obtener guía y comprensión sobre tus inquietudes.
-          Recuerda que el Tarot es una herramienta de autoconocimiento y desarrollo
-          espiritual.
+          Realiza una lectura de Tarot utilizando el sistema de la Aurora Dorada.
+          Cada carta revelará aspectos profundos de tu consulta a través de sus
+          correspondencias esotéricas.
         </p>
       </div>
 
-      <TarotReading
-        cartas={cartas}
-        getImagePath={getImagePath}
-      />
+      {/* Aquí irá el contenido de las lecturas */}
     </div>
   );
 };

@@ -1,0 +1,69 @@
+{
+  "Tierra": {
+    "energia": "Tierra",
+    "simbolo": "🜃",
+    "altar": "Unión",
+    "tablaEnoquiana": {
+      "energia": "Tierra en el Norte",
+      "posicionTemplo": "Norte"
+    },
+    "llamadaEnoquiana": "Quinta y Primera (Unión) y Segunda (Espíritu)",
+    "tarot": {
+      "carta": "Palo de Oros"
+    },
+    "casas": {
+      "diurna": "No aplica",
+      "nocturna": "No aplica"
+    },
+    "horaAdecuada": "⏹ Hora de Pritvi",
+    "colores": ["Negro", "Blanco"],
+    "aromas": ["Estoraque"],
+    "formaDivina": {
+      "transliteracion": "Nebtjet (Neftis)",
+      "copto": "Ⲛⲉⲃϫⲓⲧ"
+    },
+    "proyeccion": {
+      "vibracion": "Pasivo: Vibrar NANTA y en la rueda, vibrar אגלא (AGLA)",
+      "colorEnergia": "Negro",
+      "trazo": "Blanco ♉"
+    },
+    "jerarquia": {
+      "senor": {
+        "nombre": "Adonai Haaretz",
+        "hebreo": "אֲדֹנָי הָאָרֶץ"
+      },
+      "arcangel": {
+        "nombre": "Uriel",
+        "hebreo": "אוּרִיאֵל"
+      },
+      "angel": {
+        "nombre": "Porlak",
+        "hebreo": "פּוֹרְלַק"
+      },
+      "gobernador": {
+        "nombre": "Keruv",
+        "hebreo": "כְּרוּב"
+      },
+      "fuerzas": {
+        "nombre": "Eretz",
+        "hebreo": "אֶרֶץ"
+      }
+    },
+    "ordenElemental": "Nomz",
+    "majestad": "Gob",
+    "principe": "No aplica",
+    "tipoMagia": "Elemental",
+    "riosEden": {
+      "hebreo": "פְּרַת",
+      "nombre": "Frat o Prat o Parat"
+    },
+    "triplicidad": "Tierra",
+    "grado": "Zelator",
+    "orden": "Orden Elemental",
+    "orientacion": {
+      "altar": "Sur",
+      "hebreo": "דָּרוֹם"
+    },
+    "signoGrado": "Zelator"
+  }
+}

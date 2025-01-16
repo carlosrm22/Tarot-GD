@@ -1,21 +1,24 @@
 import React from 'react';
+import { TipoEnergia } from '../types/correspondencias';
 
 interface ElementSymbolProps {
-  element: string;
+  element: TipoEnergia | string;
 }
 
 const ElementSymbol: React.FC<ElementSymbolProps> = ({ element }) => {
   const getSymbol = (element: string): string => {
     switch (element) {
       // Elementos
+      case "Tierra":
+        return "🜃";
       case "Aire":
         return "🜁";
       case "Agua":
         return "🜄";
       case "Fuego":
         return "🜂";
-      case "Tierra":
-        return "🜃";
+      case "Supremo Elemental":
+        return "✡";
       // Planetas
       case "Luna":
         return "☽";
@@ -56,6 +59,31 @@ const ElementSymbol: React.FC<ElementSymbolProps> = ({ element }) => {
         return "♒";
       case "Piscis":
         return "♓";
+      case "Zodiaco":
+        return "⭕";
+      // Sefirot
+      case "Maljut":
+        return "⬤";
+      case "Yesod":
+        return "⬤";
+      case "Hod":
+        return "⬤";
+      case "Netsaj":
+        return "⬤";
+      case "Tiféret":
+        return "⬤";
+      case "Guevurá":
+        return "⬤";
+      case "Jesed":
+        return "⬤";
+      case "Biná":
+        return "⬤";
+      case "Jojmá":
+        return "⬤";
+      case "Kéter":
+        return "⬤";
+      case "Sefirot":
+        return "⬤";
       default:
         return "";
     }

@@ -29,8 +29,8 @@ const letrasHebreas: LetraHebrea[] = [
     significado: 'Casa',
     sendero: 12,
     elemento: 'Mercurio'
-  },
-  // ... más letras se agregarán aquí
+    },
+    // ... más letras se agregarán aquí
 ];
 
 const Alefato: React.FC = () => {

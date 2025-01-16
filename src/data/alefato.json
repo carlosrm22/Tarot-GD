@@ -1,0 +1,468 @@
+{
+  "letrasHebreasBase": {
+    "א": {
+      "nombre": "Álef",
+      "pronunciacion": "(Muda)",
+      "significado": "Cabeza de buey",
+      "gematria": 1,
+      "seferYetzira": {
+        "energia": "Aire",
+        "simbolo": "🜁"
+      },
+      "goldenDawn": {
+        "energia": "Aire",
+        "simbolo": "🜁"
+      },
+      "tarot": {
+        "nombre": "0 El Loco",
+        "imagen": ""
+      },
+      "unicode": 1488,
+      "letrasLatinas": ["A", "a"]
+    },
+    "ב": {
+      "nombre": "Bet",
+      "pronunciacion": "(B)",
+      "significado": "Casa",
+      "gematria": 2,
+      "seferYetzira": {
+        "energia": "Saturno",
+        "simbolo": "♄"
+      },
+      "goldenDawn": {
+        "energia": "Mercurio",
+        "simbolo": "☿"
+      },
+      "tarot": {
+        "nombre": "1 El Mago",
+        "imagen": ""
+      },
+      "unicode": 1489,
+      "letrasLatinas": ["B", "b", "V", "v"]
+    },
+    "ג": {
+      "nombre": "Guímel",
+      "pronunciacion": "(G)",
+      "significado": "Camello",
+      "gematria": 3,
+      "seferYetzira": {
+        "energia": "Júpiter",
+        "simbolo": "♃"
+      },
+      "goldenDawn": {
+        "energia": "Luna",
+        "simbolo": "☽"
+      },
+      "tarot": {
+        "nombre": "2 La Sacerdotisa",
+        "imagen": ""
+      },
+      "unicode": 1490,
+      "letrasLatinas": ["G", "g"]
+    },
+    "ד": {
+      "nombre": "Dálet",
+      "pronunciacion": "(D)",
+      "significado": "Puerta",
+      "gematria": 4,
+      "seferYetzira": {
+        "energia": "Marte",
+        "simbolo": "♂"
+      },
+      "goldenDawn": {
+        "energia": "Venus",
+        "simbolo": "♀"
+      },
+      "tarot": {
+        "nombre": "3 La Emperatriz",
+        "imagen": ""
+      },
+      "unicode": 1491,
+      "letrasLatinas": ["D", "d"]
+    },
+    "ה": {
+      "nombre": "Hei",
+      "pronunciacion": "(H)",
+      "significado": "Ventana",
+      "gematria": 5,
+      "seferYetzira": {
+        "energia": "Aries",
+        "simbolo": "♈"
+      },
+      "goldenDawn": {
+        "energia": "Aries",
+        "simbolo": "♈"
+      },
+      "tarot": {
+        "nombre": "4 El Emperador",
+        "imagen": ""
+      },
+      "unicode": 1492,
+      "letrasLatinas": ["H", "h"]
+    },
+    "ו": {
+      "nombre": "Vav",
+      "pronunciacion": "(V o W)",
+      "significado": "Aguijón o Gancho",
+      "gematria": 6,
+      "seferYetzira": {
+        "energia": "Tauro",
+        "simbolo": "♉"
+      },
+      "goldenDawn": {
+        "energia": "Tauro",
+        "simbolo": "♉"
+      },
+      "tarot": {
+        "nombre": "5 El Hierofante",
+        "imagen": ""
+      },
+      "unicode": 1493,
+      "letrasLatinas": ["O", "o", "U", "u", "V", "v", "W", "w"]
+    },
+    "ז": {
+      "nombre": "Záin",
+      "pronunciacion": "(Z)",
+      "significado": "Espada (Arma)",
+      "gematria": 7,
+      "seferYetzira": {
+        "energia": "Géminis",
+        "simbolo": "♊"
+      },
+      "goldenDawn": {
+        "energia": "Géminis",
+        "simbolo": "♊"
+      },
+      "tarot": {
+        "nombre": "6 Los Amantes",
+        "imagen": ""
+      },
+      "unicode": 1494,
+      "letrasLatinas": ["Z", "z"]
+    },
+    "ח": {
+      "nombre": "Jet",
+      "pronunciacion": "(J o Kh)",
+      "significado": "Cerca Muro, Pared",
+      "gematria": 8,
+      "seferYetzira": {
+        "energia": "Cáncer",
+        "simbolo": "♋"
+      },
+      "goldenDawn": {
+        "energia": "Cáncer",
+        "simbolo": "♋"
+      },
+      "tarot": {
+        "nombre": "7 El Carro",
+        "imagen": ""
+      },
+      "unicode": 1495,
+      "letrasLatinas": ["J", "j"]
+    },
+    "ט": {
+      "nombre": "Tet",
+      "pronunciacion": "(T)",
+      "significado": "Serpiente u Odre",
+      "gematria": 9,
+      "seferYetzira": {
+        "energia": "Leo",
+        "simbolo": "♌"
+      },
+      "goldenDawn": {
+        "energia": "Leo",
+        "simbolo": "♌"
+      },
+      "tarot": {
+        "nombre": "8 Fuerza",
+        "imagen": ""
+      },
+      "unicode": 1496
+    },
+    "י": {
+      "nombre": "Yod",
+      "pronunciacion": "(Y o I)",
+      "significado": "Mano cerrada o puño",
+      "gematria": 10,
+      "seferYetzira": {
+        "energia": "Virgo",
+        "simbolo": "♍"
+      },
+      "goldenDawn": {
+        "energia": "Virgo",
+        "simbolo": "♍"
+      },
+      "tarot": {
+        "nombre": "9 El Ermitaño",
+        "imagen": ""
+      },
+      "unicode": 1497,
+      "letrasLatinas": ["I", "i", "Y", "y"]
+    },
+    "כ": {
+      "nombre": "Kaf",
+      "pronunciacion": "(K)",
+      "significado": "Palma (mano abierta)",
+      "gematria": 20,
+      "seferYetzira": {
+        "energia": "Sol",
+        "simbolo": "⨀"
+      },
+      "goldenDawn": {
+        "energia": "Júpiter",
+        "simbolo": "♃"
+      },
+      "tarot": {
+        "nombre": "10 Rueda de la Fortuna",
+        "imagen": ""
+      },
+      "unicode": 1499,
+      "letrasLatinas": ["K", "k", "C", "c"],
+      "final": {
+        "letra": "ך",
+        "gematria": 500,
+        "unicode": 1498
+      }
+    },
+    "ל": {
+      "nombre": "Lamed",
+      "pronunciacion": "(L)",
+      "significado": "Yunta o Agujada o Fusta",
+      "gematria": 30,
+      "seferYetzira": {
+        "energia": "Libra",
+        "simbolo": "♎"
+      },
+      "goldenDawn": {
+        "energia": "Libra",
+        "simbolo": "♎"
+      },
+      "tarot": {
+        "nombre": "11 Justicia",
+        "imagen": ""
+      },
+      "unicode": 1500,
+      "letrasLatinas": ["L", "l"]
+    },
+    "מ": {
+      "nombre": "Mem",
+      "pronunciacion": "(M)",
+      "significado": "Agua",
+      "gematria": 40,
+      "seferYetzira": {
+        "energia": "Agua",
+        "simbolo": "🜄"
+      },
+      "goldenDawn": {
+        "energia": "Agua",
+        "simbolo": "🜄"
+      },
+      "tarot": {
+        "nombre": "12 El Colgado",
+        "imagen": ""
+      },
+      "unicode": 1502,
+      "letrasLatinas": ["M", "m"],
+      "final": {
+        "letra": "ם",
+        "gematria": 600,
+        "unicode": 1501
+      }
+    },
+    "נ": {
+      "nombre": "Nun",
+      "pronunciacion": "(N)",
+      "significado": "Pez",
+      "gematria": 50,
+      "seferYetzira": {
+        "energia": "Escorpión",
+        "simbolo": "♏"
+      },
+      "goldenDawn": {
+        "energia": "Escorpión",
+        "simbolo": "♏"
+      },
+      "tarot": {
+        "nombre": "13 Muerte",
+        "imagen": ""
+      },
+      "unicode": 1504,
+      "letrasLatinas": ["N", "n", "Ñ", "ñ"],
+      "final": {
+        "letra": "ן",
+        "gematria": 700,
+        "unicode": 1503
+      }
+    },
+    "ס": {
+      "nombre": "Sámej",
+      "pronunciacion": "(S)",
+      "significado": "Puntal, Estructura, Fundamento Pilar, Apoyo, Soporte",
+      "gematria": 60,
+      "seferYetzira": {
+        "energia": "Sagitario",
+        "simbolo": "♐"
+      },
+      "goldenDawn": {
+        "energia": "Sagitario",
+        "simbolo": "♐"
+      },
+      "tarot": {
+        "nombre": "14 Templanza",
+        "imagen": ""
+      },
+      "unicode": 1505,
+      "letrasLatinas": ["S", "s"]
+    },
+    "ע": {
+      "nombre": "Áyin",
+      "pronunciacion": "(Silente o Guttural)",
+      "significado": "Ojo",
+      "gematria": 70,
+      "seferYetzira": {
+        "energia": "Capricornio",
+        "simbolo": "♑"
+      },
+      "goldenDawn": {
+        "energia": "Capricornio",
+        "simbolo": "♑"
+      },
+      "tarot": {
+        "nombre": "15 El Diablo",
+        "imagen": ""
+      },
+      "unicode": 1506,
+      "letrasLatinas": ["E", "e"]
+    },
+    "פ": {
+      "nombre": "Pei",
+      "pronunciacion": "(P o F)",
+      "significado": "Boca",
+      "gematria": 80,
+      "seferYetzira": {
+        "energia": "Venus",
+        "simbolo": "♀"
+      },
+      "goldenDawn": {
+        "energia": "Marte",
+        "simbolo": "♂"
+      },
+      "tarot": {
+        "nombre": "16 La Torre",
+        "imagen": ""
+      },
+      "unicode": 1508,
+      "letrasLatinas": ["P", "p", "F", "f"],
+      "final": {
+        "letra": "ף",
+        "gematria": 800,
+        "unicode": 1507
+      }
+    },
+    "צ": {
+      "nombre": "Tsadé",
+      "pronunciacion": "(Ts)",
+      "significado": "Anzueo de pesca o corchete",
+      "gematria": 90,
+      "seferYetzira": {
+        "energia": "Acuario",
+        "simbolo": "♒"
+      },
+      "goldenDawn": {
+        "energia": "Acuario",
+        "simbolo": "♒"
+      },
+      "tarot": {
+        "nombre": "17 La Estrella",
+        "imagen": ""
+      },
+      "unicode": 1510,
+      "letrasLatinas": ["X", "x"],
+      "final": {
+        "letra": "ץ",
+        "gematria": 900,
+        "unicode": 1509
+      }
+    },
+    "ק": {
+      "nombre": "Kuf",
+      "pronunciacion": "(K)",
+      "significado": "Oído o Nuca o Aguja",
+      "gematria": 100,
+      "seferYetzira": {
+        "energia": "Piscis",
+        "simbolo": "♓"
+      },
+      "goldenDawn": {
+        "energia": "Piscis",
+        "simbolo": "♓"
+      },
+      "tarot": {
+        "nombre": "18 La Luna",
+        "imagen": ""
+      },
+      "unicode": 1511,
+      "letrasLatinas": ["Q", "q"]
+    },
+    "ר": {
+      "nombre": "Resh",
+      "pronunciacion": "(R)",
+      "significado": "Cabeza",
+      "gematria": 200,
+      "seferYetzira": {
+        "energia": "Mercurio",
+        "simbolo": "☿"
+      },
+      "goldenDawn": {
+        "energia": "Sol",
+        "simbolo": "⨀"
+      },
+      "tarot": {
+        "nombre": "19 El Sol",
+        "imagen": ""
+      },
+      "unicode": 1512,
+      "letrasLatinas": ["R", "r"]
+    },
+    "ש": {
+      "nombre": "Shin",
+      "pronunciacion": "(Sh o S)",
+      "significado": "Dientes",
+      "gematria": 300,
+      "seferYetzira": {
+        "energia": "Fuego",
+        "simbolo": "🜂"
+      },
+      "goldenDawn": {
+        "energia": "Fuego",
+        "simbolo": "🜂"
+      },
+      "tarot": {
+        "nombre": "20 Juicio",
+        "imagen": ""
+      },
+      "unicode": 1513,
+      "letrasLatinas": ["S", "s"]
+    },
+    "ת": {
+      "nombre": "Tav",
+      "pronunciacion": "(T)",
+      "significado": "Cruz",
+      "gematria": 400,
+      "seferYetzira": {
+        "energia": "Luna",
+        "simbolo": "☽"
+      },
+      "goldenDawn": {
+        "energia": "Saturno",
+        "simbolo": "♄"
+      },
+      "tarot": {
+        "nombre": "21 El Universo",
+        "imagen": ""
+      },
+      "unicode": 1514,
+      "letrasLatinas": ["T", "t"]
+    }
+  }
+}

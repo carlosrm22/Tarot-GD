@@ -9,10 +9,11 @@ const Inicio: React.FC = () => {
   return (
     <div className="inicio-container">
       <div className="inicio-header">
-        <h1>Bienvenido al Tarot Esotérico</h1>
+        <h1>✧ Bienvenido al Portal Místico ✧</h1>
         <p className="inicio-intro">
-          Explora el mundo místico del Tarot a través de sus profundas conexiones
-          con la Cábala, el Alefato Hebreo y los Rituales Mágicos.
+          Explora el mundo místico del Tarot, a través de sus profundas
+          conexiones con la Cábala, el Alefato Hebreo y los Rituales de Alta
+          Magia.
         </p>
       </div>
 
@@ -28,24 +29,24 @@ const Inicio: React.FC = () => {
         <Link to="/alefato" className="inicio-section">
           <h2>Alefato Hebreo</h2>
           <p>
-            Explora las 22 letras hebreas y su conexión mística con los
-            Arcanos Mayores del Tarot.
+            Explora las 22 letras hebreas y su conexión mística con los Arcanos
+            Mayores del Tarot.
           </p>
         </Link>
 
         <Link to="/rituales" className="inicio-section">
           <h2>Rituales</h2>
           <p>
-            Aprende sobre los rituales mágicos y cómo utilizar el Tarot
-            como herramienta de transformación espiritual.
+            Aprende sobre los rituales mágicos y cómo utilizar el Tarot como
+            herramienta de transformación espiritual.
           </p>
         </Link>
       </div>
 
       <div className="inicio-quote">
         <blockquote>
-          "El Tarot es un libro de sabiduría ancestral que contiene todo
-          el conocimiento del universo codificado en símbolos."
+          "El Tarot es un libro de sabiduría ancestral que contiene todo el
+          conocimiento del universo codificado en símbolos."
         </blockquote>
         <cite>- Tradición Hermética</cite>
       </div>

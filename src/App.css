@@ -1835,3 +1835,9 @@ input:checked + .slider:before {
 .card-type-section:hover .card-type-image {
   transform: scale(1.05);
 }
+
+.elemento-simbolo {
+  margin-left: 0.5rem;
+  font-size: 1.2em;
+  vertical-align: middle;
+}

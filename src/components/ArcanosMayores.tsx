@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import TreeOfLife from './TreeOfLife';
 import arcanosMayoresData from '../Arcanos_Mayores_Tarot.json';
 import { ArcanosMayores as ArcanosMayoresType } from '../types/tarot';
+import ElementSymbol from './ElementSymbol';
 
 const ArcanosMayores: React.FC = () => {
   const [cartasVolteadas, setCartasVolteadas] = useState<{ [key: number]: boolean }>({});
@@ -157,30 +158,7 @@ const ArcanosMayores: React.FC = () => {
                     <div className="detail-content" data-section="signo">
                       <p>
                         {carta.signo}
-                        <span className="simbolo-signo">
-                          {carta.signo === "Aire" ? "🜁" :
-                           carta.signo === "Agua" ? "🜄" :
-                           carta.signo === "Fuego" ? "🜂" :
-                           carta.signo === "Luna" ? "☽" :
-                           carta.signo === "Mercurio" ? "☿" :
-                           carta.signo === "Venus" ? "♀" :
-                           carta.signo === "Sol" ? "⨀" :
-                           carta.signo === "Marte" ? "♂" :
-                           carta.signo === "Júpiter" ? "♃" :
-                           carta.signo === "Saturno" ? "♄" :
-                           carta.signo === "Piscis" ? "♓" :
-                           carta.signo === "Acuario" ? "♒" :
-                           carta.signo === "Capricornio" ? "♑" :
-                           carta.signo === "Sagitario" ? "♐" :
-                           carta.signo === "Escorpio" ? "♏" :
-                           carta.signo === "Libra" ? "♎" :
-                           carta.signo === "Virgo" ? "♍" :
-                           carta.signo === "Leo" ? "♌" :
-                           carta.signo === "Cáncer" ? "♋" :
-                           carta.signo === "Géminis" ? "♊" :
-                           carta.signo === "Tauro" ? "♉" :
-                           carta.signo === "Aries" ? "♈" : ""}
-                        </span>
+                        <ElementSymbol element={carta.signo} />
                       </p>
                     </div>
                   </div>

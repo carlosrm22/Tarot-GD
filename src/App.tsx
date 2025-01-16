@@ -73,7 +73,7 @@ function App() {
       setIsAuthenticated(true);
       setError('');
     } else {
-      setError('Contraseña incorrecta');
+      setError('Contraseña incorrecta, medita en tu respuesta y vuelve a intentarlo');
     }
   };
 
@@ -84,7 +84,7 @@ function App() {
 
   if (!isAuthenticated) {
     return (
-      <div className="App">
+      <div className="App" data-theme={isDarkMode ? 'dark' : 'light'}>
         <div className="login-container">
           <form className="login-form" onSubmit={handleLogin}>
             <h2>✧ Portal de Iniciados ✧</h2>
@@ -128,6 +128,7 @@ function App() {
           <Route path="/cartas/arcanos-mayores" element={<ArcanosMayores />} />
           <Route path="/alefato" element={<Alefato />} />
           <Route path="/rituales" element={<Rituales />} />
+          <Route path="*" element={<Navigate to="/inicio" />} />
         </Routes>
 
         <Footer />

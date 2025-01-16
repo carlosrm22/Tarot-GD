@@ -38,7 +38,7 @@ const ArcanosMayores: React.FC = () => {
     };
 
     const nombreArchivo = nombresEspeciales[nombre] || nombre;
-    return `${process.env.PUBLIC_URL}/images/${numero} ${nombreArchivo}.png`;
+    return `${process.env.PUBLIC_URL}/images/Arcanos Mayores/${numero} ${nombreArchivo}.png`;
   };
 
   const expandirTodo = (cartaId: number) => {

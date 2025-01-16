@@ -18,7 +18,7 @@ const ElementSymbol: React.FC<ElementSymbolProps> = ({ element }) => {
       case "Fuego":
         return "🜂";
       case "Supremo Elemental":
-        return "✡";
+        return "⛤";
       // Planetas
       case "Luna":
         return "☽";
@@ -60,30 +60,30 @@ const ElementSymbol: React.FC<ElementSymbolProps> = ({ element }) => {
       case "Piscis":
         return "♓";
       case "Zodiaco":
-        return "⭕";
+        return "♅";
       // Sefirot
       case "Maljut":
-        return "⬤";
+        return "⊗";
       case "Yesod":
-        return "⬤";
+        return "⓽";
       case "Hod":
-        return "⬤";
+        return "⯄";
       case "Netsaj":
-        return "⬤";
+        return "⯃";
       case "Tiféret":
-        return "⬤";
+        return "⬡";
       case "Guevurá":
-        return "⬤";
+        return "⬠";
       case "Jesed":
-        return "⬤";
+        return "⎕";
       case "Biná":
-        return "⬤";
+        return "△";
       case "Jojmá":
-        return "⬤";
+        return "⨁";
       case "Kéter":
-        return "⬤";
+        return "⨀";
       case "Sefirot":
-        return "⬤";
+        return "✡";
       default:
         return "";
     }

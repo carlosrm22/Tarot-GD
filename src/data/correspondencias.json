@@ -2,14 +2,26 @@
   "Tierra": {
     "energia": "Tierra",
     "simbolo": "🜃",
-    "altar": "Unión",
+    "sigilo": "imagen",
+    "talisman": {
+      "descripcion": "imagen"
+    },
+    "altar": "Negro",
+    "arma": {
+      "nombre": "Pantáculo",
+      "imagen": "imagen"
+    },
     "tablaEnoquiana": {
+      "enAltar": "Unión",
+      "imagenAltar": "imagen",
       "energia": "Tierra en el Norte",
-      "posicionTemplo": "Norte"
+      "posicionTemplo": "Norte",
+      "imagenEnergia": "imagen"
     },
     "llamadaEnoquiana": "Quinta y Primera (Unión) y Segunda (Espíritu)",
     "tarot": {
-      "carta": "Palo de Oros"
+      "carta": "Palo de Oros",
+      "imagen": "imagen"
     },
     "casas": {
       "diurna": "No aplica",
@@ -20,33 +32,55 @@
     "aromas": ["Estoraque"],
     "formaDivina": {
       "transliteracion": "Nebtjet (Neftis)",
-      "copto": "Ⲛⲉⲃϫⲓⲧ"
+      "copto": "Ⲛⲉⲃϫⲓⲧ",
+      "imagen": "imagen"
+    },
+    "pentagramas": {
+      "espiritu": {
+        "descripcion": "Pasivo: Vibrar NANTA \ny en la rueda, vibrar אגלא (AGLA)",
+        "imagen": "imagen"
+      },
+      "energia": {
+        "descripcion": "Mor Dial Hectega",
+        "imagen": "imagen"
+      }
     },
     "proyeccion": {
-      "vibracion": "Pasivo: Vibrar NANTA y en la rueda, vibrar אגלא (AGLA)",
       "colorEnergia": "Negro",
-      "trazo": "Blanco ♉"
+      "trazo": "Blanco ♉",
+      "vibracion": "ADONAI אֲדֹנָי"
+    },
+    "signoGrado": "Zelator",
+    "orientacion": {
+      "altar": "Sur",
+      "hebreo": "(Daróm) דָּרוֹם"
     },
     "jerarquia": {
       "senor": {
         "nombre": "Adonai Haaretz",
-        "hebreo": "אֲדֹנָי הָאָרֶץ"
+        "hebreo": "אֲדֹנָי הָאָרֶץ",
+        "sigilo": "imagen"
       },
+      "nombreSagrado": "No aplica",
       "arcangel": {
         "nombre": "Uriel",
-        "hebreo": "אוּרִיאֵל"
+        "hebreo": "אוּרִיאֵל",
+        "sigilo": "imagen"
       },
       "angel": {
         "nombre": "Porlak",
-        "hebreo": "פּוֹרְלַק"
+        "hebreo": "פּוֹרְלַק",
+        "sigilo": "imagen"
       },
       "gobernador": {
         "nombre": "Keruv",
-        "hebreo": "כְּרוּב"
+        "hebreo": "כְּרוּב",
+        "sigilo": "imagen"
       },
       "fuerzas": {
         "nombre": "Eretz",
-        "hebreo": "אֶרֶץ"
+        "hebreo": "אֶרֶץ",
+        "sigilo": "imagen"
       }
     },
     "ordenElemental": "Nomz",
@@ -59,11 +93,390 @@
     },
     "triplicidad": "Tierra",
     "grado": "Zelator",
-    "orden": "Orden Elemental",
-    "orientacion": {
-      "altar": "Sur",
-      "hebreo": "דָּרוֹם"
+    "orden": "Orden Elemental"
+  },
+  "Aire": {
+    "energia": "Aire",
+    "simbolo": "🜁",
+    "sigilo": "imagen",
+    "talisman": {
+      "descripcion": "imagen"
     },
-    "signoGrado": "Zelator"
+    "altar": "Amarillo",
+    "arma": {
+      "nombre": "Daga de aire",
+      "imagen": "imagen"
+    },
+    "tablaEnoquiana": {
+      "enAltar": "Unión",
+      "imagenAltar": "imagen",
+      "energia": "Aire en el Este",
+      "posicionTemplo": "Este",
+      "imagenEnergia": "imagen"
+    },
+    "llamadaEnoquiana": "Tercera y Primera (Unión) y Segunda (Espíritu)",
+    "tarot": {
+      "carta": "Palo de Espadas y 0 El Loco",
+      "imagen": "imagen"
+    },
+    "casas": {
+      "diurna": "No aplica",
+      "nocturna": "No aplica"
+    },
+    "horaAdecuada": "⏺ Hora de Vayu",
+    "colores": ["Amarillo", "Violeta"],
+    "aromas": ["Gálbano"],
+    "formaDivina": {
+      "transliteracion": "Djehuty (Tot)",
+      "copto": "Ⲙⲉⲓⲣⲓ (Meiri)",
+      "imagen": "imagen"
+    },
+    "pentagramas": {
+      "espiritu": {
+        "descripcion": "Activo EXARPE \ny en la rueda, vibrar אֶהְיֶה (EHYE)",
+        "imagen": "imagen"
+      },
+      "energia": {
+        "descripcion": "Oro Ibah Aozpi",
+        "imagen": "imagen"
+      }
+    },
+    "proyeccion": {
+      "colorEnergia": "Amarillo",
+      "trazo": "Violeta ♒",
+      "vibracion": "YHVH יָהוֹה"
+    },
+    "signoGrado": "Theoricus",
+    "orientacion": {
+      "altar": "Oeste",
+      "hebreo": "(Ma'aráv) מַעֲרָב"
+    },
+    "jerarquia": {
+      "senor": {
+        "nombre": "Shadai El Ji",
+        "hebreo": "שַׁדַּי אֵל חַי",
+        "sigilo": "imagen"
+      },
+      "nombreSagrado": "No aplica",
+      "arcangel": {
+        "nombre": "R'fael",
+        "hebreo": "רְפָאֵל",
+        "sigilo": "imagen"
+      },
+      "angel": {
+        "nombre": "Jasan",
+        "hebreo": "חַסָן",
+        "sigilo": "imagen"
+      },
+      "gobernador": {
+        "nombre": "Ariel",
+        "hebreo": "אֲרִיאֵל",
+        "sigilo": "imagen"
+      },
+      "fuerzas": {
+        "nombre": "Ruaj",
+        "hebreo": "רוּחַ",
+        "sigilo": "imagen"
+      }
+    },
+    "ordenElemental": "Silfs",
+    "majestad": "Paralda",
+    "principe": "No aplica",
+    "tipoMagia": "Elemental",
+    "riosEden": {
+      "hebreo": "חִדֶּקֶל",
+      "nombre": "Hidekel"
+    },
+    "triplicidad": "Aire",
+    "grado": "Teóricus",
+    "orden": "Orden Elemental"
+  },
+  "Agua": {
+    "energia": "Agua",
+    "simbolo": "🜄",
+    "sigilo": "imagen",
+    "talisman": {
+      "descripcion": "imagen"
+    },
+    "altar": "Azul",
+    "arma": {
+      "nombre": "Copa",
+      "imagen": "imagen"
+    },
+    "tablaEnoquiana": {
+      "enAltar": "Unión",
+      "imagenAltar": "imagen",
+      "energia": "Agua en el Oeste",
+      "posicionTemplo": "Oeste",
+      "imagenEnergia": "imagen"
+    },
+    "llamadaEnoquiana": "Cuarta y Primera (Unión) y Segunda (Espíritu)",
+    "tarot": {
+      "carta": "Palo de Copas",
+      "imagen": "imagen"
+    },
+    "casas": {
+      "diurna": "No aplica",
+      "nocturna": "No aplica"
+    },
+    "horaAdecuada": "⏺ Hora de Apas",
+    "colores": ["Azul", "Naranja"],
+    "aromas": ["Mirra"],
+    "formaDivina": {
+      "transliteracion": "Aset (Isis)",
+      "copto": "Ⲏⲥⲉ",
+      "imagen": "imagen"
+    },
+    "pentagramas": {
+      "espiritu": {
+        "descripcion": "Pasivo: Vibrar HCOMA \ny en la rueda, vibrar אל (EL)",
+        "imagen": "imagen"
+      },
+      "energia": {
+        "descripcion": "Mph Arsl Gaiol",
+        "imagen": "imagen"
+      }
+    },
+    "proyeccion": {
+      "colorEnergia": "Azul",
+      "trazo": "Naranja ♋",
+      "vibracion": "EL אל"
+    },
+    "signoGrado": "Practicus",
+    "orientacion": {
+      "altar": "Este",
+      "hebreo": "(Mizraj) מִזְרָח"
+    },
+    "jerarquia": {
+      "senor": {
+        "nombre": "Elohim Tzabaot",
+        "hebreo": "אֱלֹהִים צְבָאוֹת",
+        "sigilo": "imagen"
+      },
+      "nombreSagrado": "No aplica",
+      "arcangel": {
+        "nombre": "Gabriel",
+        "hebreo": "גַבְרִיאֵל",
+        "sigilo": "imagen"
+      },
+      "angel": {
+        "nombre": "Taliahad",
+        "hebreo": "טַלִיהַד",
+        "sigilo": "imagen"
+      },
+      "gobernador": {
+        "nombre": "Tharsis",
+        "hebreo": "תַּרְשִׁישׁ",
+        "sigilo": "imagen"
+      },
+      "fuerzas": {
+        "nombre": "Maim",
+        "hebreo": "מַיִם",
+        "sigilo": "imagen"
+      }
+    },
+    "ordenElemental": "Ondinas",
+    "majestad": "Niksa",
+    "principe": "No aplica",
+    "tipoMagia": "Elemental",
+    "riosEden": {
+      "hebreo": "גִּיחוֹן",
+      "nombre": "Guijón"
+    },
+    "triplicidad": "Agua",
+    "grado": "Prácticus",
+    "orden": "Orden Elemental"
+  },
+  "Fuego": {
+    "energia": "Fuego",
+    "simbolo": "🜂",
+    "sigilo": "imagen",
+    "talisman": {
+      "descripcion": "imagen"
+    },
+    "altar": "Rojo",
+    "arma": {
+      "nombre": "Vara",
+      "imagen": "imagen"
+    },
+    "tablaEnoquiana": {
+      "enAltar": "Unión",
+      "imagenAltar": "imagen",
+      "energia": "Fuego en el Sur",
+      "posicionTemplo": "Sur",
+      "imagenEnergia": "imagen"
+    },
+    "llamadaEnoquiana": "Segunda y Primera (Unión) y Segunda (Espíritu)",
+    "tarot": {
+      "carta": "Palo de Bastos",
+      "imagen": "imagen"
+    },
+    "casas": {
+      "diurna": "No aplica",
+      "nocturna": "No aplica"
+    },
+    "horaAdecuada": "⏺ Hora de Tejas",
+    "colores": ["Rojo", "Verde"],
+    "aromas": ["Olíbano"],
+    "formaDivina": {
+      "transliteracion": "Usir (Osiris)",
+      "copto": "Ⲟⲩⲥⲓⲣⲉ",
+      "imagen": "imagen"
+    },
+    "pentagramas": {
+      "espiritu": {
+        "descripcion": "Activo: Vibrar BITOM \ny en la rueda, vibrar אלהים (ELOHIM)",
+        "imagen": "imagen"
+      },
+      "energia": {
+        "descripcion": "Oip Teaa Pdoke",
+        "imagen": "imagen"
+      }
+    },
+    "proyeccion": {
+      "colorEnergia": "Rojo",
+      "trazo": "Verde ♈",
+      "vibracion": "ELOHIM אלהים"
+    },
+    "signoGrado": "Philosophus",
+    "orientacion": {
+      "altar": "Norte",
+      "hebreo": "(Tzafón) צָפוֹן"
+    },
+    "jerarquia": {
+      "senor": {
+        "nombre": "YHVH Tzabaot",
+        "hebreo": "יְהוָה צְבָאוֹת",
+        "sigilo": "imagen"
+      },
+      "nombreSagrado": "No aplica",
+      "arcangel": {
+        "nombre": "Mikael",
+        "hebreo": "מִיכָאֵל",
+        "sigilo": "imagen"
+      },
+      "angel": {
+        "nombre": "Aral",
+        "hebreo": "אַרַל",
+        "sigilo": "imagen"
+      },
+      "gobernador": {
+        "nombre": "Seraf",
+        "hebreo": "שָׂרָף",
+        "sigilo": "imagen"
+      },
+      "fuerzas": {
+        "nombre": "Esh",
+        "hebreo": "אֵשׁ",
+        "sigilo": "imagen"
+      }
+    },
+    "ordenElemental": "Salamandras",
+    "majestad": "Djin",
+    "principe": "No aplica",
+    "tipoMagia": "Elemental",
+    "riosEden": {
+      "hebreo": "פִּישׁוֹן",
+      "nombre": "Pishón"
+    },
+    "triplicidad": "Fuego",
+    "grado": "Filósofus",
+    "orden": "Orden Elemental"
+  },
+  "Supremo Elemental": {
+    "energia": "Supremo Elemental",
+    "simbolo": "⛤",
+    "sigilo": "imagen",
+    "talisman": {
+      "descripcion": "imagen"
+    },
+    "altar": "Blanco",
+    "arma": {
+      "nombre": "Vara del Espíritu",
+      "imagen": "imagen"
+    },
+    "tablaEnoquiana": {
+      "enAltar": "Unión",
+      "imagenAltar": "imagen",
+      "energia": "Espíritu en el Centro",
+      "posicionTemplo": "Centro",
+      "imagenEnergia": "imagen"
+    },
+    "llamadaEnoquiana": "Primera y Segunda (Espíritu)",
+    "tarot": {
+      "carta": "XXI El Mundo",
+      "imagen": "imagen"
+    },
+    "casas": {
+      "diurna": "No aplica",
+      "nocturna": "No aplica"
+    },
+    "horaAdecuada": "⏺ Hora de Akasha",
+    "colores": ["Blanco", "Negro"],
+    "aromas": ["Dittany de Creta"],
+    "formaDivina": {
+      "transliteracion": "Heru (Horus)",
+      "copto": "Ϩⲱⲣ",
+      "imagen": "imagen"
+    },
+    "pentagramas": {
+      "espiritu": {
+        "descripcion": "Activo y Pasivo: Vibrar EHEIEH y AGLA",
+        "imagen": "imagen"
+      },
+      "energia": {
+        "descripcion": "Exarp Hcoma Nanta Bitom",
+        "imagen": "imagen"
+      }
+    },
+    "proyeccion": {
+      "colorEnergia": "Blanco",
+      "trazo": "Negro ⛤",
+      "vibracion": "EHEIEH אהיה"
+    },
+    "signoGrado": "Portal",
+    "orientacion": {
+      "altar": "Centro",
+      "hebreo": "(Merkaz) מֶרְכָּז"
+    },
+    "jerarquia": {
+      "senor": {
+        "nombre": "EHEIEH",
+        "hebreo": "אֶהְיֶה",
+        "sigilo": "imagen"
+      },
+      "nombreSagrado": "No aplica",
+      "arcangel": {
+        "nombre": "Sandalfón",
+        "hebreo": "סַנְדַלְפוֹן",
+        "sigilo": "imagen"
+      },
+      "angel": {
+        "nombre": "Metatrón",
+        "hebreo": "מְטַטְרוֹן",
+        "sigilo": "imagen"
+      },
+      "gobernador": {
+        "nombre": "Rashit ha-Galgalim",
+        "hebreo": "רָאשִׁית הַגַלְגַלִים",
+        "sigilo": "imagen"
+      },
+      "fuerzas": {
+        "nombre": "Eth",
+        "hebreo": "אֵת",
+        "sigilo": "imagen"
+      }
+    },
+    "ordenElemental": "Elementales",
+    "majestad": "Rey",
+    "principe": "No aplica",
+    "tipoMagia": "Elemental",
+    "riosEden": {
+      "hebreo": "עֵדֶן",
+      "nombre": "Edén"
+    },
+    "triplicidad": "Espíritu",
+    "grado": "Portal",
+    "orden": "Orden Elemental"
   }
 }

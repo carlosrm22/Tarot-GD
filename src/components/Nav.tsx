@@ -17,12 +17,18 @@ const Nav: React.FC = memo(() => {
   // Manejar el scroll del body cuando el menú está abierto
   useEffect(() => {
     if (isOpen) {
-      document.body.classList.add('overflow-hidden');
+      document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
     } else {
-      document.body.classList.remove('overflow-hidden');
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
     }
     return () => {
-      document.body.classList.remove('overflow-hidden');
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
     };
   }, [isOpen]);
 
@@ -37,13 +43,16 @@ const Nav: React.FC = memo(() => {
     }
   }, [isOpen]);
 
-  const navLinkClass = useCallback(({ isActive }: { isActive: boolean }) =>
-    `text-twilight-text hover:text-twilight-accent transition-colors duration-300 ${
-      isActive ? 'text-twilight-accent' : ''
-    }`, []);
+  const navLinkClass = useCallback(
+    ({ isActive }: { isActive: boolean }) =>
+      `text-twilight-text hover:text-twilight-accent transition-colors duration-300 ${
+        isActive ? 'text-twilight-accent' : ''
+      }`,
+    []
+  );
 
   const handleMobileMenuClick = useCallback(() => {
-    setIsOpen(prev => !prev);
+    setIsOpen((prev) => !prev);
   }, []);
 
   const handleMobileItemClick = useCallback(() => {
@@ -80,6 +89,7 @@ const Nav: React.FC = memo(() => {
                 Rituales
               </NavLink>
 
+              {/* Menús Desplegables */}
               <div className="relative group">
                 <button className="text-twilight-text hover:text-twilight-accent transition-colors duration-300">
                   Símbolos ▼
@@ -152,179 +162,165 @@ const Nav: React.FC = memo(() => {
         </div>
       </div>
 
-      {/* Menú móvil */}
-      <div
-        id="mobile-menu"
-        ref={menuRef}
-        className={`md:hidden fixed inset-0 z-[100] transform transition-all duration-300 ease-in-out ${
-          isOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
-        }`}
-        role="dialog"
-        aria-label="Menú móvil"
-        aria-modal="true"
-      >
-        {/* Overlay de fondo */}
-        <div
-          className="absolute inset-0 bg-twilight-background/95 backdrop-blur-md transition-opacity duration-300"
-          onClick={handleMobileMenuClick}
-          aria-hidden="true"
-        />
+      {/* Nuevo Menú Móvil */}
+      {isOpen && (
+        <div className="md:hidden fixed inset-0 z-[100]">
+          {/* Overlay */}
+          <div
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm"
+            onClick={handleMobileMenuClick}
+            aria-hidden="true"
+          />
 
-        {/* Contenido del menú */}
-        <div
-          className="relative flex-1 flex flex-col bg-twilight-background/95 backdrop-blur-md overflow-y-auto transform transition-transform duration-300"
-          role="menu"
-        >
-          {/* Encabezado del menú */}
-          <div className="sticky top-0 flex justify-between items-center p-4 border-b border-twilight-secondary/20 bg-twilight-background/95 backdrop-blur-md">
-            <NavLink
-              to="/inicio"
-              className="flex items-center group"
-              onClick={handleMobileItemClick}
-              role="menuitem"
-            >
-              <span className="text-2xl font-bold bg-gradient-to-r from-twilight-secondary to-twilight-accent bg-clip-text text-transparent">
+          {/* Panel del Menú */}
+          <div
+            ref={menuRef}
+            className="fixed right-0 top-0 bottom-0 w-[280px] bg-twilight-background border-l border-twilight-secondary/20 flex flex-col"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Menú principal"
+          >
+            {/* Cabecera */}
+            <div className="p-4 border-b border-twilight-secondary/20 flex items-center justify-between">
+              <span className="text-xl font-bold bg-gradient-to-r from-twilight-secondary to-twilight-accent bg-clip-text text-transparent">
                 Tarot GD
               </span>
-            </NavLink>
-            <button
-              onClick={handleMobileMenuClick}
-              className="p-2 rounded-lg text-twilight-text hover:text-twilight-accent focus:outline-none"
-              aria-label="Cerrar menú"
-            >
-              <FaTimes className="h-6 w-6" />
-            </button>
-          </div>
-
-          {/* Contenido Principal del Menú */}
-          <div className="flex-1 px-4 py-6 space-y-6">
-            {/* Enlaces Principales */}
-            <div className="space-y-6" role="menu">
-              <NavLink
-                to="/lecturas"
-                className="block text-xl text-twilight-text hover:text-twilight-accent py-2"
-                onClick={handleMobileItemClick}
-                role="menuitem"
+              <button
+                onClick={handleMobileMenuClick}
+                className="p-2 text-twilight-text hover:text-twilight-accent"
+                aria-label="Cerrar menú"
               >
-                Lecturas
-              </NavLink>
-              <NavLink
-                to="/cartas"
-                className="block text-xl text-twilight-text hover:text-twilight-accent py-2"
-                onClick={handleMobileItemClick}
-                role="menuitem"
-              >
-                Cartas
-              </NavLink>
-              <NavLink
-                to="/alefato"
-                className="block text-xl text-twilight-text hover:text-twilight-accent py-2"
-                onClick={handleMobileItemClick}
-                role="menuitem"
-              >
-                Alefato
-              </NavLink>
-              <NavLink
-                to="/rituales"
-                className="block text-xl text-twilight-text hover:text-twilight-accent py-2"
-                onClick={handleMobileItemClick}
-                role="menuitem"
-              >
-                Rituales
-              </NavLink>
+                <FaTimes className="w-6 h-6" />
+              </button>
             </div>
 
-            {/* Submenús */}
-            <div className="space-y-4" role="menu">
-              <div className="text-xl font-medium text-twilight-accent" role="menuitem">Símbolos</div>
-              <div className="pl-4 space-y-4">
+            {/* Área Scrollable */}
+            <div className="flex-1 overflow-y-auto py-4">
+              {/* Enlaces Principales */}
+              <div className="px-4 space-y-2">
                 <NavLink
-                  to="/pentagramas"
-                  className="block text-lg text-twilight-text hover:text-twilight-accent"
+                  to="/lecturas"
+                  className="block py-2 text-lg text-twilight-text hover:text-twilight-accent"
                   onClick={handleMobileItemClick}
-                  role="menuitem"
                 >
-                  Pentagramas
+                  Lecturas
                 </NavLink>
                 <NavLink
-                  to="/hexagramas"
-                  className="block text-lg text-twilight-text hover:text-twilight-accent"
+                  to="/cartas"
+                  className="block py-2 text-lg text-twilight-text hover:text-twilight-accent"
                   onClick={handleMobileItemClick}
-                  role="menuitem"
                 >
-                  Hexagramas
+                  Cartas
                 </NavLink>
                 <NavLink
-                  to="/sigilos"
-                  className="block text-lg text-twilight-text hover:text-twilight-accent"
+                  to="/alefato"
+                  className="block py-2 text-lg text-twilight-text hover:text-twilight-accent"
                   onClick={handleMobileItemClick}
-                  role="menuitem"
                 >
-                  Sigilos
+                  Alefato
                 </NavLink>
                 <NavLink
-                  to="/talismanes"
-                  className="block text-lg text-twilight-text hover:text-twilight-accent"
+                  to="/rituales"
+                  className="block py-2 text-lg text-twilight-text hover:text-twilight-accent"
                   onClick={handleMobileItemClick}
-                  role="menuitem"
                 >
-                  Talismanes
+                  Rituales
+                </NavLink>
+              </div>
+
+              {/* Separador */}
+              <div className="my-4 border-t border-twilight-secondary/20" />
+
+              {/* Sección Símbolos */}
+              <div className="px-4 mb-4">
+                <h3 className="text-lg font-medium text-twilight-accent mb-2">Símbolos</h3>
+                <div className="space-y-2 pl-4">
+                  <NavLink
+                    to="/pentagramas"
+                    className="block py-2 text-twilight-text hover:text-twilight-accent"
+                    onClick={handleMobileItemClick}
+                  >
+                    Pentagramas
+                  </NavLink>
+                  <NavLink
+                    to="/hexagramas"
+                    className="block py-2 text-twilight-text hover:text-twilight-accent"
+                    onClick={handleMobileItemClick}
+                  >
+                    Hexagramas
+                  </NavLink>
+                  <NavLink
+                    to="/sigilos"
+                    className="block py-2 text-twilight-text hover:text-twilight-accent"
+                    onClick={handleMobileItemClick}
+                  >
+                    Sigilos
+                  </NavLink>
+                  <NavLink
+                    to="/talismanes"
+                    className="block py-2 text-twilight-text hover:text-twilight-accent"
+                    onClick={handleMobileItemClick}
+                  >
+                    Talismanes
+                  </NavLink>
+                </div>
+              </div>
+
+              {/* Sección Herramientas */}
+              <div className="px-4 mb-4">
+                <h3 className="text-lg font-medium text-twilight-accent mb-2">Herramientas</h3>
+                <div className="space-y-2 pl-4">
+                  <NavLink
+                    to="/armas"
+                    className="block py-2 text-twilight-text hover:text-twilight-accent"
+                    onClick={handleMobileItemClick}
+                  >
+                    Armas Mágicas
+                  </NavLink>
+                  <NavLink
+                    to="/tatvas"
+                    className="block py-2 text-twilight-text hover:text-twilight-accent"
+                    onClick={handleMobileItemClick}
+                  >
+                    Tatvas
+                  </NavLink>
+                  <NavLink
+                    to="/formas-divinas"
+                    className="block py-2 text-twilight-text hover:text-twilight-accent"
+                    onClick={handleMobileItemClick}
+                  >
+                    Formas Divinas
+                  </NavLink>
+                </div>
+              </div>
+
+              {/* Separador */}
+              <div className="my-4 border-t border-twilight-secondary/20" />
+
+              {/* Sistema Enoquiano */}
+              <div className="px-4">
+                <NavLink
+                  to="/enoquiano"
+                  className="block py-2 text-lg text-twilight-text hover:text-twilight-accent"
+                  onClick={handleMobileItemClick}
+                >
+                  Sistema Enoquiano
                 </NavLink>
               </div>
             </div>
 
-            <div className="space-y-4" role="menu">
-              <div className="text-xl font-medium text-twilight-accent" role="menuitem">Herramientas</div>
-              <div className="pl-4 space-y-4">
-                <NavLink
-                  to="/armas"
-                  className="block text-lg text-twilight-text hover:text-twilight-accent"
-                  onClick={handleMobileItemClick}
-                  role="menuitem"
-                >
-                  Armas Mágicas
-                </NavLink>
-                <NavLink
-                  to="/tatvas"
-                  className="block text-lg text-twilight-text hover:text-twilight-accent"
-                  onClick={handleMobileItemClick}
-                  role="menuitem"
-                >
-                  Tatvas
-                </NavLink>
-                <NavLink
-                  to="/formas-divinas"
-                  className="block text-lg text-twilight-text hover:text-twilight-accent"
-                  onClick={handleMobileItemClick}
-                  role="menuitem"
-                >
-                  Formas Divinas
-                </NavLink>
-              </div>
+            {/* Footer con botón de salir */}
+            <div className="p-4 border-t border-twilight-secondary/20">
+              <button
+                onClick={handleLogoutClick}
+                className="w-full py-3 rounded-lg bg-gradient-to-r from-twilight-secondary to-twilight-accent text-white hover:shadow-twilight transition-all duration-300"
+              >
+                Salir
+              </button>
             </div>
-
-            <NavLink
-              to="/enoquiano"
-              className="block text-xl text-twilight-text hover:text-twilight-accent py-2"
-              onClick={handleMobileItemClick}
-              role="menuitem"
-            >
-              Sistema Enoquiano
-            </NavLink>
-          </div>
-
-          {/* Botón de Salir */}
-          <div className="sticky bottom-0 p-4 border-t border-twilight-secondary/20 bg-twilight-background/95 backdrop-blur-md">
-            <button
-              onClick={handleLogoutClick}
-              className="w-full py-3 rounded-lg bg-gradient-to-r from-twilight-secondary to-twilight-accent text-white hover:shadow-twilight focus:outline-none transition-all duration-300"
-              role="menuitem"
-            >
-              Salir
-            </button>
           </div>
         </div>
-      </div>
+      )}
     </nav>
   );
 });

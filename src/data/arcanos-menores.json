@@ -1,0 +1,156 @@
+{
+  "arcanosMenores": [
+    {
+      "nombre": "As de Bastos",
+      "titulo": "La Raíz de los Poderes del Fuego",
+      "descripcion": "Una blanca y radiante Mano angélica surgiendo de entre las Nubes y agarrando un pesado Bastón que tiene tres ramas. Simboliza Fuerza, fortaleza, ímpetu, vigor, energía.",
+      "simbolismo": "Diez llamas representan las Sefirot y veintidós llamitas responden a los senderos.",
+      "atributo": "Fuerza Natural",
+      "dominio": "Conecta Yetsirá con el Plano Material."
+    },
+    {
+      "nombre": "2 de Bastos",
+      "significado": "Influencia sobre alguien. Dominio."
+    },
+    {
+      "nombre": "3 de Bastos",
+      "significado": "Orgullo y arrogancia. A veces poder."
+    },
+    {
+      "nombre": "4 de Bastos",
+      "significado": "Completamiento. Culminan los arreglos."
+    },
+    {
+      "nombre": "5 de Bastos",
+      "significado": "Contienda. Lucha."
+    },
+    {
+      "nombre": "6 de Bastos",
+      "significado": "Ganancia y éxito."
+    },
+    {
+      "nombre": "7 de Bastos",
+      "significado": "Oposición. A veces coraje al enfrentarla."
+    },
+    {
+      "nombre": "8 de Bastos",
+      "significado": "Una apresurada comunicación, carta o mensaje. Rapidez."
+    },
+    {
+      "nombre": "9 de Bastos",
+      "significado": "Fuerza. Poder. Salud. Energía."
+    },
+    {
+      "nombre": "10 de Bastos",
+      "significado": "Crueldad y malicia hacia los demás. Fuerza opresiva. Venganza. Injusticia."
+    },
+    {
+      "nombre": "2 de Copas",
+      "significado": "Matrimonio. Amor. Placer. Cálida amistad."
+    },
+    {
+      "nombre": "3 de Copas",
+      "significado": "Plenitud. Hospitalidad, comida y bebida. Placer, regocijo, danza y nuevos vestidos."
+    },
+    {
+      "nombre": "4 de Copas",
+      "significado": "Se recibe placer y afecto de los demás, pero acompañado de algunas molestias."
+    },
+    {
+      "nombre": "5 de Copas",
+      "significado": "Decepción en el amor. Matrimonio roto, etc. Asperezas de los demás. Pérdida de amistad."
+    },
+    {
+      "nombre": "6 de Copas",
+      "significado": "Deseo, felicidad, éxito, disfrute."
+    },
+    {
+      "nombre": "7 de Copas",
+      "significado": "Mentira, engaño, promesas incumplidas, ilusión, decepción. Error, ligero éxito, pero sin la energía suficiente para retenerlo."
+    },
+    {
+      "nombre": "8 de Copas",
+      "significado": "Éxito abandonado, declinación del interés por algo. Aburrimiento."
+    },
+    {
+      "nombre": "9 de Copas",
+      "significado": "Éxito completo. Placer y felicidad. Deseo satisfecho."
+    },
+    {
+      "nombre": "10 de Copas",
+      "significado": "Asuntos definitivamente encaminados y estructurados de acuerdo con los propios deseos. Buena fortuna completa."
+    },
+    {
+      "nombre": "2 de Espadas",
+      "significado": "Disputa abandonada, y arreglada. Paz restaurada, pero cierta tensión en las relaciones."
+    },
+    {
+      "nombre": "3 de Espadas",
+      "significado": "Infelicidad, dolor, lágrimas."
+    },
+    {
+      "nombre": "4 de Espadas",
+      "significado": "Convalecencia, recuperación de la enfermedad, cambio para mejor."
+    },
+    {
+      "nombre": "5 de Espadas",
+      "significado": "Derrota, pérdida, malicia. Calumnia, difamación."
+    },
+    {
+      "nombre": "6 de Espadas",
+      "significado": "Labor, trabajo; viaje, probablemente por agua."
+    },
+    {
+      "nombre": "7 de Espadas",
+      "significado": "De carácter inestable, vacilación. Viaje, probablemente por tierra."
+    },
+    {
+      "nombre": "8 de Espadas",
+      "significado": "Estrecho o restringido. Insignificante. Una prisión."
+    },
+    {
+      "nombre": "9 de Espadas",
+      "significado": "Enfermedad. Sufrimiento. Malicia. Crueldad. Dolor."
+    },
+    {
+      "nombre": "10 de Espadas",
+      "significado": "Ruina. Muerte. Fracaso. Desastre."
+    },
+    {
+      "nombre": "2 de Pentáculos",
+      "significado": "Cambio agradable. Visita a amigos, etc."
+    },
+    {
+      "nombre": "3 de Pentáculos",
+      "significado": "Negocio, empleo pagado. Transacciones comerciales."
+    },
+    {
+      "nombre": "4 de Pentáculos",
+      "significado": "Ganancia de dinero y de influencia. Un presente."
+    },
+    {
+      "nombre": "5 de Pentáculos",
+      "significado": "Pérdida de profesión. Pérdida de dinero. Ansiedad monetaria."
+    },
+    {
+      "nombre": "6 de Pentáculos",
+      "significado": "Éxito en cosas materiales; prosperidad en los negocios."
+    },
+    {
+      "nombre": "7 de Pentáculos",
+      "significado": "Especulaciones sin beneficios, empleos; también trabajo honorario emprendido por amor al arte, sin deseo de lucro."
+    },
+    {
+      "nombre": "8 de Pentáculos",
+      "significado": "Habilidad, prudencia, también artimañas y astucia."
+    },
+    {
+      "nombre": "9 de Pentáculos",
+      "significado": "Herencia. Mucho incremento de dinero."
+    },
+    {
+      "nombre": "10 de Pentáculos",
+      "significado": "Bienes y riquezas."
+    }
+  ]
+}

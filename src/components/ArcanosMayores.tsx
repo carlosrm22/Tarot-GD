@@ -1,8 +1,13 @@
+/**
+ * @fileoverview Componente que muestra todas las cartas del Tarot con sus detalles.
+ */
+
 import React, { useState } from 'react';
 import TreeOfLife from './TreeOfLife';
 import arcanosMayoresData from '../Arcanos_Mayores_Tarot.json';
 import { ArcanosMayores as ArcanosMayoresType } from '../types/tarot';
 import ElementSymbol from './ElementSymbol';
+import { FaChevronDown, FaChevronUp, FaExpandAlt, FaCompressAlt } from 'react-icons/fa';
 
 const ArcanosMayores: React.FC = () => {
   const [cartasVolteadas, setCartasVolteadas] = useState<{ [key: number]: boolean }>({});
@@ -60,152 +65,197 @@ const ArcanosMayores: React.FC = () => {
   };
 
   return (
-    <div className="todas-cartas-container">
-      <div className="todas-cartas-header">
-        <h1>Arcanos Mayores</h1>
-        <p className="todas-cartas-intro">
+    <div className="min-h-screen bg-gradient-to-br from-twilight-background via-twilight-primary to-twilight-background p-4 sm:p-8">
+      {/* Header con efecto de cristal */}
+      <div className="max-w-4xl mx-auto text-center p-8 rounded-2xl backdrop-blur-lg bg-white/5 border border-twilight-secondary/20 shadow-lg mb-12">
+        <h1 className="text-4xl sm:text-5xl font-bold mb-6 bg-gradient-to-r from-twilight-secondary to-twilight-accent bg-clip-text text-transparent">
+          Arcanos Mayores
+        </h1>
+        <p className="text-lg sm:text-xl text-twilight-text leading-relaxed max-w-2xl mx-auto">
           Explora los 22 Arcanos Mayores del Tarot y sus profundas correspondencias
           esotéricas según el sistema de la Aurora Dorada.
         </p>
       </div>
 
-      <div className="cards-container">
+      {/* Grid de cartas */}
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
         {arcanos_mayores.arcanos.arcanos_mayores.map(carta => (
           <div
             key={carta.numero}
-            className={`card ${cartasVolteadas[carta.numero] ? 'flipped' : ''}`}
+            className={`group perspective-1000 ${cartasVolteadas[carta.numero] ? 'flipped' : ''}`}
             onClick={() => toggleCard(carta.numero)}
           >
-            <div className="card-front">
-              <img
-                src={getImagePath(carta.numero, carta.nombre)}
-                alt={carta.nombre}
-                loading="lazy"
-              />
-            </div>
-            <div className="card-back">
-              <div className="card-content">
-                <h2>{carta.nombre}</h2>
-                <h3>{carta.titulo}</h3>
+            <div className="relative w-full transition-transform duration-700 transform-style-3d cursor-pointer">
+              {/* Frente de la carta */}
+              <div className={`absolute w-full backface-hidden transition-transform duration-700
+                ${cartasVolteadas[carta.numero] ? 'rotate-y-180' : ''}`}>
+                <div className="aspect-[2/3] rounded-2xl overflow-hidden shadow-lg hover:shadow-twilight group-hover:scale-105 transition-all duration-300">
+                  <img
+                    src={getImagePath(carta.numero, carta.nombre)}
+                    alt={carta.nombre}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
 
-                <div className="card-details">
-                  <div className="expand-all-controls">
-                    <button
-                      className="expand-all-button"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        expandirTodo(carta.numero);
-                      }}
-                      title="Expandir todo"
-                    >
-                      ⏬
-                    </button>
-                    <button
-                      className="expand-all-button"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        contraerTodo(carta.numero);
-                      }}
-                      title="Contraer todo"
-                    >
-                      ⏫
-                    </button>
-                  </div>
-
-                  <div
-                    className={`detail-item ${isDetalleExpandido(carta.numero, 'numero') ? 'expanded' : ''}`}
-                  >
-                    <div
-                      className="detail-header"
-                      onClick={(e) => toggleDetalle(carta.numero, 'numero', e)}
-                    >
-                      <span>Número</span>
-                      <span className="expand-icon">▼</span>
-                    </div>
-                    <div className="detail-content">
-                      <p>{carta.numero}</p>
+              {/* Reverso de la carta */}
+              <div className={`absolute w-full backface-hidden bg-twilight-primary/30 backdrop-blur-md border border-twilight-secondary/20
+                rounded-2xl p-6 transform rotate-y-180 transition-transform duration-700
+                ${cartasVolteadas[carta.numero] ? 'rotate-y-0' : ''}`}>
+                <div className="space-y-4">
+                  <div className="flex justify-between items-center mb-6">
+                    <h2 className="text-2xl font-bold text-twilight-text">{carta.nombre}</h2>
+                    <div className="flex space-x-2">
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          expandirTodo(carta.numero);
+                        }}
+                        className="p-2 text-twilight-accent hover:text-twilight-secondary transition-colors"
+                        title="Expandir todo"
+                      >
+                        <FaExpandAlt />
+                      </button>
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          contraerTodo(carta.numero);
+                        }}
+                        className="p-2 text-twilight-accent hover:text-twilight-secondary transition-colors"
+                        title="Contraer todo"
+                      >
+                        <FaCompressAlt />
+                      </button>
                     </div>
                   </div>
 
-                  <div
-                    className={`detail-item ${isDetalleExpandido(carta.numero, 'hebreo') ? 'expanded' : ''}`}
-                  >
-                    <div
-                      className="detail-header"
-                      onClick={(e) => toggleDetalle(carta.numero, 'hebreo', e)}
-                    >
-                      <span>Letra Hebrea</span>
-                      <span className="expand-icon">▼</span>
-                    </div>
-                    <div className="detail-content" data-section="hebreo">
-                      <p>
-                        {carta.hebreo}
-                        <span className="letra-hebrea">{carta.letra}</span>
-                      </p>
-                    </div>
-                  </div>
+                  <h3 className="text-lg text-twilight-accent italic">{carta.titulo}</h3>
 
-                  <div
-                    className={`detail-item ${isDetalleExpandido(carta.numero, 'signo') ? 'expanded' : ''}`}
-                  >
-                    <div
-                      className="detail-header"
-                      onClick={(e) => toggleDetalle(carta.numero, 'signo', e)}
-                    >
-                      <span>Signo</span>
-                      <span className="expand-icon">▼</span>
+                  <div className="space-y-4">
+                    {/* Número */}
+                    <div className="card-detail-section">
+                      <button
+                        className="w-full flex justify-between items-center p-3 rounded-lg bg-twilight-primary/20 hover:bg-twilight-primary/30 transition-colors"
+                        onClick={(e) => toggleDetalle(carta.numero, 'numero', e)}
+                      >
+                        <span className="text-twilight-text font-medium">Número</span>
+                        {isDetalleExpandido(carta.numero, 'numero') ? (
+                          <FaChevronUp className="text-twilight-accent" />
+                        ) : (
+                          <FaChevronDown className="text-twilight-accent" />
+                        )}
+                      </button>
+                      {isDetalleExpandido(carta.numero, 'numero') && (
+                        <div className="p-3 text-twilight-text/80">
+                          {carta.numero}
+                        </div>
+                      )}
                     </div>
-                    <div className="detail-content" data-section="signo">
-                      <p>
-                        {carta.signo}
-                        <ElementSymbol element={carta.signo} />
-                      </p>
-                    </div>
-                  </div>
 
-                  <div
-                    className={`detail-item ${isDetalleExpandido(carta.numero, 'atribucion') ? 'expanded' : ''}`}
-                  >
-                    <div
-                      className="detail-header"
-                      onClick={(e) => toggleDetalle(carta.numero, 'atribucion', e)}
-                    >
-                      <span>Atribución</span>
-                      <span className="expand-icon">▼</span>
+                    {/* Letra Hebrea */}
+                    <div className="card-detail-section">
+                      <button
+                        className="w-full flex justify-between items-center p-3 rounded-lg bg-twilight-primary/20 hover:bg-twilight-primary/30 transition-colors"
+                        onClick={(e) => toggleDetalle(carta.numero, 'hebreo', e)}
+                      >
+                        <span className="text-twilight-text font-medium">Letra Hebrea</span>
+                        {isDetalleExpandido(carta.numero, 'hebreo') ? (
+                          <FaChevronUp className="text-twilight-accent" />
+                        ) : (
+                          <FaChevronDown className="text-twilight-accent" />
+                        )}
+                      </button>
+                      {isDetalleExpandido(carta.numero, 'hebreo') && (
+                        <div className="p-3 text-twilight-text/80 flex items-center justify-between">
+                          <span>{carta.hebreo}</span>
+                          <span className="text-2xl text-twilight-accent">{carta.letra}</span>
+                        </div>
+                      )}
                     </div>
-                    <div className="detail-content" data-section="atribucion">
-                      <p>{carta.atribucion}</p>
-                    </div>
-                  </div>
 
-                  <div
-                    className={`detail-item ${isDetalleExpandido(carta.numero, 'sendero') ? 'expanded' : ''}`}
-                  >
-                    <div
-                      className="detail-header"
-                      onClick={(e) => toggleDetalle(carta.numero, 'sendero', e)}
-                    >
-                      <span>Sendero</span>
-                      <span className="expand-icon">▼</span>
+                    {/* Signo */}
+                    <div className="card-detail-section">
+                      <button
+                        className="w-full flex justify-between items-center p-3 rounded-lg bg-twilight-primary/20 hover:bg-twilight-primary/30 transition-colors"
+                        onClick={(e) => toggleDetalle(carta.numero, 'signo', e)}
+                      >
+                        <span className="text-twilight-text font-medium">Signo</span>
+                        {isDetalleExpandido(carta.numero, 'signo') ? (
+                          <FaChevronUp className="text-twilight-accent" />
+                        ) : (
+                          <FaChevronDown className="text-twilight-accent" />
+                        )}
+                      </button>
+                      {isDetalleExpandido(carta.numero, 'signo') && (
+                        <div className="p-3 text-twilight-text/80 flex items-center justify-between">
+                          <span>{carta.signo}</span>
+                          <ElementSymbol element={carta.signo} />
+                        </div>
+                      )}
                     </div>
-                    <div className="detail-content" data-section="sendero">
-                      <p>{carta.sendero}</p>
-                      <TreeOfLife sendero={carta.sendero} />
-                    </div>
-                  </div>
 
-                  <div
-                    className={`detail-item ${isDetalleExpandido(carta.numero, 'significado') ? 'expanded' : ''}`}
-                  >
-                    <div
-                      className="detail-header"
-                      onClick={(e) => toggleDetalle(carta.numero, 'significado', e)}
-                    >
-                      <span>Significado</span>
-                      <span className="expand-icon">▼</span>
+                    {/* Atribución */}
+                    <div className="card-detail-section">
+                      <button
+                        className="w-full flex justify-between items-center p-3 rounded-lg bg-twilight-primary/20 hover:bg-twilight-primary/30 transition-colors"
+                        onClick={(e) => toggleDetalle(carta.numero, 'atribucion', e)}
+                      >
+                        <span className="text-twilight-text font-medium">Atribución</span>
+                        {isDetalleExpandido(carta.numero, 'atribucion') ? (
+                          <FaChevronUp className="text-twilight-accent" />
+                        ) : (
+                          <FaChevronDown className="text-twilight-accent" />
+                        )}
+                      </button>
+                      {isDetalleExpandido(carta.numero, 'atribucion') && (
+                        <div className="p-3 text-twilight-text/80">
+                          {carta.atribucion}
+                        </div>
+                      )}
                     </div>
-                    <div className="detail-content" data-section="significado">
-                      <p>{carta.significado}</p>
+
+                    {/* Sendero */}
+                    <div className="card-detail-section">
+                      <button
+                        className="w-full flex justify-between items-center p-3 rounded-lg bg-twilight-primary/20 hover:bg-twilight-primary/30 transition-colors"
+                        onClick={(e) => toggleDetalle(carta.numero, 'sendero', e)}
+                      >
+                        <span className="text-twilight-text font-medium">Sendero</span>
+                        {isDetalleExpandido(carta.numero, 'sendero') ? (
+                          <FaChevronUp className="text-twilight-accent" />
+                        ) : (
+                          <FaChevronDown className="text-twilight-accent" />
+                        )}
+                      </button>
+                      {isDetalleExpandido(carta.numero, 'sendero') && (
+                        <div className="p-3 space-y-3">
+                          <p className="text-twilight-text/80">{carta.sendero}</p>
+                          <div className="mt-2">
+                            <TreeOfLife sendero={carta.sendero} />
+                          </div>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Significado */}
+                    <div className="card-detail-section">
+                      <button
+                        className="w-full flex justify-between items-center p-3 rounded-lg bg-twilight-primary/20 hover:bg-twilight-primary/30 transition-colors"
+                        onClick={(e) => toggleDetalle(carta.numero, 'significado', e)}
+                      >
+                        <span className="text-twilight-text font-medium">Significado</span>
+                        {isDetalleExpandido(carta.numero, 'significado') ? (
+                          <FaChevronUp className="text-twilight-accent" />
+                        ) : (
+                          <FaChevronDown className="text-twilight-accent" />
+                        )}
+                      </button>
+                      {isDetalleExpandido(carta.numero, 'significado') && (
+                        <div className="p-3 text-twilight-text/80">
+                          {carta.significado}
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>

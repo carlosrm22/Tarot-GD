@@ -282,3 +282,45 @@
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+
+/* Estilos para las cartas de los Arcanos Mayores */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+.rotate-y-0 {
+  transform: rotateY(0deg);
+}
+
+/* Animaciones para las cartas */
+@keyframes cardHover {
+  0% {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 0 0 rgba(139, 109, 255, 0);
+  }
+  100% {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(139, 109, 255, 0.2);
+  }
+}
+
+/* Mejoras de accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .card-detail-section button,
+  .card-detail-section [class*="transition-"],
+  .perspective-1000 [class*="transition-"] {
+    transition: none !important;
+  }
+}

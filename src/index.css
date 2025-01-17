@@ -1,3 +1,124 @@
-@import './styles/base.css';
-@import './styles/components.css';
-@import './styles/utilities.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+@layer base {
+  :root {
+    --color-primary: theme('colors.twilight.primary');
+    --color-secondary: theme('colors.twilight.secondary');
+    --color-accent: theme('colors.twilight.accent');
+    --color-background: theme('colors.twilight.background');
+    --color-text: theme('colors.twilight.text');
+  }
+
+  body {
+    @apply bg-twilight-background text-twilight-text;
+    @apply min-h-screen;
+    @apply antialiased;
+  }
+
+  h1 {
+    @apply text-4xl font-bold mb-6;
+  }
+
+  h2 {
+    @apply text-3xl font-semibold mb-4;
+  }
+
+  h3 {
+    @apply text-2xl font-medium mb-3;
+  }
+
+  a {
+    @apply text-twilight-accent hover:text-twilight-secondary transition-colors duration-300;
+  }
+
+  button {
+    @apply focus:outline-none focus:ring-2 focus:ring-twilight-accent focus:ring-opacity-50;
+  }
+}
+
+/* Component styles */
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-300;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-twilight-secondary to-twilight-accent text-white hover:shadow-twilight;
+  }
+
+  .btn-secondary {
+    @apply bg-twilight-secondary/10 text-twilight-text hover:bg-twilight-secondary/20;
+  }
+
+  .card {
+    @apply bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden;
+  }
+
+  .input {
+    @apply w-full px-4 py-2 rounded-lg border border-twilight-secondary/20
+           bg-white dark:bg-gray-800
+           focus:outline-none focus:ring-2 focus:ring-twilight-accent focus:border-transparent;
+  }
+
+  .nav-link {
+    @apply text-twilight-text hover:text-twilight-accent transition-colors duration-300;
+  }
+
+  .nav-link-active {
+    @apply text-twilight-accent;
+  }
+
+  .dropdown {
+    @apply absolute top-full left-0 mt-2 w-48 rounded-lg
+           bg-twilight-primary/95 backdrop-blur-md
+           border border-twilight-secondary/20 shadow-lg
+           opacity-0 invisible group-hover:opacity-100 group-hover:visible
+           transition-all duration-300;
+  }
+
+  .loading-spinner {
+    @apply animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-twilight-accent;
+  }
+}
+
+/* Utility styles */
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-twilight-secondary to-twilight-accent bg-clip-text text-transparent;
+  }
+
+  .bg-gradient {
+    @apply bg-gradient-to-r from-twilight-secondary to-twilight-accent;
+  }
+
+  .shadow-twilight {
+    @apply shadow-lg shadow-twilight-accent/20;
+  }
+
+  .backdrop-blur {
+    @apply backdrop-blur-md bg-twilight-background/95;
+  }
+
+  .transition-base {
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+
+  .absolute-center {
+    @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
+  }
+
+  .scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}

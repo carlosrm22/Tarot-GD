@@ -28,8 +28,8 @@ const HerramientasMagicas: React.FC = () => {
     },
     formasDivinas: {
       title: 'Formas Divinas',
-      path: '/images/Formas Divinas',
-      publicPath: `${process.env.PUBLIC_URL}/images/Formas Divinas`
+      path: '/images/FormasDivinas',
+      publicPath: `${process.env.PUBLIC_URL}/images/FormasDivinas`
     }
   };
 
@@ -46,50 +46,150 @@ const HerramientasMagicas: React.FC = () => {
     const loadImages = async () => {
       try {
         const mockImages: ImageInfo[] = [
+          // Herramientas Elementales
           {
             name: 'Vara de Fuego',
             ...createImagePath('/images/Armas/Vara de Fuego.jpg'),
             category: 'armas',
-            description: 'Vara consagrada al elemento fuego',
-            element: 'Fuego',
-            useCase: 'Rituales de invocación y banishing',
-            tags: ['fuego', 'vara', 'ritual', 'invocación']
-          },
-          {
-            name: 'Daga de Aire',
-            ...createImagePath('/images/Armas/Daga de Aire.png'),
-            category: 'armas',
-            description: 'Daga consagrada al elemento aire',
-            element: 'Aire',
-            useCase: 'Rituales de aire y purificación',
-            tags: ['aire', 'daga', 'ritual', 'purificación']
+            description: 'Herramienta del elemento Fuego, representa la Voluntad',
+            tags: ['fuego', 'vara', 'voluntad']
           },
           {
             name: 'Copa de Agua',
             ...createImagePath('/images/Armas/Copa de Agua.jpg'),
             category: 'armas',
-            description: 'Copa consagrada al elemento agua',
-            element: 'Agua',
-            useCase: 'Rituales de agua y consagración',
-            tags: ['agua', 'copa', 'ritual', 'consagración']
+            description: 'Herramienta del elemento Agua, representa las Emociones',
+            tags: ['agua', 'copa', 'emociones']
+          },
+          {
+            name: 'Daga de Aire',
+            ...createImagePath('/images/Armas/Daga de Aire.png'),
+            category: 'armas',
+            description: 'Herramienta del elemento Aire, representa el Intelecto',
+            tags: ['aire', 'daga', 'intelecto']
           },
           {
             name: 'Vara de Loto',
             ...createImagePath('/images/Armas/Vara de Loto.jpg'),
             category: 'armas',
-            description: 'Vara especial con símbolo de loto',
-            element: 'Espíritu',
-            useCase: 'Rituales espirituales y meditación',
-            tags: ['espíritu', 'vara', 'ritual', 'meditación']
+            description: 'Herramienta espiritual, representa la Manifestación Divina',
+            tags: ['espíritu', 'vara', 'manifestación']
           },
           {
-            name: 'Vara de Fénix',
+            name: 'Vara del Fénix',
             ...createImagePath('/images/Armas/Vara de Fénix.jpg'),
             category: 'armas',
-            description: 'Vara con símbolo del fénix',
-            element: 'Fuego',
-            useCase: 'Rituales de transformación y renacimiento',
-            tags: ['fuego', 'vara', 'ritual', 'transformación']
+            description: 'Herramienta de transformación y renacimiento',
+            tags: ['fuego', 'vara', 'transformación']
+          },
+
+          // Tatvas Elementales
+          {
+            name: 'Tatva Tejas',
+            ...createImagePath('/images/Tatvas/Tejas.png'),
+            category: 'tatvas',
+            description: 'Símbolo del elemento Fuego, triángulo rojo',
+            tags: ['fuego', 'tejas', 'triángulo']
+          },
+          {
+            name: 'Tatva Apas',
+            ...createImagePath('/images/Tatvas/Apas.png'),
+            category: 'tatvas',
+            description: 'Símbolo del elemento Agua, media luna plateada',
+            tags: ['agua', 'apas', 'media luna']
+          },
+          {
+            name: 'Tatva Vayu',
+            ...createImagePath('/images/Tatvas/Vayu.png'),
+            category: 'tatvas',
+            description: 'Símbolo del elemento Aire, círculo azul',
+            tags: ['aire', 'vayu', 'círculo']
+          },
+          {
+            name: 'Tatva Prithvi',
+            ...createImagePath('/images/Tatvas/Prithvi.png'),
+            category: 'tatvas',
+            description: 'Símbolo del elemento Tierra, cuadrado amarillo',
+            tags: ['tierra', 'prithvi', 'cuadrado']
+          },
+          {
+            name: 'Tatva Akasha',
+            ...createImagePath('/images/Tatvas/Akasha.png'),
+            category: 'tatvas',
+            description: 'Símbolo del elemento Espíritu, óvalo negro',
+            tags: ['espíritu', 'akasha', 'óvalo']
+          },
+
+          // Formas Divinas
+          {
+            name: 'Forma de Isis',
+            ...createImagePath('/images/Formas Divinas/Iset (Isis).png'),
+            category: 'formasDivinas',
+            description: 'Forma divina de Isis, diosa egipcia de la magia',
+            tags: ['isis', 'egipcia', 'luna']
+          },
+          {
+            name: 'Forma de Osiris',
+            ...createImagePath('/images/Formas Divinas/Osiris.png'),
+            category: 'formasDivinas',
+            description: 'Forma divina de Osiris, dios egipcio de la resurrección',
+            tags: ['osiris', 'egipcio', 'resurrección']
+          },
+          {
+            name: 'Forma de Horus',
+            ...createImagePath('/images/Formas Divinas/Jru (Horus).png'),
+            category: 'formasDivinas',
+            description: 'Forma divina de Horus, dios egipcio del sol',
+            tags: ['horus', 'egipcio', 'sol']
+          },
+          {
+            name: 'Forma de Thoth',
+            ...createImagePath('/images/Formas Divinas/Djehuty.png'),
+            category: 'formasDivinas',
+            description: 'Forma divina de Thoth, dios egipcio de la sabiduría',
+            tags: ['thoth', 'egipcio', 'sabiduría']
+          },
+          {
+            name: 'Forma de Anubis',
+            ...createImagePath('/images/Formas Divinas/Anubis prestas.png'),
+            category: 'formasDivinas',
+            description: 'Forma divina de Anubis, dios egipcio de los muertos',
+            tags: ['anubis', 'egipcio', 'muerte']
+          },
+          {
+            name: 'Forma de Ra',
+            ...createImagePath('/images/Formas Divinas/Ra.png'),
+            category: 'formasDivinas',
+            description: 'Forma divina de Ra, dios egipcio del sol',
+            tags: ['ra', 'egipcio', 'sol']
+          },
+          {
+            name: 'Forma de Hathor',
+            ...createImagePath('/images/Formas Divinas/Jhetjheru (Hator).png'),
+            category: 'formasDivinas',
+            description: 'Forma divina de Hathor, diosa egipcia del amor',
+            tags: ['hathor', 'egipcia', 'amor']
+          },
+          {
+            name: 'Forma de Sekhmet',
+            ...createImagePath('/images/Formas Divinas/Sejmet.png'),
+            category: 'formasDivinas',
+            description: 'Forma divina de Sekhmet, diosa egipcia de la guerra',
+            tags: ['sekhmet', 'egipcia', 'guerra']
+          },
+          {
+            name: 'Forma de Nephthys',
+            ...createImagePath('/images/Formas Divinas/Neftis.png'),
+            category: 'formasDivinas',
+            description: 'Forma divina de Nephthys, diosa egipcia protectora',
+            tags: ['nephthys', 'egipcia', 'protección']
+          },
+          {
+            name: 'Forma de Maat',
+            ...createImagePath('/images/Formas Divinas/Maat.png'),
+            category: 'formasDivinas',
+            description: 'Forma divina de Maat, diosa egipcia de la verdad',
+            tags: ['maat', 'egipcia', 'verdad']
           }
         ];
         setImages(mockImages);

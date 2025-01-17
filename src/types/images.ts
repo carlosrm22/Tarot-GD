@@ -1,10 +1,11 @@
 export interface ImageInfo {
-  name: string;
+  id: number;
+  title: string;
   path: string;
   publicPath: string;
-  category: string;
+  category?: string;
   description?: string;
-  tags?: string[];
+  tags: string[];
   element?: string;
   useCase?: string;
 }

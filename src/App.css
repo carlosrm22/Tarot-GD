@@ -564,3 +564,110 @@
     transition: none !important;
   }
 }
+
+/* Estilos para el Árbol de la Vida */
+.tree-container {
+  @apply relative flex flex-col items-center gap-8 p-4;
+  min-height: 500px;
+}
+
+.tree-of-life {
+  @apply relative z-10;
+  filter: drop-shadow(0 0 10px rgba(139, 109, 255, 0.2));
+}
+
+/* Efecto de brillo para los senderos */
+.tree-of-life line {
+  @apply transition-all duration-300;
+  stroke-linecap: round;
+}
+
+/* Animaciones y estilos para las Sefirot */
+.tree-of-life circle {
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
+  transition: all 0.3s ease;
+}
+
+.tree-of-life g:hover circle {
+  filter: drop-shadow(0 0 10px var(--twilight-accent));
+}
+
+/* Etiquetas de las Sefirot */
+.sefira-label {
+  @apply text-center text-sm font-medium text-white opacity-0 transition-all duration-300 backdrop-blur-sm rounded px-2 py-1;
+  background: rgba(0, 0, 0, 0.7);
+  transform: translateY(10px);
+  pointer-events: none;
+}
+
+.sefira-label.visible {
+  @apply opacity-100;
+  transform: translateY(0);
+}
+
+/* Panel de información */
+.sefira-info-panel {
+  @apply max-w-md w-full p-6 rounded-xl backdrop-blur-md;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(139, 109, 255, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.sefira-info-panel h3 {
+  @apply text-xl font-bold mb-4 text-transparent;
+  background: linear-gradient(to right, var(--twilight-secondary), var(--twilight-accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.sefira-info-panel .descripcion {
+  @apply mb-6 leading-relaxed;
+  color: var(--twilight-text);
+}
+
+.sefira-details {
+  @apply space-y-3;
+}
+
+.detail-item {
+  @apply flex justify-between items-center p-2 rounded;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.detail-item .label {
+  @apply font-medium;
+  color: var(--twilight-accent);
+}
+
+/* Letras hebreas en los senderos */
+.tree-of-life text {
+  @apply transition-all duration-300;
+  text-shadow: 0 0 10px var(--twilight-accent);
+}
+
+/* Mejoras de accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .tree-of-life circle,
+  .tree-of-life line,
+  .tree-of-life text,
+  .sefira-label {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .tree-container {
+    padding: 1rem;
+  }
+
+  .sefira-info-panel {
+    @apply mx-4;
+  }
+
+  .tree-of-life {
+    max-width: 100%;
+    height: auto;
+  }
+}

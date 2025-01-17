@@ -5,7 +5,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { FaSearch, FaFilter } from "react-icons/fa";
-import { CartaCortesana, ArcanoMenor, ArcanoMayor } from "../../types/cartas";
+import { ArcanoMayor, ArcanoMenor, CartaCortesana, Carta } from "../../types/cartas";
 import cartasCortesanasData from "../../data/cartas_cortesanas.json";
 import arcanosMenoresData from "../../data/arcanos_menores.json";
 import arcanosMayoresData from "../../data/arcanos_mayores.json";
@@ -18,11 +18,6 @@ interface Filtros {
   palo: Palo[];
 }
 
-// Type guards
-const isArcanoMayor = (carta: any): carta is ArcanoMayor => 'hebreo' in carta;
-const isArcanoMenor = (carta: any): carta is ArcanoMenor => 'sefira' in carta;
-const isCartaCortesana = (carta: any): carta is CartaCortesana => 'genero' in carta;
-
 const AllCards: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [filtros, setFiltros] = useState<Filtros>({
@@ -30,11 +25,37 @@ const AllCards: React.FC = () => {
     palo: []
   });
   const [showFilters, setShowFilters] = useState(false);
+  const [filtro, setFiltro] = useState<string>('todas');
 
   const tipos = ["Arcanos Mayores", "Arcanos Menores", "Cartas de la Corte"];
 
+  const isArcanoMayor = (carta: Carta): carta is ArcanoMayor => {
+    return 'hebreo' in carta;
+  };
+
+  const isArcanoMenor = (carta: Carta): carta is ArcanoMenor => {
+    return 'decanato' in carta || 'sefira' in carta;
+  };
+
+  const isCartaCortesana = (carta: Carta): carta is CartaCortesana => {
+    return 'elemento' in carta && 'complexion' in carta;
+  };
+
+  const getDescripcion = (carta: Carta): string => {
+    if (isArcanoMayor(carta)) {
+      return carta.significado;
+    }
+    if (isArcanoMenor(carta) && carta.descripcion) {
+      return carta.descripcion;
+    }
+    if (isCartaCortesana(carta)) {
+      return carta.descripcion;
+    }
+    return '';
+  };
+
   const filtrarCartas = () => {
-    let cartasFiltradas: (CartaCortesana | ArcanoMenor | ArcanoMayor)[] = [
+    let cartasFiltradas: Carta[] = [
       ...cartasCortesanasData.cartasCortesanas,
       ...arcanosMenoresData.arcanosMenores,
       ...arcanosMayoresData.arcanos_mayores
@@ -44,7 +65,8 @@ const AllCards: React.FC = () => {
       cartasFiltradas = cartasFiltradas.filter(carta => {
         const searchTermLower = searchTerm.toLowerCase();
         const nombreMatch = carta.nombre.toLowerCase().includes(searchTermLower);
-        const descripcionMatch = carta.descripcion.toLowerCase().includes(searchTermLower);
+        const descripcion = getDescripcion(carta);
+        const descripcionMatch = descripcion.toLowerCase().includes(searchTermLower);
 
         let significadoMatch = false;
         if (isArcanoMayor(carta)) {
@@ -74,6 +96,18 @@ const AllCards: React.FC = () => {
           return nombreCarta.includes(nombrePalo);
         })
       );
+    }
+
+    switch (filtro) {
+      case 'mayores':
+        cartasFiltradas = cartasFiltradas.filter(isArcanoMayor);
+        break;
+      case 'menores':
+        cartasFiltradas = cartasFiltradas.filter(isArcanoMenor);
+        break;
+      case 'cortesanas':
+        cartasFiltradas = cartasFiltradas.filter(isCartaCortesana);
+        break;
     }
 
     return cartasFiltradas;
@@ -184,7 +218,7 @@ const AllCards: React.FC = () => {
                 {carta.nombre}
               </h3>
               <p className="text-twilight-accent text-sm mb-4">{carta.titulo}</p>
-              <p className="text-twilight-text/80 mb-4">{carta.descripcion}</p>
+              <p className="text-twilight-text/80 mb-4">{getDescripcion(carta)}</p>
 
               {isArcanoMayor(carta) && (
                 <div className="text-twilight-text/80 mb-4">

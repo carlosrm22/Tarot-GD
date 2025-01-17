@@ -2,30 +2,29 @@
  * @fileoverview Servicios para el manejo de cartas del Tarot
  */
 
-import { ArcanoMayor, ArcanoMenor, CartaCortesana } from '../types/cartas';
-import arcanosMayoresData from '../data/arcanos_mayores.json';
-import arcanosMenoresData from '../data/arcanos_menores.json';
 import cartasCortesanasData from '../data/cartas_cortesanas.json';
+import arcanosMenoresData from '../data/arcanos_menores.json';
+import arcanosMayoresData from '../data/arcanos_mayores.json';
+import { Carta } from '../types/cartas';
 
-// Función para obtener una carta aleatoria basada en la fecha
-export const obtenerCartaDiaria = (): Promise<ArcanoMayor> => {
+const getDayOfYear = (date: Date): number => {
+  const start = new Date(date.getFullYear(), 0, 0);
+  const diff = date.getTime() - start.getTime();
+  const oneDay = 1000 * 60 * 60 * 24;
+  return Math.floor(diff / oneDay);
+};
+
+export const obtenerCartaDiaria = (): Promise<Carta> => {
   return new Promise((resolve) => {
-    // Usamos la fecha actual para generar un índice pseudo-aleatorio pero consistente para el día
-    const today = new Date();
-    const dayOfYear = Math.floor((today.getTime() - new Date(today.getFullYear(), 0, 0).getTime()) / 86400000);
+    const dayOfYear = getDayOfYear(new Date());
     const index = dayOfYear % arcanosMayoresData.arcanos_mayores.length;
-
-    // Simulamos una llamada asíncrona
-    setTimeout(() => {
-      resolve(arcanosMayoresData.arcanos_mayores[index]);
-    }, 1000);
+    resolve(arcanosMayoresData.arcanos_mayores[index]);
   });
 };
 
-// Función para obtener una carta aleatoria de cualquier tipo
-export const obtenerCartaAleatoria = (tipo: 'mayor' | 'menor' | 'cortesana'): Promise<ArcanoMayor | ArcanoMenor | CartaCortesana> => {
+export const obtenerCartaAleatoria = (tipo?: 'mayor' | 'menor' | 'cortesana'): Promise<Carta> => {
   return new Promise((resolve) => {
-    let carta: ArcanoMayor | ArcanoMenor | CartaCortesana;
+    let carta: Carta;
 
     switch (tipo) {
       case 'mayor': {
@@ -43,10 +42,17 @@ export const obtenerCartaAleatoria = (tipo: 'mayor' | 'menor' | 'cortesana'): Pr
         carta = cartasCortesanasData.cartasCortesanas[indice];
         break;
       }
+      default: {
+        const todasLasCartas = [
+          ...arcanosMayoresData.arcanos_mayores,
+          ...arcanosMenoresData.arcanosMenores,
+          ...cartasCortesanasData.cartasCortesanas
+        ];
+        const indice = Math.floor(Math.random() * todasLasCartas.length);
+        carta = todasLasCartas[indice];
+      }
     }
 
-    setTimeout(() => {
-      resolve(carta!);
-    }, 1000);
+    resolve(carta);
   });
 };

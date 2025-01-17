@@ -2,51 +2,25 @@
  * @fileoverview Tipos para las cartas del Tarot.
  */
 
-export interface CartaCortesana {
-  nombre: string;
-  titulo: string;
-  descripcion: string;
-  elemento: string;
-  regencia: string;
-  simbolo: string;
-  complexion: string;
-  genero: string;
-  atributos: {
-    dignificado: string[];
-    malDignificado: string[];
-  };
-  dominio: {
-    desde: string;
-    hasta: string;
-    constelacion: string;
-  };
+export interface Atributos {
+  dignificado: string;
+  malDignificado: string;
 }
 
-export interface ArcanoMenor {
+export interface Decanato {
+  planeta: string;
+  signo: string;
+}
+
+export interface Sefira {
   nombre: string;
   titulo: string;
   descripcion: string;
-  simbolismo?: string;
-  atributos: {
-    dignificado: string;
-    malDignificado: string;
-  };
-  sefira: {
-    nombre: string;
-    titulo: string;
-    descripcion: string;
-  };
-  decanato?: {
-    signo: string;
-    planeta: string;
-    grados: string;
-    angeles: string[];
-  };
 }
 
 export interface ArcanoMayor {
-  numero: number;
   nombre: string;
+  numero: number;
   titulo: string;
   hebreo: string;
   letra: string;
@@ -54,11 +28,55 @@ export interface ArcanoMayor {
   atribucion: string;
   sendero: string;
   significado: string;
-  descripcion: string;
 }
 
-export interface CartasData {
-  cortesanas: CartaCortesana[];
-  arcanosMenores: ArcanoMenor[];
-  arcanosMayores: ArcanoMayor[];
+export interface ArcanoMenor {
+  nombre: string;
+  titulo: string;
+  descripcion?: string;
+  simbolismo?: string;
+  atributos: Atributos;
+  sefira?: Sefira;
+  decanato?: Decanato;
 }
+
+export interface CartaCortesana {
+  nombre: string;
+  titulo: string;
+  descripcion: string;
+  elemento: string;
+  regencia: string;
+  complexion: string;
+  genero: string;
+  atributos: Atributos;
+}
+
+export interface Significador {
+  complexiones: {
+    bastos: string;
+    copas: string;
+    espadas: string;
+    pantaculos: string;
+  };
+  generos: {
+    reyes: string;
+    reinas: string;
+    caballeros: string;
+    sotas: string;
+  };
+}
+
+export interface CartasCortesanasData {
+  significador: Significador;
+  cartasCortesanas: CartaCortesana[];
+}
+
+export interface ArcanosMenoresData {
+  arcanosMenores: ArcanoMenor[];
+}
+
+export interface ArcanosMayoresData {
+  arcanos_mayores: ArcanoMayor[];
+}
+
+export type Carta = ArcanoMayor | ArcanoMenor | CartaCortesana;

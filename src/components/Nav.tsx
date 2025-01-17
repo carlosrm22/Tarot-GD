@@ -3,13 +3,13 @@
  * Este componente maneja la navegación de la aplicación, incluyendo el cambio de tema y la autenticación del usuario.
  */
 
-import React, { useState, memo, useCallback, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
-import { FaSun, FaMoon, FaBars } from 'react-icons/fa';
-import { useTheme } from '../contexts/ThemeContext'; // Hook para manejar el tema
-import { useAuth } from '../contexts/AuthContext'; // Hook para manejar la autenticación
-import MobileMenu from './nav/MobileMenu'; // Componente para el menú móvil
-import NavLinks from './nav/NavLinks'; // Componente para los enlaces de navegación
+import React, { useState, memo, useCallback, useEffect } from "react";
+import { NavLink } from "react-router-dom";
+import { FaSun, FaMoon, FaBars } from "react-icons/fa";
+import { useTheme } from "../contexts/ThemeContext"; // Hook para manejar el tema
+import { useAuth } from "../contexts/AuthContext"; // Hook para manejar la autenticación
+import MobileMenu from "./nav/MobileMenu"; // Componente para el menú móvil
+import NavLinks from "./nav/NavLinks"; // Componente para los enlaces de navegación
 
 // Componente Nav, memoizado para evitar re-renderizados innecesarios
 const Nav: React.FC = memo(() => {
@@ -20,7 +20,7 @@ const Nav: React.FC = memo(() => {
   // Manejar el cierre del menú móvil al presionar la tecla Escape
   const handleKeyPress = useCallback(
     (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && isOpen) {
+      if (e.key === "Escape" && isOpen) {
         setIsOpen(false);
       }
     },
@@ -29,19 +29,19 @@ const Nav: React.FC = memo(() => {
 
   // Efecto para agregar y limpiar el listener de teclado
   useEffect(() => {
-    document.addEventListener('keydown', handleKeyPress);
-    return () => document.removeEventListener('keydown', handleKeyPress);
+    document.addEventListener("keydown", handleKeyPress);
+    return () => document.removeEventListener("keydown", handleKeyPress);
   }, [handleKeyPress]);
 
-  // Efecto para bloquear el scroll del body cuando el menú está abierto
+  // Bloquear el scroll del body cuando el menú está abierto
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = 'hidden'; // Bloquear el scroll
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = ''; // Restaurar el scroll
+      document.body.style.overflow = "";
     }
     return () => {
-      document.body.style.overflow = ''; // Limpiar el estilo al desmontar
+      document.body.style.overflow = "";
     };
   }, [isOpen]);
 
@@ -50,7 +50,9 @@ const Nav: React.FC = memo(() => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo de la aplicación */}
-          <NavLink to="/" className="text-2xl font-bold bg-gradient-to-r from-twilight-secondary to-twilight-accent bg-clip-text text-transparent">
+          <NavLink
+            to="/"
+            className="text-2xl font-bold bg-gradient-to-r from-twilight-secondary to-twilight-accent bg-clip-text text-transparent">
             Tarot GD
           </NavLink>
 
@@ -65,16 +67,16 @@ const Nav: React.FC = memo(() => {
             <button
               onClick={toggleTheme}
               className="p-2 hover:text-twilight-accent transition-colors"
-              aria-label={isDarkMode ? 'Activar modo claro' : 'Activar modo oscuro'}
-            >
+              aria-label={
+                isDarkMode ? "Activar modo claro" : "Activar modo oscuro"
+              }>
               {isDarkMode ? <FaSun size={20} /> : <FaMoon size={20} />}
             </button>
 
             {/* Botón de cerrar sesión - Desktop */}
             <button
               onClick={logout}
-              className="hidden md:block hover:text-red-500 transition-colors"
-            >
+              className="hidden md:block hover:text-red-500 transition-colors">
               Cerrar Sesión
             </button>
 
@@ -84,8 +86,7 @@ const Nav: React.FC = memo(() => {
               className="md:hidden p-2 hover:text-twilight-accent transition-colors"
               aria-label="Menú principal"
               aria-expanded={isOpen}
-              aria-controls="mobile-menu"
-            >
+              aria-controls="mobile-menu">
               <FaBars size={24} />
             </button>
           </div>
@@ -93,13 +94,17 @@ const Nav: React.FC = memo(() => {
       </div>
 
       {/* Menú móvil */}
-      <MobileMenu isOpen={isOpen} onClose={() => setIsOpen(false)} />
+      <MobileMenu
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+        logout={logout}
+      />
     </header>
   );
 });
 
 // Establecer un nombre para el componente en herramientas de desarrollo
-Nav.displayName = 'Nav';
+Nav.displayName = "Nav";
 
 // Exportar el componente
 export default Nav;

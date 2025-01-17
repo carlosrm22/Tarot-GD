@@ -1,191 +1,126 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { useAuth } from '../../contexts/AuthContext';
+/**
+ * @fileoverview Componente para los enlaces de navegación.
+ * Este componente maneja los enlaces de navegación de la aplicación y cierra el menú móvil al hacer clic en un enlace.
+ */
+
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
+import { FaBook, FaCaretDown } from "react-icons/fa";
+import { GiMagicGate, GiTreeBranch, GiSpellBook } from "react-icons/gi";
+import { SiHexo } from "react-icons/si";
 
 interface NavLinksProps {
   isMobile?: boolean;
   onClose?: () => void;
 }
 
-const NavLinks: React.FC<NavLinksProps> = ({ isMobile, onClose }) => {
-  const { logout } = useAuth();
-  const baseClasses = "block py-2 hover:text-twilight-accent transition-colors";
-  const mobileClasses = isMobile ? "text-lg" : "";
+const NavLinks: React.FC<NavLinksProps> = ({ isMobile = false, onClose }) => {
+  const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
 
-  const handleClick = () => {
-    if (isMobile && onClose) {
-      onClose();
+  const baseClasses = "flex items-center gap-2 py-2 text-twilight-text hover:text-twilight-accent transition-colors";
+  const mobileClasses = "text-lg";
+  const desktopClasses = "mx-4";
+  const activeClasses = "text-twilight-accent font-medium";
+
+  const handleSubmenuClick = (menu: string, e: React.MouseEvent) => {
+    if (!isMobile) {
+      e.preventDefault();
+      setOpenSubmenu(openSubmenu === menu ? null : menu);
     }
   };
 
-  return (
-    <nav className={`${isMobile ? 'space-y-4' : 'flex gap-6'}`}>
-      <NavLink
-        to="/lecturas"
-        className={({ isActive }) =>
-          `${baseClasses} ${mobileClasses} ${isActive ? 'text-twilight-accent' : ''}`
-        }
-        onClick={handleClick}
-      >
-        Lecturas
-      </NavLink>
+  const renderSubmenu = (
+    title: string,
+    items: { path: string; label: string; icon?: React.ReactNode }[],
+    icon?: React.ReactNode
+  ) => {
+    const isOpen = openSubmenu === title;
 
-      <div className={`relative group ${isMobile ? '' : 'inline-block'}`}>
-        <NavLink
-          to="/cartas"
-          className={({ isActive }) =>
-            `${baseClasses} ${mobileClasses} ${isActive ? 'text-twilight-accent' : ''}`
-          }
-          onClick={handleClick}
-        >
-          Cartas
-        </NavLink>
-        {!isMobile && (
-          <div className="dropdown">
-            <NavLink
-              to="/arcanos-mayores"
-              className="block px-4 py-2 hover:bg-twilight-secondary/10"
-              onClick={handleClick}
-            >
-              Arcanos Mayores
-            </NavLink>
-            <NavLink
-              to="/alefato"
-              className="block px-4 py-2 hover:bg-twilight-secondary/10"
-              onClick={handleClick}
-            >
-              Alefato
-            </NavLink>
-          </div>
-        )}
-      </div>
-
-      {isMobile && (
-        <>
-          <NavLink
-            to="/arcanos-mayores"
-            className={({ isActive }) =>
-              `${baseClasses} ${mobileClasses} pl-4 ${isActive ? 'text-twilight-accent' : ''}`
-            }
-            onClick={handleClick}
-          >
-            Arcanos Mayores
-          </NavLink>
-          <NavLink
-            to="/alefato"
-            className={({ isActive }) =>
-              `${baseClasses} ${mobileClasses} pl-4 ${isActive ? 'text-twilight-accent' : ''}`
-            }
-            onClick={handleClick}
-          >
-            Alefato
-          </NavLink>
-        </>
-      )}
-
-      <NavLink
-        to="/rituales"
-        className={({ isActive }) =>
-          `${baseClasses} ${mobileClasses} ${isActive ? 'text-twilight-accent' : ''}`
-        }
-        onClick={handleClick}
-      >
-        Rituales
-      </NavLink>
-
-      <div className={`relative group ${isMobile ? '' : 'inline-block'}`}>
-        <span className={`${baseClasses} ${mobileClasses} cursor-pointer`}>
-          Símbolos
-        </span>
-        <div className={isMobile ? 'pl-4 space-y-2' : 'dropdown'}>
-          <NavLink
-            to="/arbol-vida"
-            className={isMobile ? baseClasses : "block px-4 py-2 hover:bg-twilight-secondary/10"}
-            onClick={handleClick}
-          >
-            Árbol de la Vida
-          </NavLink>
-          <NavLink
-            to="/pentagramas"
-            className={isMobile ? baseClasses : "block px-4 py-2 hover:bg-twilight-secondary/10"}
-            onClick={handleClick}
-          >
-            Pentagramas
-          </NavLink>
-          <NavLink
-            to="/hexagramas"
-            className={isMobile ? baseClasses : "block px-4 py-2 hover:bg-twilight-secondary/10"}
-            onClick={handleClick}
-          >
-            Hexagramas
-          </NavLink>
-          <NavLink
-            to="/sigilos"
-            className={isMobile ? baseClasses : "block px-4 py-2 hover:bg-twilight-secondary/10"}
-            onClick={handleClick}
-          >
-            Sigilos
-          </NavLink>
-          <NavLink
-            to="/talismanes"
-            className={isMobile ? baseClasses : "block px-4 py-2 hover:bg-twilight-secondary/10"}
-            onClick={handleClick}
-          >
-            Talismanes
-          </NavLink>
-        </div>
-      </div>
-
-      <div className={`relative group ${isMobile ? '' : 'inline-block'}`}>
-        <span className={`${baseClasses} ${mobileClasses} cursor-pointer`}>
-          Herramientas
-        </span>
-        <div className={isMobile ? 'pl-4 space-y-2' : 'dropdown'}>
-          <NavLink
-            to="/armas"
-            className={isMobile ? baseClasses : "block px-4 py-2 hover:bg-twilight-secondary/10"}
-            onClick={handleClick}
-          >
-            Armas Mágicas
-          </NavLink>
-          <NavLink
-            to="/tatvas"
-            className={isMobile ? baseClasses : "block px-4 py-2 hover:bg-twilight-secondary/10"}
-            onClick={handleClick}
-          >
-            Tatvas
-          </NavLink>
-          <NavLink
-            to="/formas-divinas"
-            className={isMobile ? baseClasses : "block px-4 py-2 hover:bg-twilight-secondary/10"}
-            onClick={handleClick}
-          >
-            Formas Divinas
-          </NavLink>
-        </div>
-      </div>
-
-      <NavLink
-        to="/enoquiano"
-        className={({ isActive }) =>
-          `${baseClasses} ${mobileClasses} ${isActive ? 'text-twilight-accent' : ''}`
-        }
-        onClick={handleClick}
-      >
-        Enoquiano
-      </NavLink>
-
-      {isMobile && (
+    return (
+      <div className={`${isMobile ? "mt-2" : "relative group"}`}>
         <button
-          onClick={() => {
-            logout();
-            handleClick();
-          }}
-          className={`${baseClasses} ${mobileClasses} text-red-500 hover:text-red-600`}
-        >
-          Cerrar Sesión
+          className={`${baseClasses} ${isMobile ? mobileClasses : desktopClasses} w-full ${
+            isOpen ? activeClasses : ""
+          } flex items-center justify-between`}
+          onClick={(e) => handleSubmenuClick(title, e)}
+          aria-expanded={isOpen}
+          aria-controls={`submenu-${title}`}>
+          <span className="flex items-center gap-2">
+            {icon}
+            {title}
+          </span>
+          <FaCaretDown
+            className={`transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
+          />
         </button>
-      )}
+        <div
+          id={`submenu-${title}`}
+          className={`${
+            isMobile
+              ? "pl-6 space-y-2 mt-2"
+              : `absolute left-0 mt-2 py-2 bg-twilight-background rounded-lg shadow-lg min-w-[200px] border border-twilight-secondary/10 ${
+                  isOpen ? "block" : "hidden"
+                } group-hover:block`
+          }`}>
+          {items.map((item) => (
+            <NavLink
+              key={item.path}
+              to={item.path}
+              className={({ isActive }) =>
+                `${baseClasses} ${
+                  isMobile
+                    ? mobileClasses
+                    : "px-4 py-2 hover:bg-twilight-secondary/10"
+                } ${isActive ? activeClasses : ""}`
+              }
+              onClick={(e) => {
+                if (isMobile && onClose) {
+                  onClose();
+                }
+                if (!isMobile && openSubmenu) {
+                  setOpenSubmenu(null);
+                }
+              }}>
+              {item.icon}
+              {item.label}
+            </NavLink>
+          ))}
+        </div>
+      </div>
+    );
+  };
+
+  const tarotMenu = [
+    { path: "/lecturas", label: "Lecturas de Tarot", icon: <FaBook size={16} /> },
+    { path: "/cartas", label: "Todas las Cartas", icon: <GiSpellBook size={16} /> },
+    { path: "/arcanos-mayores", label: "Arcanos Mayores", icon: <SiHexo size={16} /> },
+  ];
+
+  const hermetismoMenu = [
+    { path: "/arbol-vida", label: "Árbol de la Vida", icon: <GiTreeBranch size={16} /> },
+    { path: "/alefato", label: "Alefato Hebreo", icon: <FaBook size={16} /> },
+    { path: "/enoquiano", label: "Sistema Enoquiano", icon: <GiMagicGate size={16} /> },
+  ];
+
+  const ritualMenu = [
+    { path: "/rituales", label: "Rituales", icon: <GiMagicGate size={16} /> },
+    { path: "/pentagramas", label: "Pentagramas", icon: <SiHexo size={16} /> },
+    { path: "/hexagramas", label: "Hexagramas", icon: <SiHexo size={16} /> },
+  ];
+
+  const herramientasMenu = [
+    { path: "/armas", label: "Armas Mágicas", icon: <GiMagicGate size={16} /> },
+    { path: "/sigilos", label: "Sigilos", icon: <SiHexo size={16} /> },
+    { path: "/talismanes", label: "Talismanes", icon: <SiHexo size={16} /> },
+    { path: "/tatvas", label: "Tatvas", icon: <GiMagicGate size={16} /> },
+  ];
+
+  return (
+    <nav className={`${!isMobile ? "flex items-center gap-2" : "flex flex-col gap-4"}`}>
+      {renderSubmenu("Tarot", tarotMenu, <GiSpellBook size={20} />)}
+      {renderSubmenu("Hermetismo", hermetismoMenu, <FaBook size={20} />)}
+      {renderSubmenu("Rituales", ritualMenu, <GiMagicGate size={20} />)}
+      {renderSubmenu("Herramientas", herramientasMenu, <SiHexo size={20} />)}
     </nav>
   );
 };

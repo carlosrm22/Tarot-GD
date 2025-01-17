@@ -10,6 +10,11 @@
 }
 
 /* Clases base */
+.App {
+  @apply min-h-screen bg-primary-light dark:bg-primary-dark text-gray-900 dark:text-white relative;
+  z-index: 1;
+}
+
 .btn-base {
   @apply px-4 py-2 rounded transition-all duration-300;
 }
@@ -671,4 +676,26 @@
     max-width: 100%;
     height: auto;
   }
+}
+
+/* Agregar transiciones suaves */
+.mobile-menu-enter {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.mobile-menu-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 200ms, transform 200ms;
+}
+
+.mobile-menu-exit {
+  opacity: 1;
+}
+
+.mobile-menu-exit-active {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 200ms, transform 200ms;
 }

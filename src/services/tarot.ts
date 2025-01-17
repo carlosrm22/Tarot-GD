@@ -13,11 +13,11 @@ export const obtenerCartaDiaria = (): Promise<ArcanoMayor> => {
     // Usamos la fecha actual para generar un índice pseudo-aleatorio pero consistente para el día
     const today = new Date();
     const dayOfYear = Math.floor((today.getTime() - new Date(today.getFullYear(), 0, 0).getTime()) / 86400000);
-    const index = dayOfYear % arcanosMayoresData.arcanosMayores.length;
+    const index = dayOfYear % arcanosMayoresData.arcanos_mayores.length;
 
     // Simulamos una llamada asíncrona
     setTimeout(() => {
-      resolve(arcanosMayoresData.arcanosMayores[index]);
+      resolve(arcanosMayoresData.arcanos_mayores[index]);
     }, 1000);
   });
 };
@@ -29,8 +29,8 @@ export const obtenerCartaAleatoria = (tipo: 'mayor' | 'menor' | 'cortesana'): Pr
 
     switch (tipo) {
       case 'mayor': {
-        const indice = Math.floor(Math.random() * arcanosMayoresData.arcanosMayores.length);
-        carta = arcanosMayoresData.arcanosMayores[indice];
+        const indice = Math.floor(Math.random() * arcanosMayoresData.arcanos_mayores.length);
+        carta = arcanosMayoresData.arcanos_mayores[indice];
         break;
       }
       case 'menor': {

@@ -44,42 +44,21 @@ export interface ArcanoMenor {
   };
 }
 
-export interface CorrespondenciaCabalistica {
-  titulo: string;
-  descripcion?: string;
-  accion: string;
-  angeles?: string[];
-}
-
 export interface ArcanoMayor {
-  nombre: string;
   numero: number;
+  nombre: string;
   titulo: string;
-  descripcion: string;
-  significado: {
-    general: string;
-    amor: string;
-    trabajo: string;
-  };
-  planeta: string;
-  elemento: string;
+  hebreo: string;
+  letra: string;
+  signo: string;
+  atribucion: string;
   sendero: string;
-  correspondenciaCabalistica: {
-    titulo: string;
-    accion: string;
-  };
+  significado: string;
+  descripcion: string;
 }
 
 export interface CartasData {
   cortesanas: CartaCortesana[];
   arcanosMenores: ArcanoMenor[];
   arcanosMayores: ArcanoMayor[];
-}
-
-export interface CorrespondenciasCabalisticas {
-  notas: {
-    autor: string;
-    introduccion: string;
-  };
-  correspondencias: CorrespondenciaCabalistica[];
 }

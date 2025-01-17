@@ -1,22 +1,268 @@
 {
-  "arcanosMayores": [
+  "arcanos_mayores": [
     {
-      "nombre": "El Mago",
+      "numero": 0,
+      "nombre": "El Loco",
+      "titulo": "El Espíritu del Éter",
+      "hebreo": "Álef",
+      "letra": "א",
+      "signo": "Aire",
+      "atribucion": "La Corona de la Sabiduría, el Primum Mobile actuando a través del aire sobre el Zodíaco.",
+      "sendero": "11",
+      "significado": "Idea, pensamiento, espiritualidad, lo que se esfuerza por elevarse por encima de lo material. Indica locura, estupidez, excentricidad e incluso manía si la adivinación versa sobre un suceso material.",
+      "descripcion": "El Primum Mobile actuando a través del aire sobre el Zodíaco."
+    },
+    {
       "numero": 1,
-      "titulo": "El Mago del Poder",
-      "descripcion": "Un Mago con las herramientas de poder. Sobre su mesa están los símbolos de los cuatro elementos.",
-      "significado": {
-        "general": "Habilidad, adaptabilidad, destreza, iniciativa",
-        "amor": "Capacidad de seducción, carisma, nuevos comienzos",
-        "trabajo": "Creatividad, nuevos proyectos, oportunidades"
-      },
-      "planeta": "Mercurio",
-      "elemento": "Aire",
+      "nombre": "El Mago",
+      "titulo": "El Mago de Poder",
+      "hebreo": "Bet",
+      "letra": "ב",
+      "signo": "Mercurio",
+      "atribucion": "La Corona del Entendimiento, el principio de la producción material, el Primum Mobile actuando a través del Mercurio filosófico sobre Saturno.",
       "sendero": "12",
-      "correspondenciaCabalistica": {
-        "titulo": "El Mago de Poder",
-        "accion": "Mercurio actuando a través del aire sobre el Zodíaco"
-      }
+      "significado": "Habilidad, sabiduría, adaptación. Oficio, astucia, etc. A veces Sabiduría oculta.",
+      "descripcion": "El principio de la producción material."
+    },
+    {
+      "numero": 2,
+      "nombre": "La Gran Sacerdotisa",
+      "titulo": "La Sacerdotisa de la Estrella Plateada",
+      "hebreo": "Guímel",
+      "letra": "ג",
+      "signo": "Luna",
+      "atribucion": "La Corona de la Belleza, el principio de la soberanía y de la belleza, el Primum Mobile actuando a través de la Luna sobre el Sol.",
+      "sendero": "13",
+      "significado": "Cambio, alteración, crecimiento y decrecimiento. Fluctuación (para bien o para mal).",
+      "descripcion": "El Primum Mobile actuando a través de la Luna sobre el Sol."
+    },
+    {
+      "numero": 3,
+      "nombre": "La Emperatriz",
+      "titulo": "La Hija de los Poderosos",
+      "hebreo": "Dálet",
+      "letra": "ד",
+      "signo": "Venus",
+      "atribucion": "La Sabiduría del Entendimiento, la unión de los poderes del Origen y de la Producción; la esfera del Zodíaco actuando a través de Venus sobre Saturno.",
+      "sendero": "14",
+      "significado": "Belleza, felicidad, placer, éxito, también lujo y a veces disipación.",
+      "descripcion": "La unión de los poderes del Origen y de la Producción."
+    },
+    {
+      "numero": 4,
+      "nombre": "El Emperador",
+      "titulo": "El Hijo de la Mañana, Jefe entre los Poderosos",
+      "hebreo": "Hei",
+      "letra": "ה",
+      "signo": "Aries",
+      "atribucion": "La Sabiduría de la Soberanía y de la Belleza, y el origen de ambas; la esfera del Zodíaco actuando a través de Aries sobre el Sol e iniciando la primavera.",
+      "sendero": "15",
+      "significado": "Guerra, conquista, victoria, contienda, ambición.",
+      "descripcion": "El origen de ambas."
+    },
+    {
+      "numero": 5,
+      "nombre": "El Hierofante",
+      "titulo": "Mago de los Dioses Eternos",
+      "hebreo": "Vav",
+      "letra": "ו",
+      "signo": "Tauro",
+      "atribucion": "La Sabiduría y la Fuente de la Misericordia, la esfera del Zodíaco actuando a través de Tauro sobre Júpiter.",
+      "sendero": "16",
+      "significado": "Sabiduría Divina. Manifestación. Explicación. Enseñanza. Sabiduría Oculta.",
+      "descripcion": "La Fuente de la Misericordia."
+    },
+    {
+      "numero": 6,
+      "nombre": "Los Amantes",
+      "titulo": "Hijos de la Voz Divina, Los Oráculos de los Dioses Poderosos",
+      "hebreo": "Zayn",
+      "letra": "ז",
+      "signo": "Géminis",
+      "atribucion": "El Entendimiento de la Belleza y la producción de la belleza y de la soberanía. Saturno actuando a través de Géminis sobre el Sol.",
+      "sendero": "17",
+      "significado": "Inspiración pasiva. Motivo, poder y acción que brota del impulso y de la inspiración.",
+      "descripcion": "La producción de la belleza y de la soberanía."
+    },
+    {
+      "numero": 7,
+      "nombre": "La Carroza",
+      "titulo": "Hijo del Poder de las Aguas, Señor del Triunfo de la Luz",
+      "hebreo": "Jet",
+      "letra": "ח",
+      "signo": "Cáncer",
+      "atribucion": "El entendimiento actuando sobre la severidad. Saturno actuando a través de Cáncer sobre Marte.",
+      "sendero": "18",
+      "significado": "Triunfo. Victoria. Salud. Éxito, aunque no siempre estable y duradero.",
+      "descripcion": "El entendimiento actuando sobre la severidad."
+    },
+    {
+      "numero": 8,
+      "nombre": "La Fuerza",
+      "titulo": "Hija de la Espada Flamígera, Piel del León",
+      "hebreo": "Tet",
+      "letra": "ט",
+      "signo": "Leo",
+      "atribucion": "Fortaleza. La misericordia templando a la severidad. La Gloria de la Fuerza. Júpiter actuando a través de Leo sobre Marte.",
+      "sendero": "19",
+      "significado": "Coraje, fuerza, poder que se manifiesta en acción. A veces obstinación.",
+      "descripcion": "La misericordia templando a la severidad."
+    },
+    {
+      "numero": 9,
+      "nombre": "El Ermitaño",
+      "titulo": "El Mago de la Voz de Luz, El Profeta de los Dioses",
+      "hebreo": "Yod",
+      "letra": "י",
+      "signo": "Virgo",
+      "atribucion": "La Misericordia de la Belleza. La Magnificencia de la Soberanía. Júpiter actuando a través de Virgo sobre el Sol.",
+      "sendero": "20",
+      "significado": "Búsqueda de la Sabiduría y obtención de esta desde lo alto. Inspiración Divina activa.",
+      "descripcion": "La Magnificencia de la Soberanía."
+    },
+    {
+      "numero": 10,
+      "nombre": "La Rueda de la Fortuna",
+      "titulo": "El Señor de las Fuerzas de Vida",
+      "hebreo": "Kaf",
+      "letra": "כ",
+      "signo": "Júpiter",
+      "atribucion": "La misericordia y la magnificencia de la Victoria. Júpiter actuando a través de Júpiter directamente sobre Venus.",
+      "sendero": "21",
+      "significado": "Buena fortuna y felicidad (dentro de ciertos límites), pero a veces intoxicación con el éxito.",
+      "descripcion": "La misericordia y la magnificencia de la Victoria."
+    },
+    {
+      "numero": 11,
+      "nombre": "La Justicia",
+      "titulo": "Hija del Señor de Verdad, La Portadora de las Balanzas",
+      "hebreo": "Lamed",
+      "letra": "ל",
+      "signo": "Libra",
+      "atribucion": "La Severidad de la Belleza y de la Soberanía. Marte actuando a través de Libra sobre el Sol.",
+      "sendero": "22",
+      "significado": "Justicia y balance eternos. Procedimientos legales, juicio ante un tribunal.",
+      "descripcion": "La Severidad de la Belleza y de la Soberanía."
+    },
+    {
+      "numero": 12,
+      "nombre": "El Colgado",
+      "titulo": "El Espíritu de las Aguas Poderosas",
+      "hebreo": "Mem",
+      "letra": "מ",
+      "signo": "Agua",
+      "atribucion": "La Severidad del Esplendor. La Ejecución del Juicio. Marte actuando a través del agua sobre Mercurio.",
+      "sendero": "23",
+      "significado": "Sacrificio forzado. Castigo. Pérdida. Generalmente sufrimiento.",
+      "descripcion": "La Ejecución del Juicio."
+    },
+    {
+      "numero": 13,
+      "nombre": "La Muerte",
+      "titulo": "El Hijo de los Grandes Transformadores, Señor de las Puertas de la Muerte",
+      "hebreo": "Nun",
+      "letra": "נ",
+      "signo": "Escorpio",
+      "atribucion": "La Soberanía y los resultados de la Victoria. El Sol actuando a través de Escorpio sobre Venus.",
+      "sendero": "24",
+      "significado": "Tiempo. Edad. Transformación. Cambio involuntario. A veces muerte y destrucción.",
+      "descripcion": "La Soberanía y los resultados de la Victoria."
+    },
+    {
+      "numero": 14,
+      "nombre": "La Templanza",
+      "titulo": "Hija de los Reconciliadores, El Portador de Vida",
+      "hebreo": "Samej",
+      "letra": "ס",
+      "signo": "Sagitario",
+      "atribucion": "La Belleza de una Firme Base. La Soberanía del Poder Fundamental. El Sol actuando a través de Sagitario sobre la Luna.",
+      "sendero": "25",
+      "significado": "Combinación de fuerzas. Realización. Acción material para bien o para mal.",
+      "descripcion": "La Belleza de una Firme Base."
+    },
+    {
+      "numero": 15,
+      "nombre": "El Diablo",
+      "titulo": "Señor de las Puertas de la Materia, Hijo de las Fuerzas del Tiempo",
+      "hebreo": "Ayin",
+      "letra": "ע",
+      "signo": "Capricornio",
+      "atribucion": "La Soberanía y la Belleza del Esplendor Material. El Sol actuando a través de Capricornio sobre Mercurio.",
+      "sendero": "26",
+      "significado": "Materialidad. Fuerza material. Tentación material; a veces obsesión.",
+      "descripcion": "La Soberanía y la Belleza del Esplendor Material."
+    },
+    {
+      "numero": 16,
+      "nombre": "La Torre",
+      "titulo": "Señor de las Huestes de los Poderosos",
+      "hebreo": "Pei",
+      "letra": "פ",
+      "signo": "Marte",
+      "atribucion": "La Victoria sobre el Esplendor. Venus actuando a través de Marte sobre Mercurio.",
+      "sendero": "27",
+      "significado": "Ambición, lucha, guerra, coraje. En ciertas combinaciones, destrucción, peligro, caída, ruina.",
+      "descripcion": "La Victoria sobre el Esplendor."
+    },
+    {
+      "numero": 17,
+      "nombre": "La Estrella",
+      "titulo": "Hija del Firmamento, Morador entre las Aguas",
+      "hebreo": "Tzadi",
+      "letra": "צ",
+      "signo": "Acuario",
+      "atribucion": "La Victoria de la Fuerza Fundamental. Venus actuando a través de Acuario sobre la Luna.",
+      "sendero": "28",
+      "significado": "Esperanza, fe, ayuda inesperada. A veces espejismo, esperanza ilusoria.",
+      "descripcion": "La Victoria de la Fuerza Fundamental."
+    },
+    {
+      "numero": 18,
+      "nombre": "La Luna",
+      "titulo": "Soberana del Flujo y el Reflujo, Hija de los Hijos del Poderoso",
+      "hebreo": "Qof",
+      "letra": "ק",
+      "signo": "Piscis",
+      "atribucion": "La Victoria de lo Material. Venus actuando a través de Piscis sobre los elementos cósmicos.",
+      "sendero": "29",
+      "significado": "Insatisfacción, cambio voluntario. Error, mentira, falsedad, engaño.",
+      "descripcion": "La Victoria de lo Material."
+    },
+    {
+      "numero": 19,
+      "nombre": "El Sol",
+      "titulo": "Señor del Fuego del Mundo",
+      "hebreo": "Resh",
+      "letra": "ר",
+      "signo": "Sol",
+      "atribucion": "El Esplendor del Mundo Material. Mercurio actuando a través del Sol sobre la Luna.",
+      "sendero": "30",
+      "significado": "Gloria, ganancia, riquezas. A veces arrogancia, ostentación.",
+      "descripcion": "El Esplendor del Mundo Material."
+    },
+    {
+      "numero": 20,
+      "nombre": "El Juicio",
+      "titulo": "El Espíritu del Fuego Primigenio",
+      "hebreo": "Shin",
+      "letra": "ש",
+      "signo": "Fuego",
+      "atribucion": "El Esplendor del Mundo Material. Mercurio actuando a través del fuego sobre los elementos cósmicos.",
+      "sendero": "31",
+      "significado": "Decisión final. Juicio. Sentencia. Determinación de un asunto sin apelación.",
+      "descripcion": "El Esplendor del Mundo Material."
+    },
+    {
+      "numero": 21,
+      "nombre": "El Universo",
+      "titulo": "El Grande de la Noche del Tiempo",
+      "hebreo": "Tav",
+      "letra": "ת",
+      "signo": "Saturno",
+      "atribucion": "El Fundamento de los elementos cósmicos y del mundo material. La Luna actuando a través de Saturno sobre los elementos.",
+      "sendero": "32",
+      "significado": "El asunto mismo. Síntesis. Mundo. Representa el tema concreto de la pregunta.",
+      "descripcion": "El Fundamento de los elementos cósmicos y del mundo material."
     }
   ]
 }

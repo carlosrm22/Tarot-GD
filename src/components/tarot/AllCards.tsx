@@ -19,7 +19,7 @@ interface Filtros {
 }
 
 // Type guards
-const isArcanoMayor = (carta: any): carta is ArcanoMayor => 'numero' in carta;
+const isArcanoMayor = (carta: any): carta is ArcanoMayor => 'hebreo' in carta;
 const isArcanoMenor = (carta: any): carta is ArcanoMenor => 'sefira' in carta;
 const isCartaCortesana = (carta: any): carta is CartaCortesana => 'genero' in carta;
 
@@ -37,7 +37,7 @@ const AllCards: React.FC = () => {
     let cartasFiltradas: (CartaCortesana | ArcanoMenor | ArcanoMayor)[] = [
       ...cartasCortesanasData.cartasCortesanas,
       ...arcanosMenoresData.arcanosMenores,
-      ...arcanosMayoresData.arcanosMayores
+      ...arcanosMayoresData.arcanos_mayores
     ];
 
     if (searchTerm) {
@@ -48,7 +48,7 @@ const AllCards: React.FC = () => {
 
         let significadoMatch = false;
         if (isArcanoMayor(carta)) {
-          significadoMatch = carta.significado.general.toLowerCase().includes(searchTermLower);
+          significadoMatch = carta.significado.toLowerCase().includes(searchTermLower);
         } else if (isArcanoMenor(carta)) {
           significadoMatch = carta.atributos.dignificado.toLowerCase().includes(searchTermLower);
         }
@@ -61,7 +61,7 @@ const AllCards: React.FC = () => {
       cartasFiltradas = cartasFiltradas.filter(carta => {
         if ('genero' in carta && filtros.tipo.includes('Cartas de la Corte')) return true;
         if ('sefira' in carta && filtros.tipo.includes('Arcanos Menores')) return true;
-        if ('numero' in carta && filtros.tipo.includes('Arcanos Mayores')) return true;
+        if ('hebreo' in carta && filtros.tipo.includes('Arcanos Mayores')) return true;
         return false;
       });
     }
@@ -186,34 +186,51 @@ const AllCards: React.FC = () => {
               <p className="text-twilight-accent text-sm mb-4">{carta.titulo}</p>
               <p className="text-twilight-text/80 mb-4">{carta.descripcion}</p>
 
-              {'significado' in carta && (
+              {isArcanoMayor(carta) && (
                 <div className="text-twilight-text/80 mb-4">
-                  {typeof carta.significado === 'string' ? (
-                    <p>{carta.significado}</p>
-                  ) : (
-                    <>
-                      <p className="mb-2">{carta.significado.general}</p>
-                      <div className="grid grid-cols-2 gap-4 text-sm">
-                        <div>
-                          <h4 className="font-medium text-twilight-accent mb-1">Amor</h4>
-                          <p>{carta.significado.amor}</p>
-                        </div>
-                        <div>
-                          <h4 className="font-medium text-twilight-accent mb-1">Trabajo</h4>
-                          <p>{carta.significado.trabajo}</p>
-                        </div>
-                      </div>
-                    </>
-                  )}
+                  <p className="mb-2">{carta.significado}</p>
+                  <div className="grid grid-cols-2 gap-4 text-sm">
+                    <div>
+                      <h4 className="font-medium text-twilight-accent mb-1">Letra Hebrea</h4>
+                      <p>{carta.letra} ({carta.hebreo})</p>
+                    </div>
+                    <div>
+                      <h4 className="font-medium text-twilight-accent mb-1">Sendero</h4>
+                      <p>{carta.sendero}</p>
+                    </div>
+                  </div>
                 </div>
               )}
 
-              <div className="text-sm text-twilight-text/60">
-                {'elemento' in carta && <p>Elemento: {carta.elemento}</p>}
-                {'regencia' in carta && <p>Regencia: {(carta as CartaCortesana).regencia}</p>}
-                {'planeta' in carta && <p>Planeta: {(carta as ArcanoMayor).planeta}</p>}
-                {'decanato' in carta && <p>Signo: {(carta as ArcanoMenor).decanato?.signo}</p>}
-              </div>
+              {isArcanoMenor(carta) && (
+                <div className="text-twilight-text/80 mb-4">
+                  <div className="grid grid-cols-2 gap-4 text-sm">
+                    <div>
+                      <h4 className="font-medium text-twilight-accent mb-1">Dignificado</h4>
+                      <p>{carta.atributos.dignificado}</p>
+                    </div>
+                    <div>
+                      <h4 className="font-medium text-twilight-accent mb-1">Mal Dignificado</h4>
+                      <p>{carta.atributos.malDignificado}</p>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {isCartaCortesana(carta) && (
+                <div className="text-twilight-text/80 mb-4">
+                  <div className="grid grid-cols-2 gap-4 text-sm">
+                    <div>
+                      <h4 className="font-medium text-twilight-accent mb-1">Elemento</h4>
+                      <p>{carta.elemento}</p>
+                    </div>
+                    <div>
+                      <h4 className="font-medium text-twilight-accent mb-1">Regencia</h4>
+                      <p>{carta.regencia}</p>
+                    </div>
+                  </div>
+                </div>
+              )}
             </motion.div>
           ))}
         </div>

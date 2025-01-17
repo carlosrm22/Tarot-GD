@@ -88,24 +88,20 @@ const DailyReading: React.FC = () => {
                   className="space-y-6"
                 >
                   <div>
-                    <h3 className="font-medium text-twilight-text mb-2">Significado General</h3>
-                    <p className="text-twilight-text/80">{dailyCard.significado.general}</p>
+                    <h3 className="font-medium text-twilight-text mb-2">Significado</h3>
+                    <p className="text-twilight-text/80">{dailyCard.significado}</p>
                   </div>
                   <div>
-                    <h3 className="font-medium text-twilight-text mb-2">Amor</h3>
-                    <p className="text-twilight-text/80">{dailyCard.significado.amor}</p>
-                  </div>
-                  <div>
-                    <h3 className="font-medium text-twilight-text mb-2">Trabajo</h3>
-                    <p className="text-twilight-text/80">{dailyCard.significado.trabajo}</p>
+                    <h3 className="font-medium text-twilight-text mb-2">Atribución</h3>
+                    <p className="text-twilight-text/80">{dailyCard.atribucion}</p>
                   </div>
                   <div className="pt-4 border-t border-twilight-secondary/20">
                     <div className="grid grid-cols-2 gap-4 text-sm">
                       <div>
-                        <span className="text-twilight-accent">Planeta:</span> {dailyCard.planeta}
+                        <span className="text-twilight-accent">Letra Hebrea:</span> {dailyCard.letra} ({dailyCard.hebreo})
                       </div>
                       <div>
-                        <span className="text-twilight-accent">Elemento:</span> {dailyCard.elemento}
+                        <span className="text-twilight-accent">Signo:</span> {dailyCard.signo}
                       </div>
                     </div>
                   </div>

@@ -5,7 +5,7 @@ const Simbolos: React.FC<SimbolosProps> = ({ tipo }) => {
   return (
     <div>
       {/* Contenido del componente */}
-    </div>
+      </div>
   );
 };
 

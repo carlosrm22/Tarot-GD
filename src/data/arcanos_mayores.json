@@ -10,7 +10,11 @@
                 "signo": "Aire",
                 "atribucion": "La Corona de la Sabiduría, el Primum Mobile actuando a través del aire sobre el Zodíaco.",
                 "sendero": "11",
-                "significado": "Idea, pensamiento, espiritualidad, lo que se esfuerza por elevarse por encima de lo material. Indica locura, estupidez, excentricidad e incluso manía si la adivinación versa sobre un suceso material."
+                "significado": "Idea, pensamiento, espiritualidad, lo que se esfuerza por elevarse por encima de lo material. Indica locura, estupidez, excentricidad e incluso manía si la adivinación versa sobre un suceso material.",
+                "correspondenciaCabalistica": {
+                    "titulo": "La Corona de la Sabiduría",
+                    "accion": "El Primum Mobile actuando a través del aire sobre el Zodíaco"
+                }
             },
             {
                 "numero": 1,
@@ -241,7 +245,11 @@
                 "signo": "Saturno",
                 "atribucion": "El Fundamento de los elementos cósmicos y del mundo material. La Luna actuando a través de Saturno sobre los elementos.",
                 "sendero": "32",
-                "significado": "El asunto mismo. Síntesis. Mundo. Representa el tema concreto de la pregunta."
+                "significado": "El asunto mismo. Síntesis. Mundo. Representa el tema concreto de la pregunta.",
+                "correspondenciaCabalistica": {
+                    "titulo": "El Fundamento de los elementos cósmicos y del mundo material",
+                    "accion": "La Luna actuando a través de Saturno sobre los elementos"
+                }
             }
         ]
     }

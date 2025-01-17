@@ -1,0 +1,42 @@
+{
+  "cartasCortesanas": [
+    {
+      "nombre": "Caballero de Bastos",
+      "titulo": "El Señor de la Llama y del Rayo",
+      "descripcion": "Un Guerrero alado cabalgando un caballo negro de crines y cola llameantes. El Caballo en sí no tiene alas. El Jinete lleva un Casco alado con una Corona real. Lleva además un coselete de malla de escamas, borceguíes del mismo tipo y una ondeante capa escarlata.",
+      "elemento": "Fuego de Fuego",
+      "regencia": "Tercer Decanato de Escorpio y dos primeros de Sagitario",
+      "simbolo": "Rey de las Salamandras",
+      "complexion": "Muy rubio o pelirrojo",
+      "genero": "Masculino",
+      "atributos": {
+        "dignificado": ["Activo", "Generoso", "Fiero", "Repentino", "Impetuoso"],
+        "malDignificado": ["Malicioso", "Cruel", "Intolerante", "Brutal"]
+      },
+      "dominio": {
+        "desde": "20° Escorpio",
+        "hasta": "20° Sagitario",
+        "constelacion": "Parte de Hércules"
+      }
+    },
+    {
+      "nombre": "Reina de Bastos",
+      "titulo": "La Reina de los Tronos de las Llamas",
+      "descripcion": "Una Reina con corona sentada en un Trono, con firmes llamas debajo. El Trono está adornado con leones y girasoles, símbolos del Fuego y del Sol.",
+      "elemento": "Agua de Fuego",
+      "regencia": "Último Decanato de Piscis hasta el 20° de Aries",
+      "simbolo": "Reina de las Salamandras",
+      "complexion": "Muy rubio o pelirrojo",
+      "genero": "Femenino",
+      "atributos": {
+        "dignificado": ["Adaptable", "Persistente", "Amable", "Generosa"],
+        "malDignificado": ["Obstinada", "Vengativa", "Dominante", "Tiránica"]
+      },
+      "dominio": {
+        "desde": "20° Piscis",
+        "hasta": "20° Aries",
+        "constelacion": "Parte de Andrómeda"
+      }
+    }
+  ]
+}

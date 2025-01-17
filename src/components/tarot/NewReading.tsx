@@ -1,63 +1,116 @@
 /**
- * @fileoverview Componente para realizar nuevas lecturas de Tarot.
+ * @fileoverview Componente para realizar nuevas lecturas de Tarot
  */
 
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { GiCardRandom, GiCardDraw, GiCardPlay } from "react-icons/gi";
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { GiCardRandom, GiCardDraw, GiCardPlay } from 'react-icons/gi';
+import { MetodoLectura } from '../../types/tarot';
+import { obtenerCartaAleatoria } from '../../services/tarot';
 
-const spreadTypes = [
+interface TipoTirada {
+  id: string;
+  nombre: string;
+  descripcion: string;
+  numCartas: number;
+  metodo: MetodoLectura;
+}
+
+const tiposTirada: TipoTirada[] = [
   {
-    id: "simple",
-    name: "Tirada Simple",
-    description: "Una carta para respuesta directa",
-    cards: 1,
+    id: 'simple',
+    nombre: 'Tirada Simple',
+    descripcion: 'Una carta para respuesta directa',
+    numCartas: 1,
+    metodo: {
+      nombre: 'Tirada Simple',
+      descripcion: 'Método básico para obtener una respuesta directa a una pregunta específica.',
+      pasos: [
+        {
+          nombre: 'Preparación',
+          descripcion: 'Concentración en la pregunta',
+          instrucciones: [
+            'Medita brevemente sobre tu pregunta',
+            'Baraja las cartas mientras mantienes tu pregunta en mente',
+            'Corta el mazo una vez'
+          ]
+        },
+        {
+          nombre: 'Lectura',
+          descripcion: 'Interpretación de la carta',
+          instrucciones: [
+            'Extrae la carta superior del mazo',
+            'Observa todos los elementos de la carta',
+            'Interpreta el significado en relación a tu pregunta'
+          ]
+        }
+      ]
+    }
   },
   {
-    id: "pasado-presente-futuro",
-    name: "Pasado, Presente y Futuro",
-    description: "Tres cartas para ver la evolución temporal",
-    cards: 3,
-  },
-  {
-    id: "cruz-celta",
-    name: "Cruz Celta",
-    description: "Tirada completa de 10 cartas",
-    cards: 10,
-  },
-  {
-    id: "si-no",
-    name: "Sí o No",
-    description: "Tres cartas para decisiones",
-    cards: 3,
-  },
-  {
-    id: "elemento",
-    name: "Elementos",
-    description: "Cuatro cartas, una por elemento",
-    cards: 4,
-  },
+    id: 'cruz-celta',
+    nombre: 'Cruz Celta',
+    descripcion: 'Tirada completa de 10 cartas',
+    numCartas: 10,
+    metodo: {
+      nombre: 'Cruz Celta',
+      descripcion: 'Una de las tiradas más completas y tradicionales del Tarot.',
+      pasos: [
+        {
+          nombre: 'Preparación',
+          descripcion: 'Disposición de las cartas',
+          instrucciones: [
+            'Baraja las cartas concentrándote en tu consulta',
+            'Corta el mazo tres veces',
+            'Coloca las cartas en la disposición de la Cruz Celta'
+          ]
+        },
+        {
+          nombre: 'Lectura',
+          descripcion: 'Interpretación por posición',
+          instrucciones: [
+            'Interpreta cada posición en orden',
+            'Relaciona las cartas entre sí',
+            'Sintetiza el mensaje general'
+          ],
+          significado: 'Cada posición tiene un significado específico que contribuye a la interpretación general.'
+        }
+      ]
+    }
+  }
 ];
 
 const NewReading: React.FC = () => {
   const [selectedSpread, setSelectedSpread] = useState<string | null>(null);
-  const [question, setQuestion] = useState("");
+  const [question, setQuestion] = useState('');
   const [isShuffling, setIsShuffling] = useState(false);
 
-  const handleStartReading = () => {
+  const handleStartReading = async () => {
     if (!selectedSpread || !question.trim()) return;
 
     setIsShuffling(true);
-    // TODO: Implementar lógica de barajar y seleccionar cartas
-    setTimeout(() => {
+    try {
+      const tirada = tiposTirada.find(t => t.id === selectedSpread);
+      if (!tirada) throw new Error('Tirada no válida');
+
+      // Obtener las cartas necesarias
+      const cartas = await Promise.all(
+        Array(tirada.numCartas).fill(null).map(() =>
+          obtenerCartaAleatoria(Math.random() > 0.7 ? 'mayor' : 'menor')
+        )
+      );
+
+      // TODO: Navegar a la vista de lectura con las cartas seleccionadas
+      console.log('Cartas seleccionadas:', cartas);
+    } catch (error) {
+      console.error('Error al iniciar la lectura:', error);
+    } finally {
       setIsShuffling(false);
-      // TODO: Navegar a la vista de lectura
-    }, 2000);
+    }
   };
 
   return (
     <div className="min-h-screen bg-twilight-background p-4 md:p-8">
-      {/* Header */}
       <div className="text-center mb-8">
         <h1 className="text-3xl md:text-4xl font-bold text-twilight-text mb-4">
           Nueva Lectura
@@ -70,35 +123,23 @@ const NewReading: React.FC = () => {
 
       <div className="max-w-4xl mx-auto space-y-8">
         {/* Selección de Tirada */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {spreadTypes.map((spread) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {tiposTirada.map((tipo) => (
             <motion.button
-              key={spread.id}
+              key={tipo.id}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              onClick={() => setSelectedSpread(spread.id)}
-              className={`p-4 rounded-xl border ${
-                selectedSpread === spread.id
-                  ? "border-twilight-accent bg-twilight-accent/5"
-                  : "border-twilight-secondary/10 hover:border-twilight-accent/20"
-              } transition-colors`}>
-              <div className="flex flex-col items-center text-center">
-                <GiCardPlay
-                  className={`w-8 h-8 mb-2 ${
-                    selectedSpread === spread.id
-                      ? "text-twilight-accent"
-                      : "text-twilight-text/70"
-                  }`}
-                />
-                <h3 className="font-medium text-twilight-text mb-1">
-                  {spread.name}
-                </h3>
-                <p className="text-sm text-twilight-text/70">
-                  {spread.description}
-                </p>
-                <span className="mt-2 text-xs text-twilight-text/50">
-                  {spread.cards} {spread.cards === 1 ? "carta" : "cartas"}
-                </span>
+              onClick={() => setSelectedSpread(tipo.id)}
+              className={`p-6 rounded-xl text-left transition-colors ${
+                selectedSpread === tipo.id
+                  ? 'bg-twilight-accent text-white'
+                  : 'bg-twilight-card hover:bg-twilight-card/80 text-twilight-text'
+              }`}>
+              <h3 className="text-lg font-semibold mb-2">{tipo.nombre}</h3>
+              <p className="text-sm opacity-80">{tipo.descripcion}</p>
+              <div className="mt-4 flex items-center gap-2">
+                <GiCardPlay className="w-5 h-5" />
+                <span className="text-sm">{tipo.numCartas} cartas</span>
               </div>
             </motion.button>
           ))}
@@ -129,8 +170,8 @@ const NewReading: React.FC = () => {
             onClick={handleStartReading}
             className={`px-8 py-4 rounded-xl ${
               !selectedSpread || !question.trim() || isShuffling
-                ? "bg-twilight-accent/20 text-twilight-text/50 cursor-not-allowed"
-                : "bg-twilight-accent text-white shadow-lg hover:shadow-xl"
+                ? 'bg-twilight-accent/20 text-twilight-text/50 cursor-not-allowed'
+                : 'bg-twilight-accent text-white shadow-lg hover:shadow-xl'
             } transition-all`}>
             <span className="flex items-center gap-2">
               {isShuffling ? (

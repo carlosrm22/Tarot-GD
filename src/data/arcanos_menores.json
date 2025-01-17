@@ -1,0 +1,39 @@
+{
+  "arcanosMenores": [
+    {
+      "nombre": "As de Bastos",
+      "titulo": "La Raíz de los Poderes del Fuego",
+      "descripcion": "Una blanca y radiante Mano angélica surgiendo de entre las Nubes y agarrando un pesado Bastón que tiene tres ramas en los colores y con los Sigilos de las Escalas.",
+      "simbolismo": "Diez llamas representan las Sefirot y veintidós llamitas responden a los senderos. Las ramas derecha e izquierda terminan cada una en tres Llamas y la central en cuatro.",
+      "atributos": {
+        "dignificado": "Fuerza Natural, fortaleza, ímpetu, vigor, energía",
+        "malDignificado": "Dominación, tiranía, violencia sin propósito"
+      },
+      "sefira": {
+        "nombre": "Keter",
+        "titulo": "La Corona",
+        "descripcion": "Fuerza Radical o Raíz"
+      }
+    },
+    {
+      "nombre": "5 de Bastos",
+      "titulo": "El Señor de la Lucha",
+      "descripcion": "Dos blancas y radiantes manos angélicas surgen de entre las nubes a derecha e izquierda del centro de la carta. Las dos manos están unidas entre sí como por el saludo de la primera Orden, y sujetan al mismo tiempo por sus centros a Cinco Varas o Antorchas.",
+      "decanato": {
+        "signo": "Leo",
+        "planeta": "Saturno",
+        "grados": "1°-10°",
+        "angeles": ["Vahaviah", "Yelayel"]
+      },
+      "atributos": {
+        "dignificado": "Lucha y contiendas violentas, arrojo, temeridad",
+        "malDignificado": "Crueldad, violencia, anhelo y deseo"
+      },
+      "sefira": {
+        "nombre": "Geburah",
+        "titulo": "Severidad",
+        "descripcion": "Disputa y lucha"
+      }
+    }
+  ]
+}

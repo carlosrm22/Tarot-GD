@@ -1,188 +1,176 @@
 /**
- * @fileoverview Componente para la sección de aprendizaje de Tarot.
+ * @fileoverview Componente para aprender sobre el Tarot y sus métodos de lectura
  */
 
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import {
-  FaBook,
-  FaGraduationCap,
-  FaQuestionCircle,
-  FaChevronRight,
-  FaLightbulb,
-  FaRegCompass,
-} from "react-icons/fa";
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { aperturaLlave, reglasGenerales } from '../../data/metodos-lectura';
+import { reglasDetalladas, ejemplosInterpretacion } from '../../data/reglas-tarot';
+import { FaBook, FaQuestionCircle, FaClipboardList, FaGraduationCap } from 'react-icons/fa';
 
-const lessons = [
-  {
-    id: "fundamentos",
-    title: "Fundamentos del Tarot",
-    description: "Introducción a la historia y estructura del Tarot.",
-    icon: <FaBook />,
-    modules: [
-      "Historia del Tarot",
-      "Estructura del Mazo",
-      "Arcanos Mayores y Menores",
-      "Elementos y Símbolos",
-    ],
-  },
-  {
-    id: "interpretacion",
-    title: "Arte de la Interpretación",
-    description: "Aprende a leer e interpretar las cartas.",
-    icon: <FaLightbulb />,
-    modules: [
-      "Significados Básicos",
-      "Cartas Invertidas",
-      "Combinaciones",
-      "Intuición y Lectura",
-    ],
-  },
-  {
-    id: "tiradas",
-    title: "Tipos de Tiradas",
-    description: "Diferentes métodos de lectura y sus usos.",
-    icon: <FaRegCompass />,
-    modules: [
-      "Tirada Simple",
-      "Cruz Celta",
-      "Herradura",
-      "Tiradas Especiales",
-    ],
-  },
-  {
-    id: "practica",
-    title: "Práctica y Ejercicios",
-    description: "Ejercicios prácticos y casos de estudio.",
-    icon: <FaGraduationCap />,
-    modules: [
-      "Ejercicios Diarios",
-      "Casos de Estudio",
-      "Meditaciones",
-      "Diario de Tarot",
-    ],
-  },
-];
+interface TabProps {
+  label: string;
+  icon: React.ReactNode;
+  isActive: boolean;
+  onClick: () => void;
+}
 
-const faqs = [
-  {
-    question: "¿Por dónde debo empezar?",
-    answer:
-      "Recomendamos comenzar con los Fundamentos del Tarot para construir una base sólida antes de avanzar a las interpretaciones más complejas.",
-  },
-  {
-    question: "¿Cuánto tiempo lleva aprender Tarot?",
-    answer:
-      "El aprendizaje es un proceso continuo, pero con dedicación, puedes comenzar a hacer lecturas básicas en 2-3 meses.",
-  },
-  {
-    question: "¿Necesito memorizar todos los significados?",
-    answer:
-      "No es necesario memorizar todo. Es más importante desarrollar tu intuición y comprensión de los símbolos y arquetipos.",
-  },
-];
+interface Subseccion {
+  titulo?: string;
+  contenido: string | string[] | Record<string, string | string[]>;
+}
+
+const Tab: React.FC<TabProps> = ({ label, icon, isActive, onClick }) => (
+  <motion.button
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
+    className={`flex items-center gap-2 px-4 py-2 rounded-lg ${
+      isActive ? 'bg-purple-600 text-white' : 'bg-purple-100 text-purple-800'
+    }`}
+    onClick={onClick}
+  >
+    {icon}
+    {label}
+  </motion.button>
+);
 
 const LearnTarot: React.FC = () => {
-  const [expandedFaq, setExpandedFaq] = useState<string | null>(null);
+  const [activeTab, setActiveTab] = useState<'introduccion' | 'metodos' | 'reglas' | 'ejemplos'>('introduccion');
+
+  const renderSubseccion = (subseccion: Subseccion): JSX.Element => {
+    if (Array.isArray(subseccion.contenido)) {
+      return (
+        <ul className="list-disc pl-6 mb-4">
+          {subseccion.contenido.map((item: string, idx: number) => (
+            <li key={idx} className="mb-2">{item}</li>
+          ))}
+        </ul>
+      );
+    } else if (typeof subseccion.contenido === 'object') {
+      return (
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          {Object.entries(subseccion.contenido).map(([key, value]) => (
+            <div key={key} className="bg-purple-50 p-3 rounded-lg">
+              <span className="font-semibold">{key}:</span> {value}
+            </div>
+          ))}
+        </div>
+      );
+    }
+    return <p className="mb-4">{subseccion.contenido}</p>;
+  };
 
   return (
-    <div className="min-h-screen bg-twilight-background p-4 md:p-8">
-      {/* Header */}
-      <div className="text-center mb-12">
-        <h1 className="text-3xl md:text-4xl font-bold text-twilight-text mb-4">
-          Aprende Tarot
-        </h1>
-        <p className="text-twilight-text/80 max-w-2xl mx-auto">
-          Explora nuestros recursos de aprendizaje y comienza tu viaje en el arte
-          del Tarot.
-        </p>
+    <div className="max-w-7xl mx-auto px-4 py-8">
+      <h1 className="text-4xl font-bold text-center mb-8">Aprende Tarot</h1>
+
+      <div className="flex flex-wrap gap-4 justify-center mb-8">
+        <Tab
+          label="Introducción"
+          icon={<FaBook />}
+          isActive={activeTab === 'introduccion'}
+          onClick={() => setActiveTab('introduccion')}
+        />
+        <Tab
+          label="Métodos de Lectura"
+          icon={<FaQuestionCircle />}
+          isActive={activeTab === 'metodos'}
+          onClick={() => setActiveTab('metodos')}
+        />
+        <Tab
+          label="Reglas Detalladas"
+          icon={<FaClipboardList />}
+          isActive={activeTab === 'reglas'}
+          onClick={() => setActiveTab('reglas')}
+        />
+        <Tab
+          label="Ejemplos Prácticos"
+          icon={<FaGraduationCap />}
+          isActive={activeTab === 'ejemplos'}
+          onClick={() => setActiveTab('ejemplos')}
+        />
       </div>
 
-      {/* Grid de lecciones */}
-      <div className="max-w-7xl mx-auto mb-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {lessons.map((lesson) => (
-            <motion.div
-              key={lesson.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              whileHover={{ scale: 1.02 }}
-              className="bg-twilight-background/50 border border-twilight-secondary/10 rounded-xl p-6 hover:border-twilight-accent/20 transition-all cursor-pointer">
-              <div className="flex items-start gap-4">
-                <div className="text-twilight-accent p-3 bg-twilight-accent/10 rounded-lg">
-                  {lesson.icon}
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-xl font-semibold text-twilight-text mb-2">
-                    {lesson.title}
-                  </h3>
-                  <p className="text-twilight-text/70 mb-4">
-                    {lesson.description}
-                  </p>
-                  <div className="space-y-2">
-                    {lesson.modules.map((module, index) => (
-                      <div
-                        key={index}
-                        className="flex items-center gap-2 text-sm text-twilight-text/60">
-                        <FaChevronRight className="w-3 h-3 text-twilight-accent/60" />
-                        <span>{module}</span>
-                      </div>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="bg-white rounded-lg shadow-lg p-6"
+      >
+        {activeTab === 'introduccion' && (
+          <div className="prose max-w-none">
+            <h2 className="text-2xl font-bold mb-4">Introducción a la Adivinación con el Tarot</h2>
+            <p className="mb-4">{aperturaLlave.descripcion}</p>
+            <h3 className="text-xl font-semibold mb-3">Preparación del Adivino</h3>
+            <ul className="list-disc pl-6 mb-4">
+              {aperturaLlave.preparacion?.map((prep, index) => (
+                <li key={index} className="mb-2">{prep}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {activeTab === 'metodos' && (
+          <div className="prose max-w-none">
+            <h2 className="text-2xl font-bold mb-4">{aperturaLlave.nombre}</h2>
+            {aperturaLlave.pasos.map((paso, index) => (
+              <div key={index} className="mb-6">
+                <h3 className="text-xl font-semibold mb-3">{paso.nombre}</h3>
+                <p className="mb-3">{paso.descripcion}</p>
+                <ol className="list-decimal pl-6">
+                  {paso.instrucciones.map((instruccion, idx) => (
+                    <li key={idx} className="mb-2">{instruccion}</li>
+                  ))}
+                </ol>
+                {paso.significado && (
+                  <p className="mt-3 italic">{paso.significado}</p>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
+
+        {activeTab === 'reglas' && (
+          <div className="prose max-w-none">
+            <h2 className="text-2xl font-bold mb-4">Reglas Detalladas del Tarot</h2>
+            {reglasDetalladas.map((regla, index) => (
+              <div key={index} className="mb-8">
+                <h3 className="text-xl font-semibold mb-3">{regla.titulo}</h3>
+                <p className="mb-4">{regla.descripcion}</p>
+                {regla.subsecciones?.map((subseccion, idx) => (
+                  <div key={idx} className="mb-6">
+                    {subseccion.titulo && (
+                      <h4 className="text-lg font-medium mb-3">{subseccion.titulo}</h4>
+                    )}
+                    {renderSubseccion(subseccion)}
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        )}
+
+        {activeTab === 'ejemplos' && (
+          <div className="prose max-w-none">
+            <h2 className="text-2xl font-bold mb-4">Ejemplos de Interpretación</h2>
+            <div className="space-y-6">
+              {ejemplosInterpretacion.map((ejemplo, index) => (
+                <div key={index} className="bg-purple-50 p-4 rounded-lg">
+                  <h3 className="text-lg font-semibold mb-2">Combinación {index + 1}</h3>
+                  <div className="flex flex-wrap gap-2 mb-2">
+                    {ejemplo.combinacion.map((carta, idx) => (
+                      <span key={idx} className="bg-purple-200 px-3 py-1 rounded-full text-sm">
+                        {carta}
+                      </span>
                     ))}
                   </div>
+                  <p className="text-purple-800">{ejemplo.interpretacion}</p>
                 </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-
-      {/* FAQs */}
-      <div className="max-w-3xl mx-auto">
-        <h2 className="text-2xl font-bold text-twilight-text mb-6 text-center">
-          Preguntas Frecuentes
-        </h2>
-        <div className="space-y-4">
-          {faqs.map((faq) => (
-            <motion.div
-              key={faq.question}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="border border-twilight-secondary/10 rounded-lg overflow-hidden">
-              <button
-                onClick={() =>
-                  setExpandedFaq(
-                    expandedFaq === faq.question ? null : faq.question
-                  )
-                }
-                className="w-full p-4 flex items-center justify-between text-left hover:bg-twilight-accent/5 transition-colors">
-                <div className="flex items-center gap-3">
-                  <FaQuestionCircle className="text-twilight-accent" />
-                  <span className="font-medium text-twilight-text">
-                    {faq.question}
-                  </span>
-                </div>
-                <FaChevronRight
-                  className={`transition-transform duration-200 ${
-                    expandedFaq === faq.question ? "rotate-90" : ""
-                  }`}
-                />
-              </button>
-              {expandedFaq === faq.question && (
-                <div className="p-4 pt-0">
-                  <p className="text-twilight-text/80">{faq.answer}</p>
-                </div>
-              )}
-            </motion.div>
-          ))}
-        </div>
-      </div>
-
-      {/* CTA */}
-      <div className="text-center mt-16">
-        <button className="px-8 py-3 bg-twilight-accent text-white rounded-lg hover:shadow-lg transition-shadow">
-          Comenzar Aprendizaje
-        </button>
-      </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </motion.div>
     </div>
   );
 };

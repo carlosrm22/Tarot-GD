@@ -99,6 +99,13 @@ const NavLinks: React.FC<NavLinksProps> = ({ isMobile, onClose }) => {
         </span>
         <div className={isMobile ? 'pl-4 space-y-2' : 'dropdown'}>
           <NavLink
+            to="/arbol-vida"
+            className={isMobile ? baseClasses : "block px-4 py-2 hover:bg-twilight-secondary/10"}
+            onClick={handleClick}
+          >
+            Árbol de la Vida
+          </NavLink>
+          <NavLink
             to="/pentagramas"
             className={isMobile ? baseClasses : "block px-4 py-2 hover:bg-twilight-secondary/10"}
             onClick={handleClick}

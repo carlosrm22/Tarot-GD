@@ -23,6 +23,7 @@ const Rituales = lazy(() => import('./components/Rituales'));
 const Simbolos = lazy(() => import('./components/Simbolos'));
 const HerramientasMagicas = lazy(() => import('./components/HerramientasMagicas'));
 const Enoquiano = lazy(() => import('./components/Enoquiano'));
+const ArbolVida = lazy(() => import('./components/ArbolVida'));
 
 // Componente de carga
 const LoadingSpinner = () => (
@@ -49,6 +50,7 @@ function App() {
                     <Route path="/arcanos-mayores" element={<ArcanosMayores />} />
                     <Route path="/alefato" element={<Alefato />} />
                     <Route path="/rituales" element={<Rituales />} />
+                    <Route path="/arbol-vida" element={<ArbolVida />} />
                     <Route path="/pentagramas" element={<Simbolos tipo="pentagramas" />} />
                     <Route path="/hexagramas" element={<Simbolos tipo="hexagramas" />} />
                     <Route path="/sigilos" element={<Simbolos tipo="sigilos" />} />

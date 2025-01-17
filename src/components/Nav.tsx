@@ -162,103 +162,105 @@ const Nav: React.FC = memo(() => {
         </div>
       </div>
 
-      {/* Nuevo Menú Móvil */}
-      {isOpen && (
-        <div className="md:hidden fixed inset-0 z-[100]">
-          {/* Overlay */}
-          <div
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm"
-            onClick={handleMobileMenuClick}
-            aria-hidden="true"
-          />
+      {/* Menú Móvil */}
+      <div className={`md:hidden ${isOpen ? 'fixed inset-0 z-50 overflow-hidden' : ''}`}>
+        <div
+          className={`fixed inset-0 bg-gray-900/25 backdrop-blur-sm transition-opacity ${
+            isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+          }`}
+          onClick={handleMobileMenuClick}
+          aria-hidden="true"
+        />
 
-          {/* Panel del Menú */}
+        <div className="fixed inset-y-0 right-0 flex w-full max-w-xs">
           <div
+            className={`relative mr-0 flex w-full max-w-xs flex-1 transform flex-col overflow-y-auto bg-twilight-background pb-4 transition-all ${
+              isOpen ? 'translate-x-0' : 'translate-x-full'
+            }`}
             ref={menuRef}
-            className="fixed right-0 top-0 bottom-0 w-[280px] bg-twilight-background border-l border-twilight-secondary/20 flex flex-col"
             role="dialog"
             aria-modal="true"
-            aria-label="Menú principal"
           >
             {/* Cabecera */}
-            <div className="p-4 border-b border-twilight-secondary/20 flex items-center justify-between">
-              <span className="text-xl font-bold bg-gradient-to-r from-twilight-secondary to-twilight-accent bg-clip-text text-transparent">
-                Tarot GD
-              </span>
+            <div className="sticky top-0 z-40 flex items-center gap-x-6 bg-twilight-background px-6 py-4 shadow-sm">
+              <div className="flex flex-1">
+                <span className="text-xl font-semibold leading-7 bg-gradient-to-r from-twilight-secondary to-twilight-accent bg-clip-text text-transparent">
+                  Tarot GD
+                </span>
+              </div>
               <button
+                type="button"
+                className="-m-2.5 rounded-md p-2.5 text-gray-700"
                 onClick={handleMobileMenuClick}
-                className="p-2 text-twilight-text hover:text-twilight-accent"
-                aria-label="Cerrar menú"
               >
-                <FaTimes className="w-6 h-6" />
+                <span className="sr-only">Cerrar menú</span>
+                <FaTimes className="h-6 w-6" aria-hidden="true" />
               </button>
             </div>
 
-            {/* Área Scrollable */}
-            <div className="flex-1 overflow-y-auto py-4">
+            {/* Navegación */}
+            <nav className="flex-1 space-y-2 px-6 py-4">
               {/* Enlaces Principales */}
-              <div className="px-4 space-y-2">
+              <div className="space-y-1">
                 <NavLink
                   to="/lecturas"
-                  className="block py-2 text-lg text-twilight-text hover:text-twilight-accent"
+                  className="group flex items-center rounded-lg px-3 py-2 text-base font-semibold leading-7 text-twilight-text hover:bg-twilight-secondary/10 hover:text-twilight-accent"
                   onClick={handleMobileItemClick}
                 >
                   Lecturas
                 </NavLink>
                 <NavLink
                   to="/cartas"
-                  className="block py-2 text-lg text-twilight-text hover:text-twilight-accent"
+                  className="group flex items-center rounded-lg px-3 py-2 text-base font-semibold leading-7 text-twilight-text hover:bg-twilight-secondary/10 hover:text-twilight-accent"
                   onClick={handleMobileItemClick}
                 >
                   Cartas
                 </NavLink>
                 <NavLink
                   to="/alefato"
-                  className="block py-2 text-lg text-twilight-text hover:text-twilight-accent"
+                  className="group flex items-center rounded-lg px-3 py-2 text-base font-semibold leading-7 text-twilight-text hover:bg-twilight-secondary/10 hover:text-twilight-accent"
                   onClick={handleMobileItemClick}
                 >
                   Alefato
                 </NavLink>
                 <NavLink
                   to="/rituales"
-                  className="block py-2 text-lg text-twilight-text hover:text-twilight-accent"
+                  className="group flex items-center rounded-lg px-3 py-2 text-base font-semibold leading-7 text-twilight-text hover:bg-twilight-secondary/10 hover:text-twilight-accent"
                   onClick={handleMobileItemClick}
                 >
                   Rituales
                 </NavLink>
               </div>
 
-              {/* Separador */}
-              <div className="my-4 border-t border-twilight-secondary/20" />
-
-              {/* Sección Símbolos */}
-              <div className="px-4 mb-4">
-                <h3 className="text-lg font-medium text-twilight-accent mb-2">Símbolos</h3>
-                <div className="space-y-2 pl-4">
+              <div className="mt-8">
+                <h3 className="px-3 text-sm font-medium text-twilight-accent/80">
+                  Símbolos
+                </h3>
+                <div className="mt-2 space-y-1">
                   <NavLink
                     to="/pentagramas"
-                    className="block py-2 text-twilight-text hover:text-twilight-accent"
+                    className="group flex items-center rounded-lg px-3 py-2 text-base leading-7 text-twilight-text hover:bg-twilight-secondary/10 hover:text-twilight-accent"
                     onClick={handleMobileItemClick}
                   >
                     Pentagramas
                   </NavLink>
                   <NavLink
                     to="/hexagramas"
-                    className="block py-2 text-twilight-text hover:text-twilight-accent"
+                    className="group flex items-center rounded-lg px-3 py-2 text-base leading-7 text-twilight-text hover:bg-twilight-secondary/10 hover:text-twilight-accent"
                     onClick={handleMobileItemClick}
                   >
                     Hexagramas
                   </NavLink>
                   <NavLink
                     to="/sigilos"
-                    className="block py-2 text-twilight-text hover:text-twilight-accent"
+                    className="group flex items-center rounded-lg px-3 py-2 text-base leading-7 text-twilight-text hover:bg-twilight-secondary/10 hover:text-twilight-accent"
                     onClick={handleMobileItemClick}
                   >
                     Sigilos
                   </NavLink>
                   <NavLink
                     to="/talismanes"
-                    className="block py-2 text-twilight-text hover:text-twilight-accent"
+                    className="group flex items-center rounded-lg px-3 py-2 text-base leading-7 text-twilight-text hover:bg-twilight-secondary/10 hover:text-twilight-accent"
                     onClick={handleMobileItemClick}
                   >
                     Talismanes
@@ -266,27 +268,28 @@ const Nav: React.FC = memo(() => {
                 </div>
               </div>
 
-              {/* Sección Herramientas */}
-              <div className="px-4 mb-4">
-                <h3 className="text-lg font-medium text-twilight-accent mb-2">Herramientas</h3>
-                <div className="space-y-2 pl-4">
+              <div className="mt-8">
+                <h3 className="px-3 text-sm font-medium text-twilight-accent/80">
+                  Herramientas
+                </h3>
+                <div className="mt-2 space-y-1">
                   <NavLink
                     to="/armas"
-                    className="block py-2 text-twilight-text hover:text-twilight-accent"
+                    className="group flex items-center rounded-lg px-3 py-2 text-base leading-7 text-twilight-text hover:bg-twilight-secondary/10 hover:text-twilight-accent"
                     onClick={handleMobileItemClick}
                   >
                     Armas Mágicas
                   </NavLink>
                   <NavLink
                     to="/tatvas"
-                    className="block py-2 text-twilight-text hover:text-twilight-accent"
+                    className="group flex items-center rounded-lg px-3 py-2 text-base leading-7 text-twilight-text hover:bg-twilight-secondary/10 hover:text-twilight-accent"
                     onClick={handleMobileItemClick}
                   >
                     Tatvas
                   </NavLink>
                   <NavLink
                     to="/formas-divinas"
-                    className="block py-2 text-twilight-text hover:text-twilight-accent"
+                    className="group flex items-center rounded-lg px-3 py-2 text-base leading-7 text-twilight-text hover:bg-twilight-secondary/10 hover:text-twilight-accent"
                     onClick={handleMobileItemClick}
                   >
                     Formas Divinas
@@ -294,33 +297,29 @@ const Nav: React.FC = memo(() => {
                 </div>
               </div>
 
-              {/* Separador */}
-              <div className="my-4 border-t border-twilight-secondary/20" />
-
-              {/* Sistema Enoquiano */}
-              <div className="px-4">
+              <div className="mt-8">
                 <NavLink
                   to="/enoquiano"
-                  className="block py-2 text-lg text-twilight-text hover:text-twilight-accent"
+                  className="group flex items-center rounded-lg px-3 py-2 text-base font-semibold leading-7 text-twilight-text hover:bg-twilight-secondary/10 hover:text-twilight-accent"
                   onClick={handleMobileItemClick}
                 >
                   Sistema Enoquiano
                 </NavLink>
               </div>
-            </div>
+            </nav>
 
-            {/* Footer con botón de salir */}
-            <div className="p-4 border-t border-twilight-secondary/20">
+            {/* Footer */}
+            <div className="sticky bottom-0 border-t border-twilight-secondary/10 bg-twilight-background px-6 py-4">
               <button
                 onClick={handleLogoutClick}
-                className="w-full py-3 rounded-lg bg-gradient-to-r from-twilight-secondary to-twilight-accent text-white hover:shadow-twilight transition-all duration-300"
+                className="flex w-full items-center justify-center gap-x-2 rounded-lg bg-gradient-to-r from-twilight-secondary to-twilight-accent px-3 py-2 text-sm font-semibold text-white shadow-sm hover:shadow-twilight focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-twilight-accent"
               >
                 Salir
               </button>
             </div>
           </div>
         </div>
-      )}
+      </div>
     </nav>
   );
 });

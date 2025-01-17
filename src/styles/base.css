@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: theme('colors.twilight.primary');
+    --color-secondary: theme('colors.twilight.secondary');
+    --color-accent: theme('colors.twilight.accent');
+    --color-background: theme('colors.twilight.background');
+    --color-text: theme('colors.twilight.text');
+  }
+
+  body {
+    @apply bg-twilight-background text-twilight-text;
+    @apply min-h-screen;
+    @apply antialiased;
+  }
+
+  h1 {
+    @apply text-4xl font-bold mb-6;
+  }
+
+  h2 {
+    @apply text-3xl font-semibold mb-4;
+  }
+
+  h3 {
+    @apply text-2xl font-medium mb-3;
+  }
+
+  a {
+    @apply text-twilight-accent hover:text-twilight-secondary transition-colors duration-300;
+  }
+
+  button {
+    @apply focus:outline-none focus:ring-2 focus:ring-twilight-accent focus:ring-opacity-50;
+  }
+}

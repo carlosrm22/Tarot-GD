@@ -1,41 +1,225 @@
 {
+  "significador": {
+    "complexiones": {
+      "bastos": "Muy rubio o pelirrojo",
+      "copas": "Moderadamente rubio (blanco)",
+      "espadas": "Moderadamente moreno (apiñonado)",
+      "pantaculos": "Moreno o muy moreno"
+    },
+    "generos": {
+      "reyes": "Hombres",
+      "reinas": "Mujeres",
+      "caballeros": "Hombres jóvenes",
+      "sotas": "Mujeres jóvenes"
+    }
+  },
   "cartasCortesanas": [
     {
       "nombre": "Caballero de Bastos",
       "titulo": "El Señor de la Llama y del Rayo",
-      "descripcion": "Un Guerrero alado cabalgando un caballo negro de crines y cola llameantes. El Caballo en sí no tiene alas. El Jinete lleva un Casco alado con una Corona real. Lleva además un coselete de malla de escamas, borceguíes del mismo tipo y una ondeante capa escarlata.",
-      "elemento": "Fuego de Fuego",
-      "regencia": "Tercer Decanato de Escorpio y dos primeros de Sagitario",
-      "simbolo": "Rey de las Salamandras",
+      "descripcion": "Un guerrero alado cabalgando sobre un caballo negro. Viste una armadura decorada con símbolos de llamas y rayos.",
+      "elemento": "Fuego del Fuego",
+      "regencia": "20° Escorpio a 20° Sagitario",
       "complexion": "Muy rubio o pelirrojo",
-      "genero": "Masculino",
+      "genero": "Hombre joven",
       "atributos": {
-        "dignificado": ["Activo", "Generoso", "Fiero", "Repentino", "Impetuoso"],
-        "malDignificado": ["Malicioso", "Cruel", "Intolerante", "Brutal"]
-      },
-      "dominio": {
-        "desde": "20° Escorpio",
-        "hasta": "20° Sagitario",
-        "constelacion": "Parte de Hércules"
+        "dignificado": "Actividad, generosidad, fiereza, impetuosidad",
+        "malDignificado": "Discordia, ruptura, dispersión de energías"
       }
     },
     {
       "nombre": "Reina de Bastos",
       "titulo": "La Reina de los Tronos de las Llamas",
-      "descripcion": "Una Reina con corona sentada en un Trono, con firmes llamas debajo. El Trono está adornado con leones y girasoles, símbolos del Fuego y del Sol.",
-      "elemento": "Agua de Fuego",
-      "regencia": "Último Decanato de Piscis hasta el 20° de Aries",
-      "simbolo": "Reina de las Salamandras",
+      "descripcion": "Una Reina con corona sentada en un Trono, con firmes llamas debajo. El Trono está adornado con leones y girasoles.",
+      "elemento": "Agua del Fuego",
+      "regencia": "20° Piscis a 20° Aries",
       "complexion": "Muy rubio o pelirrojo",
-      "genero": "Femenino",
+      "genero": "Mujer",
       "atributos": {
-        "dignificado": ["Adaptable", "Persistente", "Amable", "Generosa"],
-        "malDignificado": ["Obstinada", "Vengativa", "Dominante", "Tiránica"]
-      },
-      "dominio": {
-        "desde": "20° Piscis",
-        "hasta": "20° Aries",
-        "constelacion": "Parte de Andrómeda"
+        "dignificado": "Adaptable, persistente, amable, generosa",
+        "malDignificado": "Obstinada, vengativa, dominante"
+      }
+    },
+    {
+      "nombre": "Rey de Bastos",
+      "titulo": "El Príncipe de la Carroza de Fuego",
+      "descripcion": "Un rey coronado en una carroza de fuego, sosteniendo un bastón con llamas.",
+      "elemento": "Aire del Fuego",
+      "regencia": "20° Cáncer a 20° Leo",
+      "complexion": "Muy rubio o pelirrojo",
+      "genero": "Hombre",
+      "atributos": {
+        "dignificado": "Rápido, fuerte, noble, fieramente justo",
+        "malDignificado": "Cruel, intolerante, débil"
+      }
+    },
+    {
+      "nombre": "Sota de Bastos",
+      "titulo": "La Princesa de la Llama Brillante y la Rosa del Palacio de Fuego",
+      "descripcion": "Una joven princesa danzando con un bastón dorado, rodeada de llamas brillantes.",
+      "elemento": "Tierra del Fuego",
+      "regencia": "Últimos grados de Sagitario",
+      "complexion": "Muy rubio o pelirrojo",
+      "genero": "Mujer joven",
+      "atributos": {
+        "dignificado": "Brillante, valiente, bella, dramática",
+        "malDignificado": "Superficial, cruel, teatral"
+      }
+    },
+    {
+      "nombre": "Caballero de Copas",
+      "titulo": "El Señor de las Olas y las Aguas",
+      "descripcion": "Un guerrero alado cabalgando sobre un caballo blanco. Viste una armadura decorada con símbolos acuáticos y ondulantes.",
+      "elemento": "Fuego del Agua",
+      "regencia": "20° Acuario a 20° Piscis",
+      "complexion": "Moderadamente rubio (blanco)",
+      "genero": "Hombre joven",
+      "atributos": {
+        "dignificado": "Llegada, acercamiento, avance",
+        "malDignificado": "Fraude, engaño, artificio"
+      }
+    },
+    {
+      "nombre": "Reina de Copas",
+      "titulo": "La Reina de los Tronos de las Aguas",
+      "descripcion": "Una reina hermosa y tranquila sentada en un trono junto al mar.",
+      "elemento": "Agua del Agua",
+      "regencia": "20° Géminis a 20° Cáncer",
+      "complexion": "Moderadamente rubio (blanco)",
+      "genero": "Mujer",
+      "atributos": {
+        "dignificado": "Soñadora, tranquila, visionaria, honesta",
+        "malDignificado": "Mentirosa, deshonesta, viciosa"
+      }
+    },
+    {
+      "nombre": "Rey de Copas",
+      "titulo": "El Príncipe de la Carroza de las Aguas",
+      "descripcion": "Un rey en una carroza que se desliza sobre las aguas.",
+      "elemento": "Aire del Agua",
+      "regencia": "20° Libra a 20° Escorpio",
+      "complexion": "Moderadamente rubio (blanco)",
+      "genero": "Hombre",
+      "atributos": {
+        "dignificado": "Sutil, artístico, científico",
+        "malDignificado": "Sensual, indolente, perezoso"
+      }
+    },
+    {
+      "nombre": "Sota de Copas",
+      "titulo": "La Princesa de las Aguas y Princesa del Loto",
+      "descripcion": "Una joven princesa danzando con una copa de la que surge un loto.",
+      "elemento": "Tierra del Agua",
+      "regencia": "Últimos grados de Piscis",
+      "complexion": "Moderadamente rubio (blanco)",
+      "genero": "Mujer joven",
+      "atributos": {
+        "dignificado": "Dulce, poética, amable, imaginativa",
+        "malDignificado": "Indolente, egoísta, lujuriosa"
+      }
+    },
+    {
+      "nombre": "Caballero de Espadas",
+      "titulo": "El Señor de los Vientos y las Brisas",
+      "descripcion": "Un guerrero alado cabalgando sobre un caballo marrón. Viste una armadura decorada con nubes y símbolos aéreos.",
+      "elemento": "Fuego del Aire",
+      "regencia": "20° Tauro a 20° Géminis",
+      "complexion": "Moderadamente moreno (apiñonado)",
+      "genero": "Hombre joven",
+      "atributos": {
+        "dignificado": "Habilidad, bravura, capacidad, sutileza",
+        "malDignificado": "Incapacidad, extravagancia"
+      }
+    },
+    {
+      "nombre": "Reina de Espadas",
+      "titulo": "La Reina de los Tronos del Aire",
+      "descripcion": "Una reina severa sentada en un trono elevado entre las nubes.",
+      "elemento": "Agua del Aire",
+      "regencia": "20° Virgo a 20° Libra",
+      "complexion": "Moderadamente moreno (apiñonado)",
+      "genero": "Mujer",
+      "atributos": {
+        "dignificado": "Observadora, clara, sutil, rápida",
+        "malDignificado": "Cruel, engañosa, astuta"
+      }
+    },
+    {
+      "nombre": "Rey de Espadas",
+      "titulo": "El Príncipe de las Carrozas del Viento",
+      "descripcion": "Un rey en una carroza que vuela entre las nubes.",
+      "elemento": "Aire del Aire",
+      "regencia": "20° Capricornio a 20° Acuario",
+      "complexion": "Moderadamente moreno (apiñonado)",
+      "genero": "Hombre",
+      "atributos": {
+        "dignificado": "Inteligente, activo, sutil, vigilante",
+        "malDignificado": "Malicioso, conspirador, cruel"
+      }
+    },
+    {
+      "nombre": "Sota de Espadas",
+      "titulo": "La Princesa de los Vendavales, el Loto del Palacio de Aire",
+      "descripcion": "Una joven princesa de pie sobre una cumbre ventosa.",
+      "elemento": "Tierra del Aire",
+      "regencia": "Últimos grados de Géminis",
+      "complexion": "Moderadamente moreno (apiñonado)",
+      "genero": "Mujer joven",
+      "atributos": {
+        "dignificado": "Sabia, fuerte, sutil, hábil",
+        "malDignificado": "Frívola, astuta, cruel"
+      }
+    },
+    {
+      "nombre": "Caballero de Pantáculos",
+      "titulo": "El Señor de la Tierra Salvaje y Fértil",
+      "descripcion": "Un guerrero alado cabalgando sobre un caballo claro. Viste una armadura decorada con símbolos de la tierra y la vegetación.",
+      "elemento": "Fuego de la Tierra",
+      "regencia": "20° Leo a 20° Virgo",
+      "complexion": "Moreno o muy moreno",
+      "genero": "Hombre joven",
+      "atributos": {
+        "dignificado": "Paciencia, laboriosidad, trabajo",
+        "malDignificado": "Pereza, estancamiento, materialismo"
+      }
+    },
+    {
+      "nombre": "Reina de Pantáculos",
+      "titulo": "La Reina de los Tronos de la Tierra",
+      "descripcion": "Una reina majestuosa sentada en un trono adornado con símbolos de la abundancia.",
+      "elemento": "Agua de la Tierra",
+      "regencia": "20° Sagitario a 20° Capricornio",
+      "complexion": "Moreno o muy moreno",
+      "genero": "Mujer",
+      "atributos": {
+        "dignificado": "Amable, encantadora, generosa, paciente",
+        "malDignificado": "Suspicaz, superficial, moralista"
+      }
+    },
+    {
+      "nombre": "Rey de Pantáculos",
+      "titulo": "El Príncipe de la Carroza de la Tierra",
+      "descripcion": "Un rey en una carroza adornada con símbolos de prosperidad y abundancia.",
+      "elemento": "Aire de la Tierra",
+      "regencia": "20° Aries a 20° Tauro",
+      "complexion": "Moreno o muy moreno",
+      "genero": "Hombre",
+      "atributos": {
+        "dignificado": "Incremento material, practicidad, confiabilidad",
+        "malDignificado": "Vicio, perversión, avaricia"
+      }
+    },
+    {
+      "nombre": "Sota de Pantáculos",
+      "titulo": "La Princesa de las Colinas del Eco, la Rosa del Palacio de la Tierra",
+      "descripcion": "Una joven princesa en un jardín floreciente con montañas al fondo.",
+      "elemento": "Tierra de la Tierra",
+      "regencia": "Últimos grados de Virgo",
+      "complexion": "Moreno o muy moreno",
+      "genero": "Mujer joven",
+      "atributos": {
+        "dignificado": "Generosa, amable, diligente, estudiosa",
+        "malDignificado": "Pródiga, lujuriosa, irreflexiva"
       }
     }
   ]

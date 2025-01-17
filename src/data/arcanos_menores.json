@@ -16,23 +16,480 @@
       }
     },
     {
-      "nombre": "5 de Bastos",
-      "titulo": "El Señor de la Lucha",
-      "descripcion": "Dos blancas y radiantes manos angélicas surgen de entre las nubes a derecha e izquierda del centro de la carta. Las dos manos están unidas entre sí como por el saludo de la primera Orden, y sujetan al mismo tiempo por sus centros a Cinco Varas o Antorchas.",
+      "nombre": "As de Copas",
+      "titulo": "La Raíz de los Poderes del Agua",
+      "descripcion": "Una Mano angélica surgiendo de una nube y sosteniendo una copa o cáliz del que brotan cinco corrientes de agua clara.",
+      "simbolismo": "El cáliz contiene el poder del agua pura y las cinco corrientes representan los cinco sentidos espirituales.",
+      "atributos": {
+        "dignificado": "Fertilidad, productividad, belleza, placer, felicidad",
+        "malDignificado": "Falsa felicidad, engaño, inestabilidad"
+      },
+      "sefira": {
+        "nombre": "Keter",
+        "titulo": "La Corona",
+        "descripcion": "Raíz de los Poderes del Agua"
+      }
+    },
+    {
+      "nombre": "As de Espadas",
+      "titulo": "La Raíz de los Poderes del Aire",
+      "descripcion": "Una Mano angélica surgiendo de las nubes y empuñando una espada en posición vertical.",
+      "simbolismo": "La espada está coronada por una corona con signos planetarios, de la cual penden ramas de olivo y palma.",
+      "atributos": {
+        "dignificado": "Fuerza invencible, triunfo del poder de la justicia",
+        "malDignificado": "Conquista, fuerza sin justicia, tiranía"
+      },
+      "sefira": {
+        "nombre": "Keter",
+        "titulo": "La Corona",
+        "descripcion": "Raíz de los Poderes del Aire"
+      }
+    },
+    {
+      "nombre": "As de Pantáculos",
+      "titulo": "La Raíz de los Poderes de la Tierra",
+      "descripcion": "Una Mano angélica sosteniendo un gran Pantáculo o Disco sobre el que hay inscrito un pentagrama.",
+      "simbolismo": "El pentagrama representa el dominio del espíritu sobre los elementos de la naturaleza.",
+      "atributos": {
+        "dignificado": "Materialidad perfecta, felicidad material",
+        "malDignificado": "Materialidad maligna, avaricia"
+      },
+      "sefira": {
+        "nombre": "Keter",
+        "titulo": "La Corona",
+        "descripcion": "Raíz de los Poderes de la Tierra"
+      }
+    },
+    {
+      "nombre": "2 de Bastos",
+      "titulo": "El Dominio",
       "decanato": {
-        "signo": "Leo",
+        "planeta": "Marte",
+        "signo": "Aries"
+      },
+      "atributos": {
+        "dignificado": "Dominio, influencia, poder",
+        "malDignificado": "Orgullo, arrogancia, obstinación"
+      }
+    },
+    {
+      "nombre": "3 de Bastos",
+      "titulo": "La Fuerza Establecida",
+      "decanato": {
+        "planeta": "Sol",
+        "signo": "Aries"
+      },
+      "atributos": {
+        "dignificado": "Fuerza establecida, empresa, comercio",
+        "malDignificado": "Orgullo, arrogancia, obstinación"
+      }
+    },
+    {
+      "nombre": "4 de Bastos",
+      "titulo": "La Obra Perfeccionada",
+      "decanato": {
+        "planeta": "Venus",
+        "signo": "Aries"
+      },
+      "atributos": {
+        "dignificado": "Perfección, belleza, armonía",
+        "malDignificado": "Inseguridad, imperfección"
+      }
+    },
+    {
+      "nombre": "5 de Bastos",
+      "titulo": "La Lucha",
+      "decanato": {
         "planeta": "Saturno",
-        "grados": "1°-10°",
-        "angeles": ["Vahaviah", "Yelayel"]
+        "signo": "Leo"
       },
       "atributos": {
         "dignificado": "Lucha y contiendas violentas, arrojo, temeridad",
         "malDignificado": "Crueldad, violencia, anhelo y deseo"
+      }
+    },
+    {
+      "nombre": "6 de Bastos",
+      "titulo": "La Victoria",
+      "decanato": {
+        "planeta": "Júpiter",
+        "signo": "Leo"
       },
-      "sefira": {
-        "nombre": "Geburah",
-        "titulo": "Severidad",
-        "descripcion": "Disputa y lucha"
+      "atributos": {
+        "dignificado": "Victoria, éxito, triunfo",
+        "malDignificado": "Insolencia, vanidad"
+      }
+    },
+    {
+      "nombre": "7 de Bastos",
+      "titulo": "El Valor",
+      "decanato": {
+        "planeta": "Marte",
+        "signo": "Leo"
+      },
+      "atributos": {
+        "dignificado": "Valor, victoria, éxito",
+        "malDignificado": "Ansiedad, pretensión"
+      }
+    },
+    {
+      "nombre": "8 de Bastos",
+      "titulo": "La Rapidez",
+      "decanato": {
+        "planeta": "Mercurio",
+        "signo": "Sagitario"
+      },
+      "atributos": {
+        "dignificado": "Rapidez, velocidad, comunicación",
+        "malDignificado": "Disputas, discordias"
+      }
+    },
+    {
+      "nombre": "9 de Bastos",
+      "titulo": "La Gran Fortaleza",
+      "decanato": {
+        "planeta": "Luna",
+        "signo": "Sagitario"
+      },
+      "atributos": {
+        "dignificado": "Fortaleza, poder, victoria",
+        "malDignificado": "Obstáculos, adversidad"
+      }
+    },
+    {
+      "nombre": "10 de Bastos",
+      "titulo": "La Opresión",
+      "decanato": {
+        "planeta": "Saturno",
+        "signo": "Sagitario"
+      },
+      "atributos": {
+        "dignificado": "Opresión, carga, responsabilidad",
+        "malDignificado": "Intrigas, dificultades"
+      }
+    },
+    {
+      "nombre": "2 de Copas",
+      "titulo": "El Amor",
+      "decanato": {
+        "planeta": "Venus",
+        "signo": "Cáncer"
+      },
+      "atributos": {
+        "dignificado": "Amor, armonía, unión",
+        "malDignificado": "Falso amor, inestabilidad"
+      }
+    },
+    {
+      "nombre": "3 de Copas",
+      "titulo": "La Abundancia",
+      "decanato": {
+        "planeta": "Mercurio",
+        "signo": "Cáncer"
+      },
+      "atributos": {
+        "dignificado": "Abundancia, placer, felicidad",
+        "malDignificado": "Exceso, superficialidad"
+      }
+    },
+    {
+      "nombre": "4 de Copas",
+      "titulo": "El Placer Combinado",
+      "decanato": {
+        "planeta": "Luna",
+        "signo": "Cáncer"
+      },
+      "atributos": {
+        "dignificado": "Placer mixto, nuevos intereses",
+        "malDignificado": "Apatía, disgusto"
+      }
+    },
+    {
+      "nombre": "5 de Copas",
+      "titulo": "La Pérdida del Placer",
+      "decanato": {
+        "planeta": "Marte",
+        "signo": "Escorpio"
+      },
+      "atributos": {
+        "dignificado": "Pérdida de placer, desilusión",
+        "malDignificado": "Nuevas relaciones, esperanza"
+      }
+    },
+    {
+      "nombre": "6 de Copas",
+      "titulo": "El Placer",
+      "decanato": {
+        "planeta": "Sol",
+        "signo": "Escorpio"
+      },
+      "atributos": {
+        "dignificado": "Placer, felicidad, nostalgia",
+        "malDignificado": "Nuevos objetivos, futuro"
+      }
+    },
+    {
+      "nombre": "7 de Copas",
+      "titulo": "El Placer Ilusorio",
+      "decanato": {
+        "planeta": "Venus",
+        "signo": "Escorpio"
+      },
+      "atributos": {
+        "dignificado": "Ilusiones, fantasías, imaginación",
+        "malDignificado": "Voluntad, determinación"
+      }
+    },
+    {
+      "nombre": "8 de Copas",
+      "titulo": "El Éxito Abandonado",
+      "decanato": {
+        "planeta": "Saturno",
+        "signo": "Piscis"
+      },
+      "atributos": {
+        "dignificado": "Abandono del éxito, búsqueda",
+        "malDignificado": "Alegría, felicidad"
+      }
+    },
+    {
+      "nombre": "9 de Copas",
+      "titulo": "La Felicidad Material",
+      "decanato": {
+        "planeta": "Júpiter",
+        "signo": "Piscis"
+      },
+      "atributos": {
+        "dignificado": "Felicidad material, satisfacción",
+        "malDignificado": "Imperfección, vanidad"
+      }
+    },
+    {
+      "nombre": "10 de Copas",
+      "titulo": "El Éxito Perpetuo",
+      "decanato": {
+        "planeta": "Marte",
+        "signo": "Piscis"
+      },
+      "atributos": {
+        "dignificado": "Éxito perpetuo, felicidad perfecta",
+        "malDignificado": "Falsa felicidad, engaño"
+      }
+    },
+    {
+      "nombre": "2 de Espadas",
+      "titulo": "La Paz Restaurada",
+      "decanato": {
+        "planeta": "Luna",
+        "signo": "Libra"
+      },
+      "atributos": {
+        "dignificado": "Paz restaurada, equilibrio",
+        "malDignificado": "Tensión, desacuerdo"
+      }
+    },
+    {
+      "nombre": "3 de Espadas",
+      "titulo": "El Dolor",
+      "decanato": {
+        "planeta": "Saturno",
+        "signo": "Libra"
+      },
+      "atributos": {
+        "dignificado": "Dolor, pena, angustia",
+        "malDignificado": "Confusión, pérdida"
+      }
+    },
+    {
+      "nombre": "4 de Espadas",
+      "titulo": "El Descanso de la Lucha",
+      "decanato": {
+        "planeta": "Júpiter",
+        "signo": "Libra"
+      },
+      "atributos": {
+        "dignificado": "Descanso, reposo, retiro",
+        "malDignificado": "Actividad, ansiedad"
+      }
+    },
+    {
+      "nombre": "5 de Espadas",
+      "titulo": "La Derrota",
+      "decanato": {
+        "planeta": "Venus",
+        "signo": "Acuario"
+      },
+      "atributos": {
+        "dignificado": "Derrota, pérdida, humillación",
+        "malDignificado": "Esperanza, nuevo intento"
+      }
+    },
+    {
+      "nombre": "6 de Espadas",
+      "titulo": "El Éxito Merecido",
+      "decanato": {
+        "planeta": "Mercurio",
+        "signo": "Acuario"
+      },
+      "atributos": {
+        "dignificado": "Éxito merecido, viaje",
+        "malDignificado": "Estancamiento, retraso"
+      }
+    },
+    {
+      "nombre": "7 de Espadas",
+      "titulo": "El Esfuerzo Inestable",
+      "decanato": {
+        "planeta": "Luna",
+        "signo": "Acuario"
+      },
+      "atributos": {
+        "dignificado": "Esfuerzo inestable, vacilación",
+        "malDignificado": "Consejos, advertencias"
+      }
+    },
+    {
+      "nombre": "8 de Espadas",
+      "titulo": "La Fuerza Disminuida",
+      "decanato": {
+        "planeta": "Júpiter",
+        "signo": "Géminis"
+      },
+      "atributos": {
+        "dignificado": "Restricción, crisis, conflicto",
+        "malDignificado": "Libertad, liberación"
+      }
+    },
+    {
+      "nombre": "9 de Espadas",
+      "titulo": "La Desesperación y la Crueldad",
+      "decanato": {
+        "planeta": "Marte",
+        "signo": "Géminis"
+      },
+      "atributos": {
+        "dignificado": "Desesperación, crueldad, pena",
+        "malDignificado": "Sospecha, desconfianza"
+      }
+    },
+    {
+      "nombre": "10 de Espadas",
+      "titulo": "La Ruina",
+      "decanato": {
+        "planeta": "Sol",
+        "signo": "Géminis"
+      },
+      "atributos": {
+        "dignificado": "Ruina, desolación, muerte",
+        "malDignificado": "Ventaja, beneficio"
+      }
+    },
+    {
+      "nombre": "2 de Pantáculos",
+      "titulo": "El Cambio Armonioso",
+      "decanato": {
+        "planeta": "Júpiter",
+        "signo": "Capricornio"
+      },
+      "atributos": {
+        "dignificado": "Cambio armonioso, equilibrio",
+        "malDignificado": "Desorden, inestabilidad"
+      }
+    },
+    {
+      "nombre": "3 de Pantáculos",
+      "titulo": "Las Obras Materiales",
+      "decanato": {
+        "planeta": "Marte",
+        "signo": "Capricornio"
+      },
+      "atributos": {
+        "dignificado": "Obras materiales, habilidad",
+        "malDignificado": "Mediocridad, vulgaridad"
+      }
+    },
+    {
+      "nombre": "4 de Pantáculos",
+      "titulo": "El Poder Terrenal",
+      "decanato": {
+        "planeta": "Sol",
+        "signo": "Capricornio"
+      },
+      "atributos": {
+        "dignificado": "Poder terrenal, seguridad",
+        "malDignificado": "Prejuicio, limitación"
+      }
+    },
+    {
+      "nombre": "5 de Pantáculos",
+      "titulo": "Los Problemas Materiales",
+      "decanato": {
+        "planeta": "Mercurio",
+        "signo": "Tauro"
+      },
+      "atributos": {
+        "dignificado": "Problemas materiales, pobreza",
+        "malDignificado": "Empleo, trabajo"
+      }
+    },
+    {
+      "nombre": "6 de Pantáculos",
+      "titulo": "El Éxito Material",
+      "decanato": {
+        "planeta": "Luna",
+        "signo": "Tauro"
+      },
+      "atributos": {
+        "dignificado": "Éxito material, prosperidad",
+        "malDignificado": "Avaricia, celos"
+      }
+    },
+    {
+      "nombre": "7 de Pantáculos",
+      "titulo": "El Éxito Inconcluso",
+      "decanato": {
+        "planeta": "Saturno",
+        "signo": "Tauro"
+      },
+      "atributos": {
+        "dignificado": "Éxito inconcluso, desarrollo",
+        "malDignificado": "Ansiedad, preocupación"
+      }
+    },
+    {
+      "nombre": "8 de Pantáculos",
+      "titulo": "La Prudencia",
+      "decanato": {
+        "planeta": "Sol",
+        "signo": "Virgo"
+      },
+      "atributos": {
+        "dignificado": "Prudencia, habilidad, artesanía",
+        "malDignificado": "Ambición, vanidad"
+      }
+    },
+    {
+      "nombre": "9 de Pantáculos",
+      "titulo": "La Ganancia Material",
+      "decanato": {
+        "planeta": "Venus",
+        "signo": "Virgo"
+      },
+      "atributos": {
+        "dignificado": "Ganancia material, abundancia",
+        "malDignificado": "Retraso, desilusión"
+      }
+    },
+    {
+      "nombre": "10 de Pantáculos",
+      "titulo": "La Riqueza",
+      "decanato": {
+        "planeta": "Mercurio",
+        "signo": "Virgo"
+      },
+      "atributos": {
+        "dignificado": "Riqueza, prosperidad, familia",
+        "malDignificado": "Pérdida, problemas"
       }
     }
   ]

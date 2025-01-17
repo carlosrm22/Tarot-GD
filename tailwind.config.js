@@ -42,7 +42,21 @@ module.exports = {
       borderColor: {
         inherit: 'inherit',
       },
+      textShadow: {
+        DEFAULT: '2px 2px 4px rgba(0, 0, 0, 0.5)',
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ matchUtilities, theme }) {
+      matchUtilities(
+        {
+          'text-shadow': (value) => ({
+            textShadow: value,
+          }),
+        },
+        { values: theme('textShadow') }
+      );
+    },
+  ],
 }

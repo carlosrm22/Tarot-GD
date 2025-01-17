@@ -49,8 +49,9 @@
 }
 
 .sefira-label {
-  @apply text-white text-xs font-thin pointer-events-none opacity-0 transition-all duration-300 bg-black bg-opacity-85 px-2 py-1 rounded shadow-md text-center z-10 relative text-shadow;
+  @apply text-white text-xs font-thin pointer-events-none opacity-0 transition-all duration-300 bg-black bg-opacity-85 px-2 py-1 rounded shadow-md text-center z-10 relative;
   transform: translateY(0);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .tree-of-life g:hover .sefira-label {

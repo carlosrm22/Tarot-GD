@@ -331,19 +331,33 @@
 
 /* Estilos para el Alefato */
 .alefato-container {
-  @apply min-h-screen bg-gradient-to-br from-twilight-background via-twilight-primary to-twilight-background p-4 sm:p-8;
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--twilight-background), var(--twilight-primary), var(--twilight-background));
+  padding: 1rem;
+}
+
+@media (min-width: 640px) {
+  .alefato-container {
+    padding: 2rem;
+  }
 }
 
 .alefato-header {
-  @apply max-w-4xl mx-auto text-center p-8 rounded-2xl backdrop-blur-lg bg-white/5 border border-twilight-secondary/20 shadow-lg mb-12;
+  @apply max-w-4xl mx-auto text-center p-8 rounded-2xl backdrop-blur-lg shadow-lg mb-12;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(139, 109, 255, 0.2);
 }
 
 .alefato-header h1 {
-  @apply text-4xl sm:text-5xl font-bold mb-6 bg-gradient-to-r from-twilight-secondary to-twilight-accent bg-clip-text text-transparent;
+  @apply text-4xl sm:text-5xl font-bold mb-6 text-transparent;
+  background: linear-gradient(to right, var(--twilight-secondary), var(--twilight-accent));
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 .alefato-intro {
-  @apply text-lg sm:text-xl text-twilight-text leading-relaxed max-w-2xl mx-auto;
+  @apply text-lg sm:text-xl leading-relaxed max-w-2xl mx-auto;
+  color: var(--twilight-text);
 }
 
 .letras-grid {
@@ -351,37 +365,50 @@
 }
 
 .letra-card {
-  @apply perspective-1000 group;
+  perspective: 1000px;
+}
+
+.letra-card.group {
+  @apply relative;
 }
 
 .letra-card-inner {
-  @apply relative w-full transition-transform duration-700 transform-style-3d cursor-pointer;
+  @apply relative w-full transition-transform duration-700 cursor-pointer;
+  transform-style: preserve-3d;
 }
 
 .letra-card-front,
 .letra-card-back {
-  @apply absolute w-full backface-hidden transition-transform duration-700 bg-twilight-primary/30 backdrop-blur-md border border-twilight-secondary/20 rounded-2xl p-6;
+  @apply absolute w-full rounded-2xl p-6;
+  backface-visibility: hidden;
+  transition: transform 0.7s;
+  background: rgba(var(--twilight-primary-rgb), 0.3);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(var(--twilight-secondary-rgb), 0.2);
 }
 
 .letra-card-back {
-  @apply transform rotate-y-180;
+  transform: rotateY(180deg);
 }
 
 .letra-card.flipped .letra-card-inner {
-  @apply transform rotate-y-180;
+  transform: rotateY(180deg);
 }
 
 .letra-hebrea {
-  @apply text-6xl sm:text-7xl font-bold text-twilight-accent mb-4 text-center;
+  @apply text-6xl sm:text-7xl font-bold mb-4 text-center;
+  color: var(--twilight-accent);
   text-shadow: 0 0 20px rgba(139, 109, 255, 0.5);
 }
 
 .letra-nombre {
-  @apply text-2xl font-bold text-twilight-text mb-4 text-center;
+  @apply text-2xl font-bold mb-4 text-center;
+  color: var(--twilight-text);
 }
 
 .letra-detalles {
-  @apply space-y-2 text-twilight-text/80;
+  @apply space-y-2;
+  color: rgba(var(--twilight-text-rgb), 0.8);
 }
 
 .letra-detalles p {
@@ -389,19 +416,22 @@
 }
 
 .letra-detalles strong {
-  @apply text-twilight-accent;
+  color: var(--twilight-accent);
 }
 
 .alefato-nota {
-  @apply max-w-4xl mx-auto mt-12 p-6 rounded-xl backdrop-blur-lg bg-white/5 border border-twilight-secondary/20;
+  @apply max-w-4xl mx-auto mt-12 p-6 rounded-xl backdrop-blur-lg;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(var(--twilight-secondary-rgb), 0.2);
 }
 
 .alefato-nota p {
-  @apply text-twilight-text/90 text-center;
+  @apply text-center;
+  color: rgba(var(--twilight-text-rgb), 0.9);
 }
 
 .alefato-nota strong {
-  @apply text-twilight-accent;
+  color: var(--twilight-accent);
 }
 
 /* Animación para las letras */

@@ -1,6 +1,7 @@
 export interface ImageInfo {
   name: string;
   path: string;
+  publicPath: string;
   category: string;
   description?: string;
   tags?: string[];
@@ -11,6 +12,7 @@ export interface ImageInfo {
 export interface CategoryInfo {
   title: string;
   path: string;
+  publicPath: string;
 }
 
 export interface Categories {

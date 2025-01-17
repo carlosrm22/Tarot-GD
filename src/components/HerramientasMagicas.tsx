@@ -13,20 +13,32 @@ const HerramientasMagicas: React.FC = () => {
   const categories: Categories = {
     todos: {
       title: 'Todas',
-      path: ''
+      path: '',
+      publicPath: ''
     },
     armas: {
       title: 'Armas Mágicas',
-      path: '/images/Armas'
+      path: '/images/Armas',
+      publicPath: `${process.env.PUBLIC_URL}/images/Armas`
     },
     tatvas: {
       title: 'Tatvas',
-      path: '/images/Tatvas'
+      path: '/images/Tatvas',
+      publicPath: `${process.env.PUBLIC_URL}/images/Tatvas`
     },
     formasDivinas: {
       title: 'Formas Divinas',
-      path: '/images/Formas Divinas'
+      path: '/images/Formas Divinas',
+      publicPath: `${process.env.PUBLIC_URL}/images/Formas Divinas`
     }
+  };
+
+  // Función auxiliar para crear rutas de imágenes
+  const createImagePath = (relativePath: string) => {
+    return {
+      path: relativePath,
+      publicPath: `${process.env.PUBLIC_URL}${relativePath}`
+    };
   };
 
   // Simular carga de imágenes (esto se reemplazará con datos reales)
@@ -36,7 +48,7 @@ const HerramientasMagicas: React.FC = () => {
         const mockImages: ImageInfo[] = [
           {
             name: 'Vara de Fuego',
-            path: '/images/Armas/Vara de Fuego.jpg',
+            ...createImagePath('/images/Armas/Vara de Fuego.jpg'),
             category: 'armas',
             description: 'Vara consagrada al elemento fuego',
             element: 'Fuego',
@@ -45,7 +57,7 @@ const HerramientasMagicas: React.FC = () => {
           },
           {
             name: 'Daga de Aire',
-            path: '/images/Armas/Daga de Aire.png',
+            ...createImagePath('/images/Armas/Daga de Aire.png'),
             category: 'armas',
             description: 'Daga consagrada al elemento aire',
             element: 'Aire',
@@ -54,7 +66,7 @@ const HerramientasMagicas: React.FC = () => {
           },
           {
             name: 'Copa de Agua',
-            path: '/images/Armas/Copa de Agua.jpg',
+            ...createImagePath('/images/Armas/Copa de Agua.jpg'),
             category: 'armas',
             description: 'Copa consagrada al elemento agua',
             element: 'Agua',
@@ -63,7 +75,7 @@ const HerramientasMagicas: React.FC = () => {
           },
           {
             name: 'Vara de Loto',
-            path: '/images/Armas/Vara de Loto.jpg',
+            ...createImagePath('/images/Armas/Vara de Loto.jpg'),
             category: 'armas',
             description: 'Vara especial con símbolo de loto',
             element: 'Espíritu',
@@ -72,7 +84,7 @@ const HerramientasMagicas: React.FC = () => {
           },
           {
             name: 'Vara de Fénix',
-            path: '/images/Armas/Vara de Fénix.jpg',
+            ...createImagePath('/images/Armas/Vara de Fénix.jpg'),
             category: 'armas',
             description: 'Vara con símbolo del fénix',
             element: 'Fuego',
@@ -179,9 +191,14 @@ const HerramientasMagicas: React.FC = () => {
               className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden"
             >
               <img
-                src={image.path}
+                src={image.publicPath}
                 alt={image.name}
                 className="w-full h-48 object-contain"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.onerror = null;
+                  target.src = `${process.env.PUBLIC_URL}/images/placeholder.png`;
+                }}
               />
               <div className="p-4">
                 <h3 className="text-lg font-semibold text-purple-800 dark:text-purple-400">

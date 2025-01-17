@@ -4,7 +4,7 @@
  * y la interacción con el Árbol de la Vida.
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
 import Nav from './components/Nav';
@@ -17,6 +17,7 @@ import Alefato from './components/Alefato';
 import Rituales from './components/Rituales';
 import Simbolos from './components/Simbolos';
 import HerramientasMagicas from './components/HerramientasMagicas';
+import Enoquiano from './components/Enoquiano';
 import Footer from './components/Footer';
 import arcanosMayoresData from './Arcanos_Mayores_Tarot.json';
 import { ArcanosMayores as ArcanosMayoresType } from './types/tarot';
@@ -34,6 +35,33 @@ import { ArcanosMayores as ArcanosMayoresType } from './types/tarot';
  * @component
  * @returns {JSX.Element} Aplicación completa de Tarot
  */
+
+// Servicio de autenticación
+const authService = {
+  login: (password: string): boolean => {
+    const hashedPassword = btoa('quiero pene'); // Esta no es una forma segura de hash, solo es un ejemplo
+    return btoa(password) === hashedPassword;
+  }
+};
+
+// Componentes con lazy loading
+const LazyLecturas = React.lazy(() => import('./components/Lecturas'));
+const LazyEstudio = React.lazy(() => import('./components/Estudio'));
+const LazyTodasLasCartas = React.lazy(() => import('./components/TodasLasCartas'));
+const LazyArcanosMayores = React.lazy(() => import('./components/ArcanosMayores'));
+const LazyAlefato = React.lazy(() => import('./components/Alefato'));
+const LazyRituales = React.lazy(() => import('./components/Rituales'));
+const LazySimbolos = React.lazy(() => import('./components/Simbolos'));
+const LazyHerramientasMagicas = React.lazy(() => import('./components/HerramientasMagicas'));
+const LazyEnoquiano = React.lazy(() => import('./components/Enoquiano'));
+
+// Loading fallback component
+const LoadingFallback = () => (
+  <div className="loading-spinner">
+    <div className="spinner"></div>
+  </div>
+);
+
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(() => {
     const savedTheme = localStorage.getItem('theme');
@@ -71,9 +99,10 @@ function App() {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    if (password === 'quiero pene') {
+    if (authService.login(password)) {
       setIsAuthenticated(true);
       setError('');
+      localStorage.setItem('isAuthenticated', 'true');
     } else {
       setError('Contraseña incorrecta, medita en tu respuesta y vuelve a intentarlo');
     }
@@ -83,6 +112,12 @@ function App() {
     setIsAuthenticated(false);
     setPassword('');
   };
+
+  // Verificar autenticación al cargar
+  useEffect(() => {
+    const isAuth = localStorage.getItem('isAuthenticated') === 'true';
+    setIsAuthenticated(isAuth);
+  }, []);
 
   if (!isAuthenticated) {
     return (
@@ -98,6 +133,7 @@ function App() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Frase Mística"
+                autoComplete="off"
               />
             </div>
             {error && <div className="error-message">{error}</div>}
@@ -118,27 +154,30 @@ function App() {
           onLogout={handleLogout}
         />
 
-        <Routes>
-          <Route path="/" element={<Navigate to="/inicio" />} />
-          <Route path="/inicio" element={<Inicio />} />
-          <Route
-            path="/lecturas"
-            element={<Lecturas arcanos_mayores={arcanos_mayores} />}
-          />
-          <Route path="/estudio" element={<Estudio />} />
-          <Route path="/cartas" element={<TodasLasCartas />} />
-          <Route path="/cartas/arcanos-mayores" element={<ArcanosMayores />} />
-          <Route path="/alefato" element={<Alefato />} />
-          <Route path="/rituales" element={<Rituales />} />
-          <Route path="/pentagramas" element={<Simbolos />} />
-          <Route path="/hexagramas" element={<Simbolos />} />
-          <Route path="/sigilos" element={<Simbolos />} />
-          <Route path="/talismanes" element={<Simbolos />} />
-          <Route path="/armas" element={<HerramientasMagicas />} />
-          <Route path="/tatvas" element={<HerramientasMagicas />} />
-          <Route path="/formas-divinas" element={<HerramientasMagicas />} />
-          <Route path="*" element={<Navigate to="/inicio" />} />
-        </Routes>
+        <Suspense fallback={<LoadingFallback />}>
+          <Routes>
+            <Route path="/" element={<Navigate to="/inicio" />} />
+            <Route path="/inicio" element={<Inicio />} />
+            <Route
+              path="/lecturas"
+              element={<LazyLecturas arcanos_mayores={arcanos_mayores} />}
+            />
+            <Route path="/estudio" element={<LazyEstudio />} />
+            <Route path="/cartas" element={<LazyTodasLasCartas />} />
+            <Route path="/cartas/arcanos-mayores" element={<LazyArcanosMayores />} />
+            <Route path="/alefato" element={<LazyAlefato />} />
+            <Route path="/rituales" element={<LazyRituales />} />
+            <Route path="/pentagramas" element={<LazySimbolos />} />
+            <Route path="/hexagramas" element={<LazySimbolos />} />
+            <Route path="/sigilos" element={<LazySimbolos />} />
+            <Route path="/talismanes" element={<LazySimbolos />} />
+            <Route path="/armas" element={<LazyHerramientasMagicas />} />
+            <Route path="/tatvas" element={<LazyHerramientasMagicas />} />
+            <Route path="/formas-divinas" element={<LazyHerramientasMagicas />} />
+            <Route path="/enoquiano" element={<LazyEnoquiano />} />
+            <Route path="*" element={<Navigate to="/inicio" />} />
+          </Routes>
+        </Suspense>
 
         <Footer />
       </div>

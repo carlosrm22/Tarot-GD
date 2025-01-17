@@ -48,9 +48,6 @@ const Nav: React.FC<NavProps> = memo(({ isDarkMode, onThemeToggle, onLogout }) =
               <NavLink to="/lecturas" className={navLinkClass}>
                 Lecturas
               </NavLink>
-              <NavLink to="/estudio" className={navLinkClass}>
-                Estudio
-              </NavLink>
               <NavLink to="/cartas" className={navLinkClass}>
                 Cartas
               </NavLink>
@@ -146,9 +143,6 @@ const Nav: React.FC<NavProps> = memo(({ isDarkMode, onThemeToggle, onLogout }) =
             <div className="flex-1 overflow-y-auto px-4 py-2 space-y-4">
               <NavLink to="/lecturas" className="block text-lg text-twilight-text hover:text-twilight-accent py-2" onClick={handleMobileItemClick}>
                 Lecturas
-              </NavLink>
-              <NavLink to="/estudio" className="block text-lg text-twilight-text hover:text-twilight-accent py-2" onClick={handleMobileItemClick}>
-                Estudio
               </NavLink>
               <NavLink to="/cartas" className="block text-lg text-twilight-text hover:text-twilight-accent py-2" onClick={handleMobileItemClick}>
                 Cartas

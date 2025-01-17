@@ -9,8 +9,6 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import './App.css';
 import Nav from './components/Nav';
 import Inicio from './components/Inicio';
-import Lecturas from './components/Lecturas';
-import Estudio from './components/Estudio';
 import TodasLasCartas from './components/TodasLasCartas';
 import ArcanosMayores from './components/ArcanosMayores';
 import Alefato from './components/Alefato';
@@ -19,6 +17,7 @@ import Simbolos from './components/Simbolos';
 import HerramientasMagicas from './components/HerramientasMagicas';
 import Enoquiano from './components/Enoquiano';
 import Footer from './components/Footer';
+import TarotReading from './components/TarotReading';
 import arcanosMayoresData from './Arcanos_Mayores_Tarot.json';
 import { ArcanosMayores as ArcanosMayoresType } from './types/tarot';
 
@@ -45,8 +44,7 @@ const authService = {
 };
 
 // Componentes con lazy loading
-const LazyLecturas = React.lazy(() => import('./components/Lecturas'));
-const LazyEstudio = React.lazy(() => import('./components/Estudio'));
+const LazyTarotReading = React.lazy(() => import('./components/TarotReading'));
 const LazyTodasLasCartas = React.lazy(() => import('./components/TodasLasCartas'));
 const LazyArcanosMayores = React.lazy(() => import('./components/ArcanosMayores'));
 const LazyAlefato = React.lazy(() => import('./components/Alefato'));
@@ -160,9 +158,8 @@ function App() {
             <Route path="/inicio" element={<Inicio />} />
             <Route
               path="/lecturas"
-              element={<LazyLecturas arcanos_mayores={arcanos_mayores} />}
+              element={<LazyTarotReading cartas={arcanos_mayores.arcanos.arcanos_mayores} getImagePath={(numero, nombre) => `/images/arcanos/${numero}_${nombre}.jpg`} />}
             />
-            <Route path="/estudio" element={<LazyEstudio />} />
             <Route path="/cartas" element={<LazyTodasLasCartas />} />
             <Route path="/cartas/arcanos-mayores" element={<LazyArcanosMayores />} />
             <Route path="/alefato" element={<LazyAlefato />} />

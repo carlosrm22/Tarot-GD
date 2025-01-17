@@ -13,6 +13,8 @@ interface NavProps {
 
 const Nav: React.FC<NavProps> = ({ isDarkMode, onThemeToggle, onLogout }) => {
   const [tarotMenuOpen, setTarotMenuOpen] = useState(false);
+  const [simbolosMenuOpen, setSimbolosMenuOpen] = useState(false);
+  const [herramientasMenuOpen, setHerramientasMenuOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
 
@@ -21,6 +23,8 @@ const Nav: React.FC<NavProps> = ({ isDarkMode, onThemeToggle, onLogout }) => {
       if (navRef.current && !navRef.current.contains(event.target as Node)) {
         setMobileMenuOpen(false);
         setTarotMenuOpen(false);
+        setSimbolosMenuOpen(false);
+        setHerramientasMenuOpen(false);
       }
     };
 
@@ -33,12 +37,30 @@ const Nav: React.FC<NavProps> = ({ isDarkMode, onThemeToggle, onLogout }) => {
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
     if (tarotMenuOpen) setTarotMenuOpen(false);
+    if (simbolosMenuOpen) setSimbolosMenuOpen(false);
+    if (herramientasMenuOpen) setHerramientasMenuOpen(false);
   };
 
-  const handleTarotClick = (e: React.MouseEvent) => {
+  const handleMenuClick = (e: React.MouseEvent, menu: string) => {
     if (window.innerWidth <= 768) {
       e.preventDefault();
-      setTarotMenuOpen(!tarotMenuOpen);
+      switch (menu) {
+        case 'tarot':
+          setTarotMenuOpen(!tarotMenuOpen);
+          setSimbolosMenuOpen(false);
+          setHerramientasMenuOpen(false);
+          break;
+        case 'simbolos':
+          setSimbolosMenuOpen(!simbolosMenuOpen);
+          setTarotMenuOpen(false);
+          setHerramientasMenuOpen(false);
+          break;
+        case 'herramientas':
+          setHerramientasMenuOpen(!herramientasMenuOpen);
+          setTarotMenuOpen(false);
+          setSimbolosMenuOpen(false);
+          break;
+      }
     }
   };
 
@@ -64,45 +86,104 @@ const Nav: React.FC<NavProps> = ({ isDarkMode, onThemeToggle, onLogout }) => {
               Inicio
             </Link>
 
+            {/* Menú Tarot */}
             <div
               className={`nav-dropdown ${tarotMenuOpen ? 'active' : ''}`}
               onMouseEnter={() => !mobileMenuOpen && setTarotMenuOpen(true)}
               onMouseLeave={() => !mobileMenuOpen && setTarotMenuOpen(false)}
             >
-              <span className="nav-link" onClick={handleTarotClick}>
+              <span className="nav-link" onClick={(e) => handleMenuClick(e, 'tarot')}>
                 Tarot
                 <span className={`dropdown-arrow ${tarotMenuOpen ? 'active' : ''}`}>▼</span>
               </span>
               <div className={`dropdown-content ${tarotMenuOpen ? 'active' : ''}`}>
-                <Link
-                  to="/lecturas"
-                  className="dropdown-item"
-                  onClick={() => {
-                    setTarotMenuOpen(false);
-                    setMobileMenuOpen(false);
-                  }}
-                >
+                <Link to="/lecturas" className="dropdown-item" onClick={() => {
+                  setTarotMenuOpen(false);
+                  setMobileMenuOpen(false);
+                }}>
                   Lecturas
                 </Link>
-                <Link
-                  to="/estudio"
-                  className="dropdown-item"
-                  onClick={() => {
-                    setTarotMenuOpen(false);
-                    setMobileMenuOpen(false);
-                  }}
-                >
+                <Link to="/estudio" className="dropdown-item" onClick={() => {
+                  setTarotMenuOpen(false);
+                  setMobileMenuOpen(false);
+                }}>
                   Estudio
                 </Link>
-                <Link
-                  to="/cartas"
-                  className="dropdown-item"
-                  onClick={() => {
-                    setTarotMenuOpen(false);
-                    setMobileMenuOpen(false);
-                  }}
-                >
+                <Link to="/cartas" className="dropdown-item" onClick={() => {
+                  setTarotMenuOpen(false);
+                  setMobileMenuOpen(false);
+                }}>
                   Todas las Cartas
+                </Link>
+              </div>
+            </div>
+
+            {/* Menú Símbolos */}
+            <div
+              className={`nav-dropdown ${simbolosMenuOpen ? 'active' : ''}`}
+              onMouseEnter={() => !mobileMenuOpen && setSimbolosMenuOpen(true)}
+              onMouseLeave={() => !mobileMenuOpen && setSimbolosMenuOpen(false)}
+            >
+              <span className="nav-link" onClick={(e) => handleMenuClick(e, 'simbolos')}>
+                Símbolos
+                <span className={`dropdown-arrow ${simbolosMenuOpen ? 'active' : ''}`}>▼</span>
+              </span>
+              <div className={`dropdown-content ${simbolosMenuOpen ? 'active' : ''}`}>
+                <Link to="/pentagramas" className="dropdown-item" onClick={() => {
+                  setSimbolosMenuOpen(false);
+                  setMobileMenuOpen(false);
+                }}>
+                  Pentagramas
+                </Link>
+                <Link to="/hexagramas" className="dropdown-item" onClick={() => {
+                  setSimbolosMenuOpen(false);
+                  setMobileMenuOpen(false);
+                }}>
+                  Hexagramas
+                </Link>
+                <Link to="/sigilos" className="dropdown-item" onClick={() => {
+                  setSimbolosMenuOpen(false);
+                  setMobileMenuOpen(false);
+                }}>
+                  Sigilos
+                </Link>
+                <Link to="/talismanes" className="dropdown-item" onClick={() => {
+                  setSimbolosMenuOpen(false);
+                  setMobileMenuOpen(false);
+                }}>
+                  Talismanes
+                </Link>
+              </div>
+            </div>
+
+            {/* Menú Herramientas */}
+            <div
+              className={`nav-dropdown ${herramientasMenuOpen ? 'active' : ''}`}
+              onMouseEnter={() => !mobileMenuOpen && setHerramientasMenuOpen(true)}
+              onMouseLeave={() => !mobileMenuOpen && setHerramientasMenuOpen(false)}
+            >
+              <span className="nav-link" onClick={(e) => handleMenuClick(e, 'herramientas')}>
+                Herramientas
+                <span className={`dropdown-arrow ${herramientasMenuOpen ? 'active' : ''}`}>▼</span>
+              </span>
+              <div className={`dropdown-content ${herramientasMenuOpen ? 'active' : ''}`}>
+                <Link to="/armas" className="dropdown-item" onClick={() => {
+                  setHerramientasMenuOpen(false);
+                  setMobileMenuOpen(false);
+                }}>
+                  Armas Mágicas
+                </Link>
+                <Link to="/tatvas" className="dropdown-item" onClick={() => {
+                  setHerramientasMenuOpen(false);
+                  setMobileMenuOpen(false);
+                }}>
+                  Tatvas
+                </Link>
+                <Link to="/formas-divinas" className="dropdown-item" onClick={() => {
+                  setHerramientasMenuOpen(false);
+                  setMobileMenuOpen(false);
+                }}>
+                  Formas Divinas
                 </Link>
               </div>
             </div>

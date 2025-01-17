@@ -15,6 +15,8 @@ import TodasLasCartas from './components/TodasLasCartas';
 import ArcanosMayores from './components/ArcanosMayores';
 import Alefato from './components/Alefato';
 import Rituales from './components/Rituales';
+import Simbolos from './components/Simbolos';
+import HerramientasMagicas from './components/HerramientasMagicas';
 import Footer from './components/Footer';
 import arcanosMayoresData from './Arcanos_Mayores_Tarot.json';
 import { ArcanosMayores as ArcanosMayoresType } from './types/tarot';
@@ -128,6 +130,13 @@ function App() {
           <Route path="/cartas/arcanos-mayores" element={<ArcanosMayores />} />
           <Route path="/alefato" element={<Alefato />} />
           <Route path="/rituales" element={<Rituales />} />
+          <Route path="/pentagramas" element={<Simbolos />} />
+          <Route path="/hexagramas" element={<Simbolos />} />
+          <Route path="/sigilos" element={<Simbolos />} />
+          <Route path="/talismanes" element={<Simbolos />} />
+          <Route path="/armas" element={<HerramientasMagicas />} />
+          <Route path="/tatvas" element={<HerramientasMagicas />} />
+          <Route path="/formas-divinas" element={<HerramientasMagicas />} />
           <Route path="*" element={<Navigate to="/inicio" />} />
         </Routes>
 

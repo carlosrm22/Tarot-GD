@@ -49,7 +49,7 @@ const FlashCard: React.FC<{ letra: string; detalle: LetraDetalle }> = ({ letra, 
       <motion.div
         initial={false}
         animate={{ rotateY: isFlipped ? 180 : 0 }}
-        transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
+        transition={{ duration: 0.2, type: "spring", stiffness: 100 }}
         onClick={() => setIsFlipped(!isFlipped)}
         className="w-full h-full cursor-pointer preserve-3d"
       >

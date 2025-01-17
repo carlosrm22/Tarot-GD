@@ -18,6 +18,7 @@ const Rituales = lazy(() => import('./components/Rituales'));
 const Simbolos = lazy(() => import('./components/Simbolos'));
 const Enoquiano = lazy(() => import('./components/Enoquiano'));
 const ArbolVida = lazy(() => import('./components/ArbolVida'));
+const Hermetismo = lazy(() => import('./components/Hermetismo'));
 
 // Componentes de Tarot
 const TarotHome = lazy(() => import('./components/tarot/TarotHome'));
@@ -39,6 +40,12 @@ function App() {
               <Suspense fallback={<div>Cargando...</div>}>
                 <Routes>
                   <Route path="/" element={<Inicio />} />
+                  <Route path="/hermetismo" element={<Hermetismo />} />
+                  <Route path="/alefato" element={<Alefato />} />
+                  <Route path="/rituales" element={<Rituales />} />
+                  <Route path="/simbolos" element={<Simbolos tipo="pentagramas" />} />
+                  <Route path="/enoquiano" element={<Enoquiano />} />
+                  <Route path="/arbol-vida" element={<ArbolVida />} />
 
                   {/* Rutas de Tarot */}
                   <Route path="/tarot" element={<TarotHome />} />
@@ -48,13 +55,6 @@ function App() {
                   <Route path="/tarot/arcanos-mayores" element={<ArcanosMayores />} />
                   <Route path="/tarot/historial" element={<ReadingHistory />} />
                   <Route path="/tarot/aprender" element={<LearnTarot />} />
-
-                  {/* Otras rutas */}
-                  <Route path="/alefato" element={<Alefato />} />
-                  <Route path="/rituales" element={<Rituales />} />
-                  <Route path="/simbolos" element={<Simbolos tipo="pentagramas" />} />
-                  <Route path="/enoquiano" element={<Enoquiano />} />
-                  <Route path="/arbol-vida" element={<ArbolVida />} />
                 </Routes>
               </Suspense>
             </main>

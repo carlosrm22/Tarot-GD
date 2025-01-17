@@ -25,7 +25,7 @@ interface SeccionInfo {
 
 const secciones: SeccionInfo[] = [
   {
-    ruta: "/cartas",
+    ruta: "/tarot",
     titulo: "Tarot",
     descripcion: "Descubre los 22 Arcanos Mayores y sus profundas correspondencias esotéricas según el sistema de la Aurora Dorada.",
     descripcionLarga: "Explora el simbolismo profundo de los Arcanos Mayores, sus conexiones con la Cábala, astrología y alquimia. Cada carta es una puerta hacia el conocimiento esotérico y la transformación personal.",

@@ -37,6 +37,14 @@ const Nav: React.FC = () => {
     return () => document.removeEventListener("keydown", handleKeyPress);
   }, [handleKeyPress]);
 
+  const menuItems = [
+    { path: '/', text: 'Inicio' },
+    { path: '/tarot', text: 'Tarot' },
+    { path: '/hermetismo', text: 'Hermetismo' },
+    { path: '/rituales', text: 'Rituales' },
+    // ... otros items
+  ];
+
   return (
     <>
       {/* Header */}

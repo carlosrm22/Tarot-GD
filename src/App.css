@@ -453,3 +453,114 @@
     animation: none;
   }
 }
+
+/* Estilos para Rituales */
+.rituales-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--twilight-background), var(--twilight-primary), var(--twilight-background));
+  padding: 1rem;
+}
+
+@media (min-width: 640px) {
+  .rituales-container {
+    padding: 2rem;
+  }
+}
+
+.rituales-header {
+  @apply max-w-4xl mx-auto text-center p-8 rounded-2xl backdrop-blur-lg shadow-lg mb-12;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(139, 109, 255, 0.2);
+}
+
+.rituales-header h1 {
+  @apply text-4xl sm:text-5xl font-bold mb-6 text-transparent;
+  background: linear-gradient(to right, var(--twilight-secondary), var(--twilight-accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.rituales-intro {
+  @apply text-lg sm:text-xl leading-relaxed max-w-2xl mx-auto;
+  color: var(--twilight-text);
+}
+
+.rituales-sections {
+  @apply max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12;
+}
+
+.ritual-section {
+  @apply p-6 rounded-2xl backdrop-blur-lg transition-all duration-300 hover:transform hover:scale-105;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(139, 109, 255, 0.2);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.ritual-section:hover {
+  box-shadow: 0 8px 15px rgba(139, 109, 255, 0.2);
+  border-color: rgba(139, 109, 255, 0.4);
+}
+
+.ritual-section h2 {
+  @apply text-2xl font-bold mb-4 text-transparent;
+  background: linear-gradient(to right, var(--twilight-secondary), var(--twilight-accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.ritual-section p {
+  @apply mb-4 leading-relaxed;
+  color: var(--twilight-text);
+}
+
+.ritual-nota {
+  @apply p-4 rounded-lg mt-4;
+  background: rgba(139, 109, 255, 0.1);
+  border: 1px solid rgba(139, 109, 255, 0.2);
+}
+
+.ritual-nota strong {
+  color: var(--twilight-accent);
+}
+
+.rituales-advertencia {
+  @apply max-w-4xl mx-auto mt-12 p-8 rounded-2xl backdrop-blur-lg text-center;
+  background: rgba(255, 97, 216, 0.05);
+  border: 1px solid rgba(255, 97, 216, 0.2);
+}
+
+.rituales-advertencia h3 {
+  @apply text-2xl font-bold mb-4 text-transparent;
+  background: linear-gradient(to right, #ff61d8, #ff4d4d);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.rituales-advertencia p {
+  @apply leading-relaxed;
+  color: var(--twilight-text);
+}
+
+/* Animación para los símbolos de los rituales */
+@keyframes glowSymbol {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(139, 109, 255, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(139, 109, 255, 0.8);
+  }
+}
+
+.ritual-section h2 {
+  animation: glowSymbol 3s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ritual-section h2 {
+    animation: none;
+  }
+  .ritual-section {
+    transform: none !important;
+    transition: none !important;
+  }
+}

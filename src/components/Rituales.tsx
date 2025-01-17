@@ -65,36 +65,36 @@ const Rituales: React.FC = () => {
   };
 
   return (
-    <div className="rituales-container">
-      <div className="rituales-header">
-        <h1>Rituales de la Aurora Dorada</h1>
-        <p className="rituales-intro">
+    <div className="rituales-container p-4 bg-twilight-background/95 rounded-lg shadow-lg">
+      <div className="rituales-header text-center mb-6">
+        <h1 className="text-3xl font-bold text-twilight-accent">Rituales de la Aurora Dorada</h1>
+        <p className="rituales-intro text-lg text-twilight-text">
           Explora los rituales fundamentales del sistema mágico de la Aurora Dorada.
           Estos rituales son herramientas para el desarrollo espiritual y la
           comprensión de los misterios esotéricos.
         </p>
       </div>
 
-      <div className="rituales-sections">
+      <div className="rituales-sections space-y-6">
         {rituales.map((ritual) => (
-          <section key={ritual.id} className="ritual-section">
+          <section key={ritual.id} className="ritual-section p-4 bg-white rounded-lg shadow-md">
             <div className="flex items-center gap-4 mb-4">
               {ritual.icono}
-              <h2>{ritual.titulo}</h2>
+              <h2 className="text-xl font-semibold">{ritual.titulo}</h2>
             </div>
 
-            <p>{ritual.descripcion.substring(0, 100)}...</p>
+            <p className="text-gray-700">{ritual.descripcion.substring(0, 100)}...</p>
 
             <button
-              className="w-full flex justify-between items-center p-3 rounded-lg bg-white/10 hover:bg-white/20 transition-colors mt-4"
+              className="w-full flex justify-between items-center p-3 rounded-lg bg-twilight-background hover:bg-twilight-accent transition-colors mt-4"
               onClick={() => toggleDetalle(ritual.id)}
             >
-              <span>Ver detalles</span>
+              <span className="text-twilight-text">Ver detalles</span>
               {detallesExpandidos[ritual.id] ? <FaChevronUp /> : <FaChevronDown />}
             </button>
 
             {detallesExpandidos[ritual.id] && (
-              <div className="mt-4 space-y-4">
+              <div className="mt-4 space-y-2">
                 <div className="ritual-nota">
                   <strong>Propósito:</strong> {ritual.proposito}
                 </div>
@@ -107,21 +107,21 @@ const Rituales: React.FC = () => {
                   <strong>Elementos clave:</strong>
                   <ul className="list-disc list-inside mt-2">
                     {ritual.elementos.map((elemento, index) => (
-                      <li key={index}>{elemento}</li>
+                      <li key={index} className="text-gray-600">{elemento}</li>
                     ))}
                   </ul>
                 </div>
 
-                <p>{ritual.descripcion}</p>
+                <p className="text-gray-700">{ritual.descripcion}</p>
               </div>
             )}
           </section>
         ))}
       </div>
 
-      <div className="rituales-advertencia">
-        <h3>Advertencia Importante</h3>
-        <p>
+      <div className="rituales-advertencia mt-6 p-4 bg-red-100 border border-red-300 rounded-lg">
+        <h3 className="font-bold text-red-600">Advertencia Importante</h3>
+        <p className="text-red-700">
           Los rituales presentados aquí son para estudio y referencia. La práctica
           real requiere preparación adecuada y, preferiblemente, guía de un
           practicante experimentado. Respeta siempre los principios éticos y

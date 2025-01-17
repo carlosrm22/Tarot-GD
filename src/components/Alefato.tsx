@@ -1,163 +1,146 @@
 /**
- * @fileoverview Componente que presenta el Alefato hebreo y sus correspondencias esotéricas.
+ * @fileoverview Componente interactivo para mostrar el Alefato hebreo con efecto flashcard
  */
 
 import React, { useState } from 'react';
-import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
-import TreeOfLife from './TreeOfLife';
+import { motion, AnimatePresence } from 'framer-motion';
+import alefatoData from '../data/alefato.json';
+import '../styles/Alefato.css';
 
-interface LetraHebrea {
-  letra: string;
+interface LetraDetalle {
   nombre: string;
-  valor: number;
+  pronunciacion: string;
   significado: string;
-  sendero: number;
-  elemento: string;
+  gematria: number;
+  seferYetzira: {
+    energia: string;
+    simbolo: string;
+  };
+  goldenDawn: {
+    energia: string;
+    simbolo: string;
+  };
+  tarot: {
+    nombre: string;
+    imagen: string;
+  };
+  unicode: number;
+  letrasLatinas?: string[];
+  final?: {
+    letra: string;
+    gematria: number;
+    unicode: number;
+  };
 }
 
-const letrasHebreas: LetraHebrea[] = [
-  {
-    letra: 'א',
-    nombre: 'Alef',
-    valor: 1,
-    significado: 'Buey',
-    sendero: 11,
-    elemento: 'Aire'
-  },
-  {
-    letra: 'ב',
-    nombre: 'Beth',
-    valor: 2,
-    significado: 'Casa',
-    sendero: 12,
-    elemento: 'Mercurio'
-  },
-  // ... más letras se agregarán aquí
-];
+interface LetrasHebreasBase {
+  [key: string]: LetraDetalle;
+}
 
-const Alefato: React.FC = () => {
-  const [letrasVolteadas, setLetrasVolteadas] = useState<{ [key: string]: boolean }>({});
-  const [detallesExpandidos, setDetallesExpandidos] = useState<{ [key: string]: boolean }>({});
+interface AlefatoData {
+  letrasHebreasBase: LetrasHebreasBase;
+}
 
-  const toggleCard = (letra: string) => {
-    setLetrasVolteadas(prev => ({
-      ...prev,
-      [letra]: !prev[letra]
-    }));
-  };
-
-  const toggleDetalle = (letra: string, detalle: string, event: React.MouseEvent) => {
-    event.stopPropagation();
-    const key = `${letra}-${detalle}`;
-    setDetallesExpandidos(prev => ({
-      ...prev,
-      [key]: !prev[key]
-    }));
-  };
-
-  const isDetalleExpandido = (letra: string, detalle: string) => {
-    return detallesExpandidos[`${letra}-${detalle}`] || false;
-  };
+const FlashCard: React.FC<{ letra: string; detalle: LetraDetalle }> = ({ letra, detalle }) => {
+  const [isFlipped, setIsFlipped] = useState(false);
 
   return (
-    <div className="alefato-container">
-      <div className="alefato-header">
-        <h1>El Alefato Hebreo</h1>
-        <p className="alefato-intro">
-          Explora las 22 letras sagradas del alfabeto hebreo, sus significados
-          esotéricos y su relación con los senderos del Árbol de la Vida.
-          Cada letra es un portal hacia el entendimiento de los misterios divinos.
-        </p>
-      </div>
-
-      <div className="letras-grid">
-        {letrasHebreas.map((letra) => (
-          <div
-            key={letra.letra}
-            className={`letra-card ${letrasVolteadas[letra.letra] ? 'flipped' : ''}`}
-            onClick={() => toggleCard(letra.letra)}
+    <div className="relative w-full aspect-square perspective-1000">
+      <motion.div
+        initial={false}
+        animate={{ rotateY: isFlipped ? 180 : 0 }}
+        transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
+        onClick={() => setIsFlipped(!isFlipped)}
+        className="w-full h-full cursor-pointer preserve-3d"
+      >
+        {/* Frente de la carta */}
+        <div className={`absolute w-full h-full backface-hidden rounded-xl border border-twilight-secondary/20 bg-twilight-background/50 p-4 flex flex-col items-center justify-center ${isFlipped ? 'invisible' : ''}`}>
+          <motion.span
+            whileHover={{ scale: 1.1 }}
+            className="text-6xl md:text-7xl font-hebrew text-twilight-text mb-4"
           >
-            <div className="letra-card-inner">
-              {/* Frente de la carta */}
-              <div className="letra-card-front">
-                <div className="letra-hebrea">{letra.letra}</div>
-                <h2 className="letra-nombre">{letra.nombre}</h2>
-              </div>
+            {letra}
+          </motion.span>
+          <span className="text-sm text-twilight-text/60">{detalle.nombre}</span>
+        </div>
 
-              {/* Reverso de la carta */}
-              <div className="letra-card-back">
-                <div className="letra-detalles">
-                  {/* Valor numérico */}
-                  <div className="card-detail-section">
-                    <button
-                      className="w-full flex justify-between items-center p-3 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
-                      onClick={(e) => toggleDetalle(letra.letra, 'valor', e)}
-                    >
-                      <span>Valor Numérico</span>
-                      {isDetalleExpandido(letra.letra, 'valor') ? <FaChevronUp /> : <FaChevronDown />}
-                    </button>
-                    {isDetalleExpandido(letra.letra, 'valor') && (
-                      <div className="p-3">{letra.valor}</div>
-                    )}
-                  </div>
+        {/* Reverso de la carta */}
+        <div className={`absolute w-full h-full backface-hidden rounded-xl border border-twilight-secondary/20 bg-twilight-background/50 p-4 overflow-y-auto rotate-y-180 ${!isFlipped ? 'invisible' : ''}`}>
+          <div className="space-y-3">
+            <div className="text-center mb-4">
+              <span className="text-3xl font-hebrew text-twilight-accent">{letra}</span>
+              <h3 className="text-lg font-bold text-twilight-text">{detalle.nombre}</h3>
+              <p className="text-sm text-twilight-text/60">{detalle.pronunciacion}</p>
+            </div>
 
-                  {/* Significado */}
-                  <div className="card-detail-section">
-                    <button
-                      className="w-full flex justify-between items-center p-3 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
-                      onClick={(e) => toggleDetalle(letra.letra, 'significado', e)}
-                    >
-                      <span>Significado</span>
-                      {isDetalleExpandido(letra.letra, 'significado') ? <FaChevronUp /> : <FaChevronDown />}
-                    </button>
-                    {isDetalleExpandido(letra.letra, 'significado') && (
-                      <div className="p-3">{letra.significado}</div>
-                    )}
-                  </div>
+            <div>
+              <h4 className="text-sm font-medium text-twilight-accent">Significado</h4>
+              <p className="text-sm text-twilight-text/80">{detalle.significado}</p>
+            </div>
 
-                  {/* Sendero */}
-                  <div className="card-detail-section">
-                    <button
-                      className="w-full flex justify-between items-center p-3 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
-                      onClick={(e) => toggleDetalle(letra.letra, 'sendero', e)}
-                    >
-                      <span>Sendero</span>
-                      {isDetalleExpandido(letra.letra, 'sendero') ? <FaChevronUp /> : <FaChevronDown />}
-                    </button>
-                    {isDetalleExpandido(letra.letra, 'sendero') && (
-                      <div className="p-3 space-y-3">
-                        <p>Sendero {letra.sendero}</p>
-                        <TreeOfLife sendero={letra.sendero.toString()} />
-                      </div>
-                    )}
-                  </div>
+            <div>
+              <h4 className="text-sm font-medium text-twilight-accent">Guematria</h4>
+              <p className="text-sm text-twilight-text/80">{detalle.gematria}</p>
+            </div>
 
-                  {/* Elemento/Planeta */}
-                  <div className="card-detail-section">
-                    <button
-                      className="w-full flex justify-between items-center p-3 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
-                      onClick={(e) => toggleDetalle(letra.letra, 'elemento', e)}
-                    >
-                      <span>Elemento/Planeta</span>
-                      {isDetalleExpandido(letra.letra, 'elemento') ? <FaChevronUp /> : <FaChevronDown />}
-                    </button>
-                    {isDetalleExpandido(letra.letra, 'elemento') && (
-                      <div className="p-3">{letra.elemento}</div>
-                    )}
-                  </div>
-                </div>
+            <div>
+              <h4 className="text-sm font-medium text-twilight-accent">Sefer Yetzirá</h4>
+              <div className="text-sm text-twilight-text/80 flex items-center gap-2">
+                <span>{detalle.seferYetzira.energia}</span>
+                <span className="text-xl">{detalle.seferYetzira.simbolo}</span>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
 
-      <div className="alefato-nota">
-        <p>
-          <strong>Nota:</strong> El estudio del Alefato es fundamental para
-          comprender las correspondencias mágicas en el sistema de la Aurora Dorada.
-          Cada letra es un portal hacia el entendimiento de los misterios divinos.
-        </p>
+            <div>
+              <h4 className="text-sm font-medium text-twilight-accent">Golden Dawn</h4>
+              <div className="text-sm text-twilight-text/80 flex items-center gap-2">
+                <span>{detalle.goldenDawn.energia}</span>
+                <span className="text-xl">{detalle.goldenDawn.simbolo}</span>
+              </div>
+            </div>
+
+            <div>
+              <h4 className="text-sm font-medium text-twilight-accent">Tarot</h4>
+              <p className="text-sm text-twilight-text/80">{detalle.tarot.nombre}</p>
+            </div>
+
+            {detalle.final && (
+              <div>
+                <h4 className="text-sm font-medium text-twilight-accent">Forma Final</h4>
+                <div className="flex items-center gap-2">
+                  <span className="text-2xl font-hebrew">{detalle.final.letra}</span>
+                  <span className="text-sm text-twilight-text/80">({detalle.final.gematria})</span>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </motion.div>
+    </div>
+  );
+};
+
+const Alefato: React.FC = () => {
+  const letrasHebreas = Object.entries(alefatoData.letrasHebreasBase as LetrasHebreasBase);
+
+  return (
+    <div className="min-h-screen bg-twilight-background p-4 md:p-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-12">
+          <h1 className="text-4xl md:text-5xl font-bold text-twilight-text mb-4">
+            Alefato Hebreo
+          </h1>
+          <p className="text-twilight-text/80 max-w-2xl mx-auto">
+            Explora las 22 letras sagradas del alfabeto hebreo. Haz clic en cada carta para descubrir sus significados y correspondencias místicas.
+          </p>
+        </div>
+
+        {/* Grid de flashcards */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+          {letrasHebreas.map(([letra, detalle]) => (
+            <FlashCard key={letra} letra={letra} detalle={detalle} />
+          ))}
+        </div>
       </div>
     </div>
   );

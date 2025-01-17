@@ -2,18 +2,26 @@
  * @fileoverview Componente para mostrar todas las cartas del Tarot.
  */
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { FaSearch, FaFilter } from "react-icons/fa";
 import { CartaCortesana, ArcanoMenor, ArcanoMayor } from "../../types/cartas";
-import cortesanasData from "../../data/cortesanas.json";
-import arcanosMenoresData from "../../data/arcanos-menores.json";
-import arcanosMayoresData from "../../data/arcanos-mayores.json";
+import cartasCortesanasData from "../../data/cartas_cortesanas.json";
+import arcanosMenoresData from "../../data/arcanos_menores.json";
+import arcanosMayoresData from "../../data/arcanos_mayores.json";
+
+const palos = ["Bastos", "Copas", "Espadas", "Pentáculos"] as const;
+type Palo = typeof palos[number];
 
 interface Filtros {
   tipo: string[];
-  palo: string[];
+  palo: Palo[];
 }
+
+// Type guards
+const isArcanoMayor = (carta: any): carta is ArcanoMayor => 'numero' in carta;
+const isArcanoMenor = (carta: any): carta is ArcanoMenor => 'sefira' in carta;
+const isCartaCortesana = (carta: any): carta is CartaCortesana => 'genero' in carta;
 
 const AllCards: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -23,36 +31,48 @@ const AllCards: React.FC = () => {
   });
   const [showFilters, setShowFilters] = useState(false);
 
-  const palos = ["Bastos", "Copas", "Espadas", "Pentáculos"];
   const tipos = ["Arcanos Mayores", "Arcanos Menores", "Cartas de la Corte"];
 
   const filtrarCartas = () => {
-    let cartasFiltradas = [
-      ...cortesanasData.cortesanas,
+    let cartasFiltradas: (CartaCortesana | ArcanoMenor | ArcanoMayor)[] = [
+      ...cartasCortesanasData.cartasCortesanas,
       ...arcanosMenoresData.arcanosMenores,
       ...arcanosMayoresData.arcanosMayores
     ];
 
     if (searchTerm) {
-      cartasFiltradas = cartasFiltradas.filter(carta =>
-        carta.nombre.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        (carta as any).significado?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        carta.descripcion?.toLowerCase().includes(searchTerm.toLowerCase())
-      );
+      cartasFiltradas = cartasFiltradas.filter(carta => {
+        const searchTermLower = searchTerm.toLowerCase();
+        const nombreMatch = carta.nombre.toLowerCase().includes(searchTermLower);
+        const descripcionMatch = carta.descripcion.toLowerCase().includes(searchTermLower);
+
+        let significadoMatch = false;
+        if (isArcanoMayor(carta)) {
+          significadoMatch = carta.significado.general.toLowerCase().includes(searchTermLower);
+        } else if (isArcanoMenor(carta)) {
+          significadoMatch = carta.atributos.dignificado.toLowerCase().includes(searchTermLower);
+        }
+
+        return nombreMatch || descripcionMatch || significadoMatch;
+      });
     }
 
     if (filtros.tipo.length > 0) {
       cartasFiltradas = cartasFiltradas.filter(carta => {
-        if ("genero" in carta && filtros.tipo.includes("Cartas de la Corte")) return true;
-        if ("significado" in carta && typeof carta.significado === "string" && filtros.tipo.includes("Arcanos Menores")) return true;
-        if ("numero" in carta && filtros.tipo.includes("Arcanos Mayores")) return true;
+        if ('genero' in carta && filtros.tipo.includes('Cartas de la Corte')) return true;
+        if ('sefira' in carta && filtros.tipo.includes('Arcanos Menores')) return true;
+        if ('numero' in carta && filtros.tipo.includes('Arcanos Mayores')) return true;
         return false;
       });
     }
 
     if (filtros.palo.length > 0) {
       cartasFiltradas = cartasFiltradas.filter(carta =>
-        filtros.palo.some(palo => carta.nombre.includes(palo))
+        filtros.palo.some(palo => {
+          const nombreCarta = carta.nombre.toLowerCase();
+          const nombrePalo = palo.toLowerCase();
+          return nombreCarta.includes(nombrePalo);
+        })
       );
     }
 
@@ -62,9 +82,9 @@ const AllCards: React.FC = () => {
   const toggleFiltro = (categoria: keyof Filtros, valor: string) => {
     setFiltros(prev => ({
       ...prev,
-      [categoria]: prev[categoria].includes(valor)
+      [categoria]: prev[categoria].includes(valor as any)
         ? prev[categoria].filter(v => v !== valor)
-        : [...prev[categoria], valor]
+        : [...prev[categoria], valor] as any
     }));
   };
 
@@ -163,15 +183,12 @@ const AllCards: React.FC = () => {
               <h3 className="text-xl font-semibold text-twilight-text mb-2">
                 {carta.nombre}
               </h3>
-              {"titulo" in carta && carta.titulo && (
-                <p className="text-twilight-accent text-sm mb-4">{carta.titulo}</p>
-              )}
-              {"descripcion" in carta && carta.descripcion && (
-                <p className="text-twilight-text/80 mb-4">{carta.descripcion}</p>
-              )}
-              {"significado" in carta && (
+              <p className="text-twilight-accent text-sm mb-4">{carta.titulo}</p>
+              <p className="text-twilight-text/80 mb-4">{carta.descripcion}</p>
+
+              {'significado' in carta && (
                 <div className="text-twilight-text/80 mb-4">
-                  {typeof carta.significado === "string" ? (
+                  {typeof carta.significado === 'string' ? (
                     <p>{carta.significado}</p>
                   ) : (
                     <>
@@ -190,14 +207,13 @@ const AllCards: React.FC = () => {
                   )}
                 </div>
               )}
-              {"elemento" in carta && (
-                <div className="text-sm text-twilight-text/60">
-                  <p>Elemento: {carta.elemento}</p>
-                  {"regencia" in carta && <p>Regencia: {carta.regencia}</p>}
-                  {"planeta" in carta && <p>Planeta: {carta.planeta}</p>}
-                  {"signo" in carta && <p>Signo: {carta.signo}</p>}
-                </div>
-              )}
+
+              <div className="text-sm text-twilight-text/60">
+                {'elemento' in carta && <p>Elemento: {carta.elemento}</p>}
+                {'regencia' in carta && <p>Regencia: {(carta as CartaCortesana).regencia}</p>}
+                {'planeta' in carta && <p>Planeta: {(carta as ArcanoMayor).planeta}</p>}
+                {'decanato' in carta && <p>Signo: {(carta as ArcanoMenor).decanato?.signo}</p>}
+              </div>
             </motion.div>
           ))}
         </div>

@@ -12,34 +12,35 @@ export interface CartaCortesana {
   complexion: string;
   genero: string;
   atributos: {
-    dignificado: string;
-    malDignificado: string;
+    dignificado: string[];
+    malDignificado: string[];
   };
   dominio: {
     desde: string;
     hasta: string;
-    constelacion?: string;
+    constelacion: string;
   };
 }
 
 export interface ArcanoMenor {
   nombre: string;
   titulo: string;
-  descripcion?: string;
+  descripcion: string;
   simbolismo?: string;
+  atributos: {
+    dignificado: string;
+    malDignificado: string;
+  };
+  sefira: {
+    nombre: string;
+    titulo: string;
+    descripcion: string;
+  };
   decanato?: {
     signo: string;
     planeta: string;
     grados: string;
     angeles: string[];
-  };
-  atributos: {
-    dignificado: string;
-    malDignificado: string;
-  };
-  sefira?: {
-    nombre: string;
-    significado: string;
   };
 }
 
@@ -51,17 +52,22 @@ export interface CorrespondenciaCabalistica {
 }
 
 export interface ArcanoMayor {
-  numero: number;
   nombre: string;
+  numero: number;
   titulo: string;
   descripcion: string;
-  hebreo: string;
-  letra: string;
-  signo: string;
-  atribucion: string;
+  significado: {
+    general: string;
+    amor: string;
+    trabajo: string;
+  };
+  planeta: string;
+  elemento: string;
   sendero: string;
-  significado: string;
-  correspondenciaCabalistica: CorrespondenciaCabalistica;
+  correspondenciaCabalistica: {
+    titulo: string;
+    accion: string;
+  };
 }
 
 export interface CartasData {

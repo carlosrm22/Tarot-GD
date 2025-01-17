@@ -177,6 +177,308 @@ const Simbolos: React.FC = () => {
             category: 'pentagramas',
             description: 'Pentagrama para rituales de Piscis',
             tags: ['piscis', 'ritual', 'zodiacal', 'agua']
+          },
+          // Hexagramas Planetarios
+          {
+            name: 'Hexagrama de Saturno',
+            ...createImagePath('/images/Hexagramas/Sarturno Invocación.png'),
+            category: 'hexagramas',
+            description: 'Hexagrama para rituales de Saturno',
+            tags: ['saturno', 'ritual', 'planetario']
+          },
+          {
+            name: 'Hexagrama de Júpiter',
+            ...createImagePath('/images/Hexagramas/Júpiter Invocación.png'),
+            category: 'hexagramas',
+            description: 'Hexagrama para rituales de Júpiter',
+            tags: ['júpiter', 'ritual', 'planetario']
+          },
+          {
+            name: 'Hexagrama de Marte',
+            ...createImagePath('/images/Hexagramas/Marte Invocación.png'),
+            category: 'hexagramas',
+            description: 'Hexagrama para rituales de Marte',
+            tags: ['marte', 'ritual', 'planetario']
+          },
+          {
+            name: 'Hexagrama del Sol',
+            ...createImagePath('/images/Hexagramas/Sol Invocación.png'),
+            category: 'hexagramas',
+            description: 'Hexagrama para rituales del Sol',
+            tags: ['sol', 'ritual', 'planetario']
+          },
+          {
+            name: 'Hexagrama de Venus',
+            ...createImagePath('/images/Hexagramas/Venus Invocación.png'),
+            category: 'hexagramas',
+            description: 'Hexagrama para rituales de Venus',
+            tags: ['venus', 'ritual', 'planetario']
+          },
+          {
+            name: 'Hexagrama de Mercurio',
+            ...createImagePath('/images/Hexagramas/Mercurio Invocación.png'),
+            category: 'hexagramas',
+            description: 'Hexagrama para rituales de Mercurio',
+            tags: ['mercurio', 'ritual', 'planetario']
+          },
+          {
+            name: 'Hexagrama de la Luna',
+            ...createImagePath('/images/Hexagramas/Luna Invocación.png'),
+            category: 'hexagramas',
+            description: 'Hexagrama para rituales de la Luna',
+            tags: ['luna', 'ritual', 'planetario']
+          },
+          // Hexagramas Sefiróticos
+          {
+            name: 'Hexagrama de Kether',
+            ...createImagePath('/images/Hexagramas/Kether Invocación.png'),
+            category: 'hexagramas',
+            description: 'Hexagrama para rituales de Kether',
+            tags: ['kether', 'ritual', 'sefirótico', 'corona']
+          },
+          {
+            name: 'Hexagrama de Jojmá',
+            ...createImagePath('/images/Hexagramas/Jojmá Invocación.png'),
+            category: 'hexagramas',
+            description: 'Hexagrama para rituales de Jojmá',
+            tags: ['jojmá', 'ritual', 'sefirótico', 'sabiduría']
+          },
+          // Sigilos Angélicos
+          {
+            name: 'Sigilo de Metatrón',
+            ...createImagePath('/images/Sigilos/M\'tatrón.png'),
+            category: 'sigilos',
+            description: 'Sigilo del ángel Metatrón',
+            tags: ['metatrón', 'ángel', 'kether']
+          },
+          {
+            name: 'Sigilo de Raziel',
+            ...createImagePath('/images/Sigilos/Raziel.png'),
+            category: 'sigilos',
+            description: 'Sigilo del ángel Raziel',
+            tags: ['raziel', 'ángel', 'jojmá']
+          },
+          // Sigilos Angélicos (continuación)
+          {
+            name: 'Sigilo de Tzafkiel',
+            ...createImagePath('/images/Sigilos/Tsafkiel.png'),
+            category: 'sigilos',
+            description: 'Sigilo del ángel Tzafkiel',
+            tags: ['tzafkiel', 'ángel', 'binah']
+          },
+          {
+            name: 'Sigilo de Tzadkiel',
+            ...createImagePath('/images/Sigilos/Tsadkiel.png'),
+            category: 'sigilos',
+            description: 'Sigilo del ángel Tzadkiel',
+            tags: ['tzadkiel', 'ángel', 'chesed']
+          },
+          {
+            name: 'Sigilo de Kamael',
+            ...createImagePath('/images/Sigilos/Kamael.png'),
+            category: 'sigilos',
+            description: 'Sigilo del ángel Kamael',
+            tags: ['kamael', 'ángel', 'geburah']
+          },
+          {
+            name: 'Sigilo de Rafael',
+            ...createImagePath('/images/Sigilos/Grafiel.png'),
+            category: 'sigilos',
+            description: 'Sigilo del ángel Rafael',
+            tags: ['rafael', 'ángel', 'tiferet']
+          },
+          {
+            name: 'Sigilo de Haniel',
+            ...createImagePath('/images/Sigilos/Haniel.png'),
+            category: 'sigilos',
+            description: 'Sigilo del ángel Haniel',
+            tags: ['haniel', 'ángel', 'netzach']
+          },
+          {
+            name: 'Sigilo de Miguel',
+            ...createImagePath('/images/Sigilos/Malkah.png'),
+            category: 'sigilos',
+            description: 'Sigilo del ángel Miguel',
+            tags: ['miguel', 'ángel', 'hod']
+          },
+          {
+            name: 'Sigilo de Gabriel',
+            ...createImagePath('/images/Sigilos/Levaná.png'),
+            category: 'sigilos',
+            description: 'Sigilo del ángel Gabriel',
+            tags: ['gabriel', 'ángel', 'yesod']
+          },
+          {
+            name: 'Sigilo de Sandalfón',
+            ...createImagePath('/images/Sigilos/Sandalfón.png'),
+            category: 'sigilos',
+            description: 'Sigilo del ángel Sandalfón',
+            tags: ['sandalfón', 'ángel', 'malkuth']
+          },
+          // Talismanes Planetarios
+          {
+            name: 'Talismán de Saturno',
+            ...createImagePath('/images/Talismanes/Saturno.png'),
+            category: 'talismanes',
+            description: 'Talismán consagrado a Saturno',
+            tags: ['saturno', 'planetario', 'binah']
+          },
+          {
+            name: 'Talismán de Júpiter',
+            ...createImagePath('/images/Talismanes/Júpiter.png'),
+            category: 'talismanes',
+            description: 'Talismán consagrado a Júpiter',
+            tags: ['júpiter', 'planetario', 'chesed']
+          },
+          // Talismanes Planetarios (continuación)
+          {
+            name: 'Talismán de Marte',
+            ...createImagePath('/images/Talismanes/Marte.png'),
+            category: 'talismanes',
+            description: 'Talismán consagrado a Marte',
+            tags: ['marte', 'planetario', 'geburah']
+          },
+          {
+            name: 'Talismán del Sol',
+            ...createImagePath('/images/Talismanes/Sol.png'),
+            category: 'talismanes',
+            description: 'Talismán consagrado al Sol',
+            tags: ['sol', 'planetario', 'tiferet']
+          },
+          {
+            name: 'Talismán de Venus',
+            ...createImagePath('/images/Talismanes/Venus.png'),
+            category: 'talismanes',
+            description: 'Talismán consagrado a Venus',
+            tags: ['venus', 'planetario', 'netzach']
+          },
+          {
+            name: 'Talismán de Mercurio',
+            ...createImagePath('/images/Talismanes/Mercurio.png'),
+            category: 'talismanes',
+            description: 'Talismán consagrado a Mercurio',
+            tags: ['mercurio', 'planetario', 'hod']
+          },
+          {
+            name: 'Talismán de la Luna',
+            ...createImagePath('/images/Talismanes/Luna.png'),
+            category: 'talismanes',
+            description: 'Talismán consagrado a la Luna',
+            tags: ['luna', 'planetario', 'yesod']
+          },
+          // Talismanes Elementales
+          {
+            name: 'Talismán del Fuego',
+            ...createImagePath('/images/Talismanes/Furgo.png'),
+            category: 'talismanes',
+            description: 'Talismán del elemento Fuego',
+            tags: ['fuego', 'elemental']
+          },
+          {
+            name: 'Talismán del Agua',
+            ...createImagePath('/images/Talismanes/Agua.png'),
+            category: 'talismanes',
+            description: 'Talismán del elemento Agua',
+            tags: ['agua', 'elemental']
+          },
+          {
+            name: 'Talismán del Aire',
+            ...createImagePath('/images/Talismanes/Aire.png'),
+            category: 'talismanes',
+            description: 'Talismán del elemento Aire',
+            tags: ['aire', 'elemental']
+          },
+          {
+            name: 'Talismán de la Tierra',
+            ...createImagePath('/images/Talismanes/Tierra.png'),
+            category: 'talismanes',
+            description: 'Talismán del elemento Tierra',
+            tags: ['tierra', 'elemental']
+          },
+          // Talismanes Zodiacales
+          {
+            name: 'Talismán de Aries',
+            ...createImagePath('/images/Talismanes/Aries.png'),
+            category: 'talismanes',
+            description: 'Talismán del signo Aries',
+            tags: ['aries', 'zodiacal', 'fuego']
+          },
+          {
+            name: 'Talismán de Tauro',
+            ...createImagePath('/images/Talismanes/Tauro.png'),
+            category: 'talismanes',
+            description: 'Talismán del signo Tauro',
+            tags: ['tauro', 'zodiacal', 'tierra']
+          },
+          {
+            name: 'Talismán de Géminis',
+            ...createImagePath('/images/Talismanes/Geminis.png'),
+            category: 'talismanes',
+            description: 'Talismán del signo Géminis',
+            tags: ['géminis', 'zodiacal', 'aire']
+          },
+          {
+            name: 'Talismán de Cáncer',
+            ...createImagePath('/images/Talismanes/Cáncer.png'),
+            category: 'talismanes',
+            description: 'Talismán del signo Cáncer',
+            tags: ['cáncer', 'zodiacal', 'agua']
+          },
+          {
+            name: 'Talismán de Leo',
+            ...createImagePath('/images/Talismanes/Leo.png'),
+            category: 'talismanes',
+            description: 'Talismán del signo Leo',
+            tags: ['leo', 'zodiacal', 'fuego']
+          },
+          {
+            name: 'Talismán de Virgo',
+            ...createImagePath('/images/Talismanes/Virgo.png'),
+            category: 'talismanes',
+            description: 'Talismán del signo Virgo',
+            tags: ['virgo', 'zodiacal', 'tierra']
+          },
+          {
+            name: 'Talismán de Libra',
+            ...createImagePath('/images/Talismanes/Libra.png'),
+            category: 'talismanes',
+            description: 'Talismán del signo Libra',
+            tags: ['libra', 'zodiacal', 'aire']
+          },
+          {
+            name: 'Talismán de Escorpio',
+            ...createImagePath('/images/Talismanes/Escorpión.png'),
+            category: 'talismanes',
+            description: 'Talismán del signo Escorpio',
+            tags: ['escorpio', 'zodiacal', 'agua']
+          },
+          {
+            name: 'Talismán de Sagitario',
+            ...createImagePath('/images/Talismanes/Sagitario.png'),
+            category: 'talismanes',
+            description: 'Talismán del signo Sagitario',
+            tags: ['sagitario', 'zodiacal', 'fuego']
+          },
+          {
+            name: 'Talismán de Capricornio',
+            ...createImagePath('/images/Talismanes/Capricorinio.png'),
+            category: 'talismanes',
+            description: 'Talismán del signo Capricornio',
+            tags: ['capricornio', 'zodiacal', 'tierra']
+          },
+          {
+            name: 'Talismán de Acuario',
+            ...createImagePath('/images/Talismanes/Acuario.png'),
+            category: 'talismanes',
+            description: 'Talismán del signo Acuario',
+            tags: ['acuario', 'zodiacal', 'aire']
+          },
+          {
+            name: 'Talismán de Piscis',
+            ...createImagePath('/images/Talismanes/Psicis.png'),
+            category: 'talismanes',
+            description: 'Talismán del signo Piscis',
+            tags: ['piscis', 'zodiacal', 'agua']
           }
         ];
         setImages(mockImages);
